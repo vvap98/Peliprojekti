@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjjcvjtpniqu7"]
+[gd_scene load_steps=9 format=3 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="2_yupwf"]
 [ext_resource type="PackedScene" uid="uid://dvjacdhbu6wi7" path="res://scenes/floor.tscn" id="3_tlhwl"]
 [ext_resource type="PackedScene" uid="uid://bnnk3pbse8q5m" path="res://scenes/wall.tscn" id="4_fwrqi"]
+[ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="5_pxcko"]
+[ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/enemy.tscn" id="6_5htvo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k3hju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4wih"]
+size = Vector2(47, 35)
 
 [node name="World" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ehjh2")]
-position = Vector2(0, -1)
+position = Vector2(0, 0)
+collision_layer = 1
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, 1)
@@ -43,3 +49,13 @@ position = Vector2(464, -56)
 
 [node name="StaticBody2D" parent="Walls/StaticBody2D" instance=ExtResource("4_fwrqi")]
 position = Vector2(-926, 0)
+
+[node name="Killzone" parent="." instance=ExtResource("5_pxcko")]
+position = Vector2(428, 77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("RectangleShape2D_w4wih")
+debug_color = Color(0.131327, 0.590613, 0.721937, 0.42)
+
+[node name="Enemy" parent="." instance=ExtResource("6_5htvo")]
+position = Vector2(-181, 69)

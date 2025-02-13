@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt5vvk4xtscnt"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8dv88"]
+[ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_jvvar"]
+
+[sub_resource type="Gradient" id="Gradient_c5ycd"]
+offsets = PackedFloat32Array(0.669231, 0.673077)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_omnfu"]
+gradient = SubResource("Gradient_c5ycd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1uwc"]
+radius = 19.0263
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_8dv88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.638673, 0.714844)
+texture = SubResource("GradientTexture2D_omnfu")
+
+[node name="Killzone" parent="." instance=ExtResource("2_jvvar")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+z_index = 1
+shape = SubResource("CircleShape2D_k1uwc")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(25, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-25, 0)
