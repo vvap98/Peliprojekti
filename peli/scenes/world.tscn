@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjjcvjtpniqu7"]
+
+[ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
+[ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="2_yupwf"]
+[ext_resource type="PackedScene" uid="uid://dvjacdhbu6wi7" path="res://scenes/floor.tscn" id="3_tlhwl"]
+[ext_resource type="PackedScene" uid="uid://bnnk3pbse8q5m" path="res://scenes/wall.tscn" id="4_fwrqi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k3hju"]
+
+[node name="World" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ehjh2")]
+position = Vector2(0, -1)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 123)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_k3hju")
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="StaticBody2D3" parent="Platforms" instance=ExtResource("2_yupwf")]
+position = Vector2(-167, -21)
+
+[node name="StaticBody2D2" parent="Platforms" instance=ExtResource("2_yupwf")]
+position = Vector2(173, -28)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="StaticBody2D5" parent="Walls" instance=ExtResource("3_tlhwl")]
+position = Vector2(227, 106)
+
+[node name="StaticBody2D4" parent="Walls" instance=ExtResource("3_tlhwl")]
+position = Vector2(-225, 106)
+
+[node name="StaticBody2D" parent="Walls" instance=ExtResource("4_fwrqi")]
+position = Vector2(464, -56)
+
+[node name="StaticBody2D" parent="Walls/StaticBody2D" instance=ExtResource("4_fwrqi")]
+position = Vector2(-926, 0)
