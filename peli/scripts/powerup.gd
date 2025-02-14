@@ -2,12 +2,20 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 
+var player
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
+	
 
 func _on_body_entered(body: Node2D) -> void:
-	print("Got powerup")
-	queue_free()
-	timer.start()
+	if body == player:
+		print("Got powerup")
+		#queue_free()
+		timer.start()
+		self.visible = false
+		self.set_deferred("monitoring", false)
 
 
-#func _on_timer_timeout() -> void:
-	#queue_redraw()
+func _on_timer_timeout() -> void:
+	self.set_deferred("monitoring", true)
+	self.visible = true
