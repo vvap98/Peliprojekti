@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp3lpq8c0gpg1"]
+
+[ext_resource type="Texture2D" uid="uid://dqjcadj5xcxjp" path="res://assets/icon.svg" id="1_qnmn2"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
+size = Vector2(42.75, 43)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
+position = Vector2(0, -23)
+collision_layer = 2
+script = ExtResource("1_yglu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("1_qnmn2")
+
+[node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
+scale = Vector2(2.90909, 2.90909)
+shape = SubResource("RectangleShape2D_uo3at")
+target_position = Vector2(86, 0)
+
+[node name="Timer" type="Timer" parent="Sprite2D/Hitbox"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6sjkd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[connection signal="timeout" from="Sprite2D/Hitbox/Timer" to="." method="_on_timer_timeout"]
