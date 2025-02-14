@@ -8,8 +8,8 @@ var can_attack = true
 #func handleHp() -> void:
 	
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var cooldowntimer: Timer = $Hitbox/Timer
-@onready var hitbox: ShapeCast2D = $Hitbox
+@onready var cooldowntimer: Timer = $Sprite2D/Hitbox/Timer
+@onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,8 +29,10 @@ func _physics_process(delta: float) -> void:
 		
 	if direction > 0:
 		sprite_2d.flip_h = false
+		hitbox.target_position = Vector2(86.0, 0.0)
 	elif direction < 0: 
 		sprite_2d.flip_h = true
+		hitbox.target_position = Vector2(-86.0, 0.0)
 	
 	if direction:
 		velocity.x = direction * SPEED

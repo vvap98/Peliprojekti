@@ -14,3 +14,4 @@ texture = SubResource("CanvasTexture_725fa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b85p6")
 one_way_collision = true
+debug_color = Color(0, 0.6, 0.7, 0.42)
