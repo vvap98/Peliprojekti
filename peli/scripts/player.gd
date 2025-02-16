@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
-var hp = 3
+var hp =5
 var can_attack = true
 var jumps = 1
 #func handleHp() -> void:
@@ -11,6 +11,10 @@ var jumps = 1
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/Timer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
+@onready var health_bar: ProgressBar = $healthBar
+
+func _ready() -> void:
+	health_bar.init_health(hp) 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -71,6 +75,7 @@ func checkHP():
 
 func getDamaged():
 	hp = hp - 1
+	health_bar._set_health(hp)
 	print(hp)
 
 #resets the scene on death

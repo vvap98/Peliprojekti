@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjjcvjtpniqu7"]
+[gd_scene load_steps=10 format=3 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
+[ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="2_yupwf"]
 [ext_resource type="PackedScene" uid="uid://dvjacdhbu6wi7" path="res://scenes/floor.tscn" id="3_tlhwl"]
 [ext_resource type="PackedScene" uid="uid://bnnk3pbse8q5m" path="res://scenes/wall.tscn" id="4_fwrqi"]
@@ -20,6 +21,13 @@ collision_layer = 1
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 position_smoothing_enabled = true
+
+[node name="healthBar" parent="Player" instance=ExtResource("2_w55e0")]
+offset_left = -77.0
+offset_top = -68.0
+offset_right = 163.0
+offset_bottom = -38.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Platforms" type="Node" parent="."]
 

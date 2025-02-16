@@ -2,11 +2,10 @@ extends ProgressBar
 
 @onready var damage_bar: ProgressBar = $damageBar
 @onready var timer: Timer = $Timer
-@onready var player = get_tree().get_first_node_in_group("player")
 
 
 
-var health = player.hp : set = _set_health
+var health
 
 func _set_health(new_health):
 	var prev_health = health
