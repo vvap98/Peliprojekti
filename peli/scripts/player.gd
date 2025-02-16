@@ -60,3 +60,19 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	can_attack = true
+
+func _process(delta: float) -> void:
+	checkHP()
+
+#Checks when players hp reaches 0 and calls playerDeath()
+func checkHP():
+	if hp <= 0: 
+		playerDeath()
+
+func getDamaged():
+	hp = hp - 1
+	print(hp)
+
+#resets the scene on death
+func playerDeath():
+	get_tree().reload_current_scene()
