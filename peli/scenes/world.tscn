@@ -33,6 +33,9 @@ offset_bottom = -34.0
 [node name="StaticBody2D3" parent="Platforms" instance=ExtResource("2_yupwf")]
 position = Vector2(-167, -21)
 
+[node name="StaticBody2D3" parent="Platforms/StaticBody2D3" instance=ExtResource("2_yupwf")]
+position = Vector2(-683, -143)
+
 [node name="StaticBody2D2" parent="Platforms" instance=ExtResource("2_yupwf")]
 position = Vector2(173, -28)
 
@@ -45,10 +48,22 @@ position = Vector2(227, 106)
 position = Vector2(-225, 106)
 
 [node name="StaticBody2D" parent="Walls" instance=ExtResource("4_fwrqi")]
-position = Vector2(464, -56)
+position = Vector2(918, -56)
 
 [node name="StaticBody2D2" parent="Walls" instance=ExtResource("4_fwrqi")]
-position = Vector2(-462, -56)
+position = Vector2(-916, -56)
+
+[node name="StaticBody2D6" parent="Walls" instance=ExtResource("3_tlhwl")]
+position = Vector2(681, 106)
+
+[node name="StaticBody2D7" parent="Walls" instance=ExtResource("3_tlhwl")]
+position = Vector2(-679, 106)
+
+[node name="StaticBody2D3" parent="Walls" instance=ExtResource("4_fwrqi")]
+position = Vector2(-916, -400)
+
+[node name="StaticBody2D8" parent="Walls" instance=ExtResource("4_fwrqi")]
+position = Vector2(918, -400)
 
 [node name="Killzone" parent="." instance=ExtResource("5_pxcko")]
 position = Vector2(428, 77)
