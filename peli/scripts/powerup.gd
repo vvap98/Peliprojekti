@@ -12,6 +12,8 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Got powerup")
 		#queue_free()
 		timer.start()
+		player.can_double_jump = true
+		
 		self.visible = false
 		self.set_deferred("monitoring", false)
 

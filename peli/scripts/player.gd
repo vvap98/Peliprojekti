@@ -3,11 +3,12 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
-const ACCELERATION = 10
+const ACCELERATION = 40
 
 var hp =5
 var can_attack = true
-var jumps = 1
+var can_double_jump = false
+#var jumps = 1
 #func handleHp() -> void:
 	
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -24,16 +25,18 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and jumps > 0:
+	if Input.is_action_just_pressed("jump") and is_on_floor(): #and jumps > 0:
 		velocity.y = JUMP_VELOCITY
-		jumps -= 1
-		print(jumps)
+	elif Input.is_action_just_pressed("jump") and can_double_jump:
+		velocity.y = JUMP_VELOCITY
+		#jumps -= 1
+		#print(jumps)
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
 	
-	if is_on_floor():
-		jumps = 1
+	#if is_on_floor():
+	#	jumps = 1
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -42,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	#if direction:
 	#	velocity.x = direction * SPEED
 	
-		
+	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
 	if direction > 0:
 		print(direction)
 		print(velocity.x)
