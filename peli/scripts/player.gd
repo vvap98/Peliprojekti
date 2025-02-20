@@ -44,17 +44,23 @@ func _physics_process(delta: float) -> void:
 	
 		
 	if direction > 0:
+		print(direction)
 		print(velocity.x)
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
 		sprite_2d.flip_h = false
 		hitbox.target_position = Vector2(86.0, 0.0)
-	elif direction < 0: 
+	elif direction < 0:
+		print(direction) 
 		print(velocity.x)
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		sprite_2d.flip_h = true
 		hitbox.target_position = Vector2(-86.0, 0.0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		print(direction)
+		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
+	
+	move_and_slide()
+	
 	# Check for attack input, then check if enemy is in attack 
 	# hitbox area
 	if Input.is_action_just_pressed("attack") and can_attack:
@@ -67,7 +73,6 @@ func _physics_process(delta: float) -> void:
 				if body.is_in_group("enemy"):
 					print("enemy damaged")
 				
-	move_and_slide()
 
 func _on_timer_timeout() -> void:
 	can_attack = true
