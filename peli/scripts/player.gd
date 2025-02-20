@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -700.0
+const ACCELERATION = 10
+
 var hp =5
 var can_attack = true
 var jumps = 1
@@ -37,19 +39,24 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("moveLeft", "moveRight")
 	
+	#if direction:
+	#	velocity.x = direction * SPEED
+	
 		
 	if direction > 0:
+		print(velocity.x)
+		velocity.x = min(velocity.x + ACCELERATION, SPEED)
 		sprite_2d.flip_h = false
 		hitbox.target_position = Vector2(86.0, 0.0)
 	elif direction < 0: 
+		print(velocity.x)
+		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		sprite_2d.flip_h = true
 		hitbox.target_position = Vector2(-86.0, 0.0)
-	
-	if direction:
-		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+	# Check for attack input, then check if enemy is in attack 
+	# hitbox area
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
 		can_attack = false

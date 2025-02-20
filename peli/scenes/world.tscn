@@ -15,11 +15,12 @@ size = Vector2(47, 35)
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ehjh2")]
-position = Vector2(173, -61)
+position = Vector2(-1, -99)
 collision_layer = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="healthBar" parent="Player" instance=ExtResource("2_w55e0")]
@@ -31,13 +32,16 @@ offset_bottom = -34.0
 [node name="Platforms" type="Node" parent="."]
 
 [node name="StaticBody2D3" parent="Platforms" instance=ExtResource("2_yupwf")]
-position = Vector2(-167, -21)
-
-[node name="StaticBody2D3" parent="Platforms/StaticBody2D3" instance=ExtResource("2_yupwf")]
-position = Vector2(-683, -143)
+position = Vector2(-293, -157)
 
 [node name="StaticBody2D2" parent="Platforms" instance=ExtResource("2_yupwf")]
-position = Vector2(173, -28)
+position = Vector2(0, -22)
+
+[node name="StaticBody2D4" parent="Platforms" instance=ExtResource("2_yupwf")]
+position = Vector2(-850, -164)
+
+[node name="StaticBody2D" parent="Platforms" instance=ExtResource("2_yupwf")]
+position = Vector2(298, -157)
 
 [node name="Walls" type="Node" parent="."]
 
@@ -69,6 +73,7 @@ position = Vector2(918, -400)
 position = Vector2(428, 77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(456, 1)
 shape = SubResource("RectangleShape2D_w4wih")
 debug_color = Color(0.131327, 0.590613, 0.721937, 0.42)
 
@@ -76,4 +81,4 @@ debug_color = Color(0.131327, 0.590613, 0.721937, 0.42)
 position = Vector2(-181, 69)
 
 [node name="Powerup" parent="." instance=ExtResource("7_erp3k")]
-position = Vector2(-167, -62)
+position = Vector2(-850, -204)
