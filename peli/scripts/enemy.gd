@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+# TODO vihun tuhoutuminen
 
 const SPEED = 150.0
 
