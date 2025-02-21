@@ -17,6 +17,8 @@ var has_double_jumped = true
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
 @onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer
+@onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
+
 
 func _ready() -> void:
 	health_bar.init_health(hp) 
@@ -52,17 +54,26 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
+	# TODO muokkaa pelaajan kävelyääntä, jotta se pysähtyy ilmassa
 	if direction > 0:
+		if !movement_player.playing and is_on_floor():
+			movement_player.play()
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
 		sprite_2d.flip_h = false
 		hitbox.target_position = Vector2(86.0, 0.0)
 	elif direction < 0:
+		if !movement_player.playing and is_on_floor():
+			movement_player.play()
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		sprite_2d.flip_h = true
 		hitbox.target_position = Vector2(-86.0, 0.0)
 	else:
+		#if movement_player.playing:
+		movement_player.stop()
 		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
 	
+	if Input.is_action_just_pressed("jump"):
+		movement_player.stop()
 	
 	move_and_slide()
 	

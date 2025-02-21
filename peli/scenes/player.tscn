@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=7 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Texture2D" uid="uid://dfrf1oftrjyiw" path="res://assets/sprites/Päähahmo_konsepti_transparent.png" id="2_eid0e"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_hri3i"]
+[ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_h6n40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
 
@@ -36,5 +37,9 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hri3i")
+
+[node name="MovementPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_h6n40")
+volume_db = -10.599
 
 [connection signal="timeout" from="Sprite2D/Hitbox/Timer" to="." method="_on_timer_timeout"]
