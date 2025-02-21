@@ -8,7 +8,8 @@ const ACCELERATION = 40
 var hp =5
 var can_attack = true
 var can_double_jump = false
-#var jumps = 1
+var has_double_jumped = true
+#var max_jumps = 1
 #func handleHp() -> void:
 	
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -27,16 +28,18 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor(): #and jumps > 0:
 		velocity.y = JUMP_VELOCITY
-	elif Input.is_action_just_pressed("jump") and can_double_jump:
+	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
 		velocity.y = JUMP_VELOCITY
+		has_double_jumped = true
 		#jumps -= 1
 		#print(jumps)
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
 	
-	#if is_on_floor():
-	#	jumps = 1
+	# jos powerup on saatu, resettaa tuplahypyn pelaajan laskeutuessa
+	if can_double_jump and is_on_floor():
+		has_double_jumped = false
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -47,19 +50,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
 	if direction > 0:
-		print(direction)
-		print(velocity.x)
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
 		sprite_2d.flip_h = false
 		hitbox.target_position = Vector2(86.0, 0.0)
 	elif direction < 0:
-		print(direction) 
-		print(velocity.x)
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		sprite_2d.flip_h = true
 		hitbox.target_position = Vector2(-86.0, 0.0)
 	else:
-		print(direction)
 		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()

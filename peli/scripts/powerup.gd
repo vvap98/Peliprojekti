@@ -9,7 +9,7 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
-		print("Got powerup")
+		print("Got Double Jump!")
 		#queue_free()
 		timer.start()
 		player.can_double_jump = true
