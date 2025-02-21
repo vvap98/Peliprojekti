@@ -16,6 +16,7 @@ var has_double_jumped = true
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/Timer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
+@onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer
 
 func _ready() -> void:
 	health_bar.init_health(hp) 
@@ -28,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor(): #and jumps > 0:
 		velocity.y = JUMP_VELOCITY
+		sfx_player.play()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
+		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
 		has_double_jumped = true
 		#jumps -= 1
@@ -59,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		hitbox.target_position = Vector2(-86.0, 0.0)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
+	
 	
 	move_and_slide()
 	
