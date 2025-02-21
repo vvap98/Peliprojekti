@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 				var body = hitbox.get_collider(i)
 				if body.is_in_group("enemy"):
 					print("enemy damaged")
+					body.getDamaged()
 				
 
 func _on_timer_timeout() -> void:
