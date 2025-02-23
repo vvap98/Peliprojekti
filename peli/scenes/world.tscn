@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjjcvjtpniqu7"]
+[gd_scene load_steps=14 format=3 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="4_v5o3q"]
-[ext_resource type="Script" path="res://scripts/grapple_controller.gd" id="5_031m0"]
 [ext_resource type="PackedScene" path="res://scenes/spriteplatform.tscn" id="5_egqk6"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="5_pxcko"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/enemy.tscn" id="6_5htvo"]
@@ -138,7 +137,6 @@ volume_db = -15.898
 autoplay = true
 
 [node name="grappleController" parent="Player" instance=ExtResource("4_v5o3q")]
-script = ExtResource("5_031m0")
 
 [node name="Platforms" type="Node" parent="."]
 

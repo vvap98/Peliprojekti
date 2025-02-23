@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bivqtdbpegv6x"]
 
-[ext_resource type="Script" path="res://scenes/grapple_controller.gd" id="1_bdyvl"]
+[ext_resource type="Script" path="res://scripts/grapple_controller.gd" id="1_bdyvl"]
 
 [node name="grappleController" type="Node2D"]
 script = ExtResource("1_bdyvl")
