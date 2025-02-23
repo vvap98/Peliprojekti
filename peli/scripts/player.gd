@@ -95,6 +95,7 @@ func _on_timer_timeout() -> void:
 	can_attack = true
 
 func _process(delta: float) -> void:
+	print(velocity.y)
 	checkHP()
 
 #Checks when players hp reaches 0 and calls playerDeath()

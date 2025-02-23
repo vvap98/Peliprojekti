@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bivqtdbpegv6x"]
+
+[ext_resource type="Script" path="res://scenes/grapple_controller.gd" id="1_bdyvl"]
+
+[node name="grappleController" type="Node2D"]
+script = ExtResource("1_bdyvl")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(800, 0)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(1.63645e-06, 0.325877, 0.820259, 1)
