@@ -97,6 +97,9 @@ func _on_timer_timeout() -> void:
 func _process(delta: float) -> void:
 	print(velocity.y)
 	checkHP()
+	if Input.is_action_just_pressed("reset"):
+		playerDeath()
+		
 
 #Checks when players hp reaches 0 and calls playerDeath()
 func checkHP():
