@@ -18,6 +18,7 @@ var has_double_jumped = true
 @onready var health_bar: ProgressBar = $healthBar
 @onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer
 @onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
+@onready var grapple: Node2D = $grappleController
 
 
 func _ready() -> void:
@@ -29,8 +30,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor(): #and jumps > 0:
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or grapple.launched): #and jumps > 0: #and jumps > 0:
 		velocity.y = JUMP_VELOCITY
+		grapple.grappleRetract()
 		sfx_player.play()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
 		sfx_player.play()
