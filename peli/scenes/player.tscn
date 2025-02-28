@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
 collision_mask = 4
 
-[node name="Timer" type="Timer" parent="Sprite2D/Hitbox"]
+[node name="AttackTimer" type="Timer" parent="Sprite2D/Hitbox"]
 wait_time = 0.5
 one_shot = true
 
@@ -43,4 +43,8 @@ stream = ExtResource("3_hri3i")
 stream = ExtResource("4_h6n40")
 volume_db = -10.599
 
-[connection signal="timeout" from="Sprite2D/Hitbox/Timer" to="." method="_on_timer_timeout"]
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Sprite2D/Hitbox/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

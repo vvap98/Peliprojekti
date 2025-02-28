@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -700.0
 const ACCELERATION = 40
 
 var hp =5
+var took_damage = false
 var can_attack = true
 var can_double_jump = false
 var has_double_jumped = true
@@ -14,12 +15,13 @@ var has_double_jumped = true
 #func handleHp() -> void:
 	
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var cooldowntimer: Timer = $Sprite2D/Hitbox/Timer
+@onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
 @onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer
 @onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
 @onready var grapple: Node2D = $grappleController
+@onready var damage_timer: Timer = $DamageTimer
 
 
 func _ready() -> void:
@@ -96,8 +98,11 @@ func _physics_process(delta: float) -> void:
 					body.getDamaged()
 				
 
-func _on_timer_timeout() -> void:
+func _on_attack_timer_timeout() -> void:
 	can_attack = true
+
+func _on_damage_timer_timeout() -> void:
+	took_damage = false
 
 func _process(delta: float) -> void:
 	print(velocity.y)
@@ -112,9 +117,12 @@ func checkHP():
 		playerDeath()
 
 func getDamaged():
-	hp = hp - 1
-	health_bar._set_health(hp)
-	print(hp)
+	damage_timer.start()
+	if !took_damage:
+		took_damage = true
+		hp = hp - 1
+		health_bar._set_health(hp)
+		print(hp)
 
 #resets the scene on death
 func playerDeath():
