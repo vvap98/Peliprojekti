@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+# TODO hahmolle hetkellinen kuolemattomuus sen jälkeen kun on ottanut damagea
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0

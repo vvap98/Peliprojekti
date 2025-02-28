@@ -162,6 +162,9 @@ debug_color = Color(0.131327, 0.590613, 0.721937, 0.42)
 [node name="Enemy" parent="." instance=ExtResource("6_5htvo")]
 position = Vector2(747, 81)
 
+[node name="Enemy2" parent="." instance=ExtResource("6_5htvo")]
+position = Vector2(156, -46)
+
 [node name="Powerup" parent="." instance=ExtResource("7_erp3k")]
 position = Vector2(997, -268)
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# TODO vihun tuhoutuminen
+# TODO vihu kääntyy, kun on kielekkeellä
 
 const SPEED = 120.0
 var direction = 1
@@ -15,12 +15,18 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	
 func _physics_process(delta: float) -> void:
+	#Get gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
 	if ray_cast_right.is_colliding() or player.position.x < position.x and player.position.x >= position.x - 200:
 		direction = -1
 	if ray_cast_left.is_colliding() or player.position.x > position.x and player.position.x <= position.x + 200:
 		direction = 1
 	position.x += direction * SPEED * delta
 	print(position)
+	
+	move_and_slide()
 
 func _process(delta: float) -> void:
 		checkHp()
