@@ -22,9 +22,10 @@ scale = Vector2(0.19, 0.19)
 texture = ExtResource("2_eid0e")
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
-scale = Vector2(2.90909, 2.90909)
+scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
+collision_mask = 4
 
 [node name="Timer" type="Timer" parent="Sprite2D/Hitbox"]
 wait_time = 0.5

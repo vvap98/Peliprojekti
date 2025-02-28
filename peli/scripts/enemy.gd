@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # TODO vihun tuhoutuminen
 
-const SPEED = 150.0
+const SPEED = 120.0
 var direction = 1
 
 var hp = 1
