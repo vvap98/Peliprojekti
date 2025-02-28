@@ -43,8 +43,6 @@ func _physics_process(delta: float) -> void:
 		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
 		has_double_jumped = true
-		#jumps -= 1
-		#print(jumps)
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
@@ -102,10 +100,11 @@ func _on_attack_timer_timeout() -> void:
 	can_attack = true
 
 func _on_damage_timer_timeout() -> void:
+	print("damage timer reset!")
 	took_damage = false
 
 func _process(delta: float) -> void:
-	print(velocity.y)
+	#print(velocity.y)
 	checkHP()
 	if Input.is_action_just_pressed("reset"):
 		playerDeath()
@@ -117,8 +116,8 @@ func checkHP():
 		playerDeath()
 
 func getDamaged():
-	damage_timer.start()
 	if !took_damage:
+		damage_timer.start()
 		took_damage = true
 		hp = hp - 1
 		health_bar._set_health(hp)

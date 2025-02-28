@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if ray_cast_left.is_colliding() or player.position.x > position.x and player.position.x <= position.x + 200:
 		direction = 1
 	position.x += direction * SPEED * delta
-	print(position)
+	#print(position)
 	
 	move_and_slide()
 
