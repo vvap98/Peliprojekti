@@ -119,7 +119,6 @@ sources/0 = SubResource("TileSetAtlasSource_myrrf")
 
 [node name="Player" parent="." instance=ExtResource("1_ehjh2")]
 position = Vector2(-1, -99)
-collision_layer = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
