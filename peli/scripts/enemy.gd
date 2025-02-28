@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # TODO vihu kääntyy, kun on kielekkeellä
-
+# TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
 const SPEED = 120.0
 var direction = 1
 
@@ -18,6 +18,9 @@ func _physics_process(delta: float) -> void:
 	#Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if position.x == player.position.x:
+		velocity.x = 0
 	
 	if ray_cast_right.is_colliding() or player.position.x < position.x and player.position.x >= position.x - 200:
 		direction = -1

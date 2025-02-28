@@ -15,6 +15,7 @@ fill_from = Vector2(0.5, 0.5)
 radius = 11.0454
 
 [node name="Powerup" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_h7umb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
