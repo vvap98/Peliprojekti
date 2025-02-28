@@ -44,6 +44,7 @@ stream = ExtResource("4_h6n40")
 volume_db = -10.599
 
 [node name="DamageTimer" type="Timer" parent="."]
+wait_time = 1.8
 one_shot = true
 
 [connection signal="timeout" from="Sprite2D/Hitbox/AttackTimer" to="." method="_on_attack_timer_timeout"]
