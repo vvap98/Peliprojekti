@@ -24,6 +24,8 @@ func _ready() -> void:
 	health_bar.init_health(hp) 
 
 func _physics_process(delta: float) -> void:
+	#TODO kojoottiaika, eli pelaaja voi hypätä vielä platformilta putoamisen jälkeen
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
