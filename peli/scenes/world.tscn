@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="4_v5o3q"]
-[ext_resource type="PackedScene" path="res://scenes/spriteplatform.tscn" id="5_egqk6"]
+[ext_resource type="PackedScene" uid="uid://bp5molfdoul1m" path="res://scenes/spriteplatform.tscn" id="5_egqk6"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="5_pxcko"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/enemy.tscn" id="6_5htvo"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="6_rdaw8"]
