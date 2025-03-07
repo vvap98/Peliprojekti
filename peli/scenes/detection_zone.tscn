@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dj3qr60jua1su"]
+
+[node name="DetectionZone" type="Area2D"]

@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-class_name enemy
-
 # TODO vihu kääntyy, kun on kielekkeellä
 # TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
 const SPEED = 120.0
