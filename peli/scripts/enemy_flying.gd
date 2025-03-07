@@ -5,7 +5,7 @@ extends CharacterBody2D
 # TODO vihulle alue pelaajan havaitsemiseksi
 # TODO vihu jahtaa pelaajaa
 
-const SPEED = 300.0
+const SPEED = 80.0
 #var direction = 1
 var playerchase = false
 
