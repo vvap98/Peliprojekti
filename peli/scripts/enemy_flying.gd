@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
-# TODO vihu kääntyy, kun on kielekkeellä
-# TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
-# TODO vihulle alue pelaajan havaitsemiseksi
-# TODO vihu jahtaa pelaajaa
+# TODO vihun idlekäyttäytyminen
 
-const SPEED = 80.0
-#var direction = 1
+const SPEED = 100.0
+var direction = 1
 var playerchase = false
 
 var hp = 1
@@ -24,18 +21,18 @@ func _physics_process(delta: float) -> void:
 	#	velocity += get_gravity() * delta
 	if playerchase:
 		position += (player.position - position)/SPEED
-		
+	else:
 	#if position.x == player.position.x:
 	#	velocity.x = 0
 	
-	#if ray_cast_right.is_colliding() or player.position.x < position.x and player.position.x >= position.x - 200:
-	#	direction = -1
-	#if ray_cast_left.is_colliding() or player.position.x > position.x and player.position.x <= position.x + 200:
-	#	direction = 1
+		if ray_cast_right.is_colliding(): # or player.position.x < position.x and player.position.x >= position.x - 200:
+			direction = -1
+		if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
+			direction = 1
 	
 	
 		
-	#position.x += direction * SPEED * delta
+		position.x += direction * SPEED * delta
 	#print(position)
 	
 	move_and_slide()
