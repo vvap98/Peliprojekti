@@ -103,7 +103,7 @@ func _on_damage_timer_timeout() -> void:
 	print("damage timer reset!")
 	took_damage = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#print(velocity.y)
 	checkHP()
 	if Input.is_action_just_pressed("reset"):
