@@ -27,7 +27,7 @@ func handleDash():
 	dashAnimationTimer.start()
 	
 	
-
+#Kopioi player spriten ja laittaa sen "haamuna" seuraamaan pelaajaa dashin aikana.
 func playDashAnimation():
 	var copiedSprite = playerSprite.duplicate()
 	get_tree().current_scene.add_child(copiedSprite) 
@@ -41,6 +41,7 @@ func playDashAnimation():
 	await get_tree().create_timer(animationDuration).timeout
 	copiedSprite.queue_free()
 
+#Varsinainen dashin liike tapahtuu tässä
 func dash():
 	player.velocity.x = dashDirection * player.SPEED * dashMultiplier
 	player.velocity.y = 0

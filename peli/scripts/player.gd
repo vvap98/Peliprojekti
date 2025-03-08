@@ -27,7 +27,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
 	health_bar.init_health(hp)
-	if ! sprite_2d: print("ei spritee")
 
 func _physics_process(delta: float) -> void:
 	#TODO kojoottiaika, eli pelaaja voi hypätä vielä platformilta putoamisen jälkeen
