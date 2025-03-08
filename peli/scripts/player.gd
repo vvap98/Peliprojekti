@@ -11,6 +11,7 @@ var took_damage = false
 var can_attack = true
 var can_double_jump = false
 var has_double_jumped = true
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #var max_jumps = 1
 #func handleHp() -> void:
 	
@@ -25,14 +26,15 @@ var has_double_jumped = true
 
 
 func _ready() -> void:
-	health_bar.init_health(hp) 
+	health_bar.init_health(hp)
+	if ! sprite_2d: print("ei spritee")
 
 func _physics_process(delta: float) -> void:
 	#TODO kojoottiaika, eli pelaaja voi hypätä vielä platformilta putoamisen jälkeen
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or grapple.launched): #and jumps > 0: #and jumps > 0:

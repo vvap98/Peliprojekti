@@ -17,6 +17,7 @@ collision_layer = 2
 script = ExtResource("1_yglu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -15)
 scale = Vector2(0.19, 0.19)
 texture = ExtResource("2_eid0e")
