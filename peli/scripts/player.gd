@@ -32,7 +32,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#TODO kojoottiaika, eli pelaaja voi hypätä vielä platformilta putoamisen jälkeen
 	
-	# Add the gravity.
+	# Painovoima
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -112,7 +112,7 @@ func _process(_delta: float) -> void:
 		playerDeath()
 		
 
-#Checks when players hp reaches 0 and calls playerDeath()
+#Jos pelaajan hp on 0 kutsuu playerDeath()
 func checkHP():
 	if hp <= 0: 
 		playerDeath()
@@ -125,6 +125,6 @@ func getDamaged():
 		health_bar._set_health(hp)
 		print(hp)
 
-#resets the scene on death
+#alustaa scenen pelaajan kuollessa
 func playerDeath():
 	get_tree().reload_current_scene()
