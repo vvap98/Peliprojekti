@@ -1,5 +1,5 @@
 extends Node2D
-
+#TODO korjaa miten dash käyttäytyy jos liikkuu samalla
 @onready var player: CharacterBody2D = get_parent()
 @onready var playerSprite: Sprite2D =  player.get_child(0) #Viite pelaajan spriteen TODO korjaa paremmaksi
 @onready var dashTimer: Timer = $dashTimer #timer dashille
@@ -7,6 +7,7 @@ extends Node2D
 var dashing = false #onko dash käynnissä
 var dashDirection : int
 var dashMultiplier = 3 #arvo millä pelaajan liike kerrotaan dashin aikana. 
+var dashSpeed = 300.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,8 +44,11 @@ func playDashAnimation():
 
 #Varsinainen dashin liike tapahtuu tässä
 func dash():
-	player.velocity.x = dashDirection * player.SPEED * dashMultiplier
-	player.velocity.y = 0
+	if Input.is_action_pressed("jump"):
+		player.velocity.y = (-1 * dashSpeed * dashMultiplier) / 2
+	else:
+		player.velocity.x = dashDirection * player.SPEED * dashMultiplier
+		player.velocity.y = 0
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
