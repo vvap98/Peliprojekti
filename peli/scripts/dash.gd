@@ -47,7 +47,7 @@ func dash():
 	if Input.is_action_pressed("jump"):
 		player.velocity.y = (-1 * dashSpeed * dashMultiplier) / 2
 	else:
-		player.velocity.x = dashDirection * player.SPEED * dashMultiplier
+		player.velocity.x = dashDirection * dashSpeed * dashMultiplier
 		player.velocity.y = 0
 
 func _on_dash_timer_timeout() -> void:
