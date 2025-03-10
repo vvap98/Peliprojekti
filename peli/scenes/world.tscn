@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjjcvjtpniqu7"]
+[gd_scene load_steps=16 format=3 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/enemy.tscn" id="6_5htvo"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="6_rdaw8"]
 [ext_resource type="PackedScene" uid="uid://bmc6fh37iw580" path="res://scenes/powerup.tscn" id="7_erp3k"]
+[ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/enemy_flying.tscn" id="7_g0qq5"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="9_rk3v3"]
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="10_ox8f6"]
 
@@ -159,6 +160,9 @@ position = Vector2(813, -44)
 [node name="Enemy" parent="Enemies" instance=ExtResource("6_5htvo")]
 position = Vector2(747, 81)
 wall_min_slide_angle = 0.0
+
+[node name="EnemyFlying" parent="Enemies" instance=ExtResource("7_g0qq5")]
+position = Vector2(-343, -311)
 
 [node name="Killzone" parent="." instance=ExtResource("5_pxcko")]
 position = Vector2(-974, 109)
