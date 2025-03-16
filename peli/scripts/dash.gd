@@ -5,7 +5,6 @@ extends Node2D
 @onready var dashTimer: Timer = $dashTimer #timer dashille
 @onready var dashAnimationTimer: Timer = $dashAnimationTimer #timer dashin animaatiolle
 var dashing = false #onko dash käynnissä
-var dashDirection : int
 var dashMultiplier = 3 #arvo millä pelaajan liike kerrotaan dashin aikana. 
 var dashSpeed = 300.0
 
@@ -23,7 +22,6 @@ func _process(delta: float) -> void:
 #Aloittaa dashin ja käynnistää timerit
 func handleDash():
 	dashing = true
-	dashDirection = -1 if playerSprite.flip_h else 1
 	dashTimer.start()
 	dashAnimationTimer.start()
 	
@@ -44,11 +42,24 @@ func playDashAnimation():
 
 #Varsinainen dashin liike tapahtuu tässä
 func dash():
+	var input_dir = Vector2.ZERO
+	
+	# Tarkistetaan pelaajan syötteet ja asetetaan suunta
+	if Input.is_action_pressed("moveRight"):
+		input_dir.x += 1
+	if Input.is_action_pressed("moveLeft"):
+		input_dir.x -= 1
 	if Input.is_action_pressed("jump"):
-		player.velocity.y = (-1 * dashSpeed * dashMultiplier) / 2
-	else:
-		player.velocity.x = dashDirection * dashSpeed * dashMultiplier
-		player.velocity.y = 0
+		input_dir.y -= 1
+	else: input_dir.x =  input_dir.x -1 if playerSprite.flip_h else input_dir.x +1 #jos ei paineta mitään suuntaa niin dashataan eteenpäin
+
+	if input_dir != Vector2.ZERO:
+		input_dir = input_dir.normalized()
+		input_dir.y *= 0.5 #rajoitetaan liiketta y-akselilla
+	
+	# Pelaajan nopeus dashin aikana
+	player.velocity = input_dir * dashSpeed * dashMultiplier
+
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
