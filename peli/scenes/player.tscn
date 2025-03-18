@@ -1,11 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=10 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
-[ext_resource type="Texture2D" uid="uid://dfrf1oftrjyiw" path="res://assets/sprites/Päähahmo_konsepti_transparent.png" id="2_eid0e"]
+[ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_yu7fv"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_hri3i"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_h6n40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
+
+[sub_resource type="Animation" id="Animation_ysyrg"]
+resource_name = "idle"
+length = 0.66
+loop_mode = 1
+step = 0.085
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_tjg8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
+_data = {
+"RESET": SubResource("Animation_tjg8t"),
+"idle": SubResource("Animation_ysyrg")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
 size = Vector2(26, 46)
@@ -18,11 +57,13 @@ script = ExtResource("1_yglu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -15)
-scale = Vector2(0.19, 0.19)
-texture = ExtResource("2_eid0e")
+position = Vector2(-1, -9)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_yu7fv")
+hframes = 9
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
+visible = false
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
@@ -32,7 +73,15 @@ collision_mask = 4
 wait_time = 0.5
 one_shot = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ystvh")
+}
+autoplay = "idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_6sjkd")
 debug_color = Color(0, 0.6, 0.7, 0.42)

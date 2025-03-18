@@ -1,15 +1,14 @@
 extends CharacterBody2D
-
 # TODO vihu kääntyy, kun on kielekkeellä
 # TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
-const SPEED = 120.0
-var direction = 1
 
 var hp = 1
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 
+const SPEED = 120.0
+var direction = 1
 var player
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -47,3 +46,4 @@ func enemyDeath():
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
 	queue_free()
+ 

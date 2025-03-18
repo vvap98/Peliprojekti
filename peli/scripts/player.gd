@@ -14,7 +14,8 @@ var has_double_jumped = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #var max_jumps = 1
 #func handleHp() -> void:
-	
+
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
