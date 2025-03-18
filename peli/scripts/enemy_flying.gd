@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # TODO vihun idlekäyttäytyminen
 
-const SPEED = 100.0
+const SPEED = 2.5
 var direction = 1
 var playerchase = false
 
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	if playerchase:
-		position += (player.position - position)/SPEED
+		position += (player.position - position).normalized() * SPEED
 	else:
 	#if position.x == player.position.x:
 	#	velocity.x = 0
