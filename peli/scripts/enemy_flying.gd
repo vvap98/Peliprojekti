@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# TODO vihun idlekäyttäytyminen
+# TODO bugi: vihu jää jumiin kulmiin
 
 const SPEED = 100
 var direction = 1
@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	#if playerchase:
-	#var next_path_pos := nav_agent.get_next_path_position()
-	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	var next_path_pos := nav_agent.get_next_path_position()
+	var dir = global_position.direction_to(next_path_pos)
 	#print(player.global_position)
 	#print(dir)
 	velocity = dir * SPEED
