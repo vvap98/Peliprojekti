@@ -1,9 +1,7 @@
-#class_name GroundEnemy extends Entity
-extends CharacterBody2D
+class_name GroundEnemy extends Entity
+#extends CharacterBody2D
 # TODO vihu kääntyy, kun on kielekkeellä
 # TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
-
-var hp = 1
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
@@ -13,6 +11,7 @@ var direction = 1
 var player
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	hp = 1
 	
 func _physics_process(delta: float) -> void:
 	#Get gravity

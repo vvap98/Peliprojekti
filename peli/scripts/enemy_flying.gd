@@ -9,12 +9,13 @@ var playerchase = false
 var hp = 1
 var ogposition
 
-@onready var ray_cast_left: RayCast2D = $RayCastLeft
-@onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 var player # = null
 func _ready():
+	set_physics_process(false)
+	await get_tree().physics_frame
+	set_physics_process(true)
 	player = get_tree().get_first_node_in_group("player")
 	makePath()
 	ogposition = position
@@ -24,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 	#	velocity += get_gravity() * delta
 	#if playerchase:
-	var next_path_pos := nav_agent.get_next_path_position()
+	var next_path_pos = nav_agent.get_next_path_position()
 	var dir = global_position.direction_to(next_path_pos)
 	#print(player.global_position)
 	#print(dir)
@@ -32,10 +33,6 @@ func _physics_process(delta: float) -> void:
 		#position += (player.position - position).normalized() * SPEED
 	#lif position != ogposition:
 	#	position += (ogposition - position).normalized() * SPEED
-		#if ray_cast_right.is_colliding(): # or player.position.x < position.x and player.position.x >= position.x - 200:
-		#	direction = -1
-		#if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
-		#	direction = 1
 		#position.x += direction * SPEED * delta
 		
 	#print(position)
