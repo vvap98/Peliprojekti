@@ -1,3 +1,4 @@
+#class_name GroundEnemy extends Entity
 extends CharacterBody2D
 # TODO vihu kääntyy, kun on kielekkeellä
 # TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-		checkHp()
+	checkHp() 
 
 func checkHp():
 	if hp <= 0:
@@ -42,8 +43,7 @@ func getDamaged():
 	print(hp)
 	
 func enemyDeath():
-	print("ded")
+	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
 	queue_free()
- 

@@ -1,5 +1,4 @@
-class_name Entity 
-extends CharacterBody2D
+class_name Entity extends CharacterBody2D
 
 var hp
 var knockback
@@ -12,7 +11,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
-	
+
 func enemyDeath():
 	print("Enemy killed")
 	# self.visible = false

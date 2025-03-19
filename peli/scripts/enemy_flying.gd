@@ -7,6 +7,7 @@ var direction = 1
 var playerchase = false
 
 var hp = 1
+var ogposition
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
@@ -14,6 +15,7 @@ var hp = 1
 var player # = null
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	ogposition = position
 	
 func _physics_process(delta: float) -> void:
 	#Get gravity
@@ -22,17 +24,15 @@ func _physics_process(delta: float) -> void:
 	if playerchase:
 		position += (player.position - position).normalized() * SPEED
 	else:
-	#if position.x == player.position.x:
-	#	velocity.x = 0
-	
-		if ray_cast_right.is_colliding(): # or player.position.x < position.x and player.position.x >= position.x - 200:
-			direction = -1
-		if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
-			direction = 1
+		position += (ogposition - position).normalized() * SPEED
+		#if ray_cast_right.is_colliding(): # or player.position.x < position.x and player.position.x >= position.x - 200:
+		#	direction = -1
+		#if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
+		#	direction = 1
 	
 	
 		
-		position.x += direction * SPEED * delta
+		#position.x += direction * SPEED * delta
 	#print(position)
 	
 	move_and_slide()

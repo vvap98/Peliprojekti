@@ -7,6 +7,21 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
 
+[sub_resource type="Animation" id="Animation_tjg8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ysyrg"]
 resource_name = "idle"
 length = 0.66
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_tjg8t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
@@ -63,7 +63,6 @@ texture = ExtResource("2_yu7fv")
 hframes = 9
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
-visible = false
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
@@ -81,7 +80,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_6sjkd")
 debug_color = Color(0, 0.6, 0.7, 0.42)
