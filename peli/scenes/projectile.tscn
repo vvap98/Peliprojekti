@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://rigbp1e0xb46"]
+[gd_scene load_steps=6 format=3 uid="uid://rigbp1e0xb46"]
 
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_byw55"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_x7hql"]
 
 [sub_resource type="Gradient" id="Gradient_c5ycd"]
@@ -15,6 +16,7 @@ fill_from = Vector2(0.5, 0.5)
 radius = 7.0
 
 [node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_byw55")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

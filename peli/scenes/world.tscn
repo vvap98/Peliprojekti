@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cjjcvjtpniqu7"]
+[gd_scene load_steps=18 format=4 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="1_ehjh2"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/enemy_shooting.tscn" id="9_lptse"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="9_rk3v3"]
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="10_ox8f6"]
-[ext_resource type="PackedScene" uid="uid://rigbp1e0xb46" path="res://scenes/projectile.tscn" id="14_8w1fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4wih"]
 size = Vector2(47, 35)
@@ -206,7 +205,3 @@ position = Vector2(-647, -193)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("6_rdaw8")]
 position = Vector2(394, -292)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("14_8w1fs")]
-position = Vector2(172, 102)
-collision_layer = 4
