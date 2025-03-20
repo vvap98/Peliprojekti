@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://datclo5mhvtuh" path="res://assets/sprites/vihudebug.png" id="2_3oqvp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r0ql"]
-radius = 7.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8dlp"]
+radius = 3.0
 
 [node name="Projectile" type="CharacterBody2D"]
 script = ExtResource("1_byw55")
