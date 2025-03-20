@@ -16,6 +16,7 @@ func shoot():
 	instance.dir = rotation
 	instance.spawnPos = global_position
 	instance.spawnRot = rotation
+	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
 
 func checkHp():
