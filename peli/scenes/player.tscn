@@ -84,10 +84,14 @@ position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_6sjkd")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="Sfx" type="Node" parent="."]
+
+[node name="JumpPlayer" type="AudioStreamPlayer2D" parent="Sfx"]
+position = Vector2(0, -23)
 stream = ExtResource("3_hri3i")
 
-[node name="MovementPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MovementPlayer" type="AudioStreamPlayer2D" parent="Sfx"]
+position = Vector2(0, -23)
 stream = ExtResource("4_h6n40")
 volume_db = -10.599
 

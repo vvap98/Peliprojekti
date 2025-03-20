@@ -13,23 +13,23 @@ var ogposition
 
 var player # = null
 func _ready():
-	set_physics_process(false)
-	await get_tree().physics_frame
-	set_physics_process(true)
+	#set_physics_process(false)
+	#await get_tree().physics_frame
+	#set_physics_process(true)
 	player = get_tree().get_first_node_in_group("player")
-	makePath()
+	pathSetup()
 	ogposition = position
 	
 func _physics_process(delta: float) -> void:
-	#Get gravity
-	#if not is_on_floor():
-	#	velocity += get_gravity() * delta
-	#if playerchase:
-	var next_path_pos = nav_agent.get_next_path_position()
-	var dir = global_position.direction_to(next_path_pos)
+	await get_tree().physics_frame
+
+	if playerchase:
+		nav_agent.target_position = player.global_position 
+		var next_path_pos = nav_agent.get_next_path_position()
+		var dir = global_position.direction_to(next_path_pos)
 	#print(player.global_position)
 	#print(dir)
-	velocity = dir * SPEED
+		velocity = dir * SPEED
 		#position += (player.position - position).normalized() * SPEED
 	#lif position != ogposition:
 	#	position += (ogposition - position).normalized() * SPEED
@@ -41,6 +41,11 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 		checkHp()
+
+func pathSetup():
+	await get_tree().physics_frame
+	nav_agent.target_position = player.global_position 
+
 
 func _on_detection_zone_body_entered(player) -> void:
 	#player = body
@@ -69,5 +74,5 @@ func enemyDeath():
 	queue_free()
 
 
-func _on_timer_timeout() -> void:
-	makePath()
+#func _on_timer_timeout() -> void:
+#	makePath()
