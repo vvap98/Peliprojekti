@@ -7,8 +7,9 @@ var world
 var playerchase = false
 var player
 
-func _physics_process(delta: float) -> void:
-	pass
+#func _physics_process(delta: float) -> void:
+	#if playerchase:
+	#	look_at(player.global_position)
 
 func _process(_delta: float) -> void:
 	checkHp()
@@ -18,6 +19,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 func shoot():
+	look_at(player.global_position)
 	var instance = projectile.instantiate()
 	instance.dir = rotation
 	instance.spawnPos = global_position
