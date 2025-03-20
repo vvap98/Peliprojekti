@@ -56,8 +56,8 @@ func _on_detection_zone_body_entered(body) -> void:
 		playerchase = true
 
 func _on_detection_zone_body_exited(body) -> void:
-	#player = null
-	playerchase = false
+	if body == player:
+		playerchase = false
 	
 func makePath() -> void:
 	nav_agent.target_position = player.global_position 
