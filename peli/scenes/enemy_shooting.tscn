@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/enemy_shooting.gd" id="1_et50h"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_lmcs8"]
 
-[sub_resource type="Gradient" id="Gradient_c5ycd"]
+[sub_resource type="Gradient" id="Gradient_1ebdg"]
 offsets = PackedFloat32Array(0.638462, 0.669231, 0.673077)
 colors = PackedColorArray(0.0976746, 0.505221, 5.77569e-07, 1, 0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ffmts"]
-gradient = SubResource("Gradient_c5ycd")
+gradient = SubResource("Gradient_1ebdg")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -26,12 +26,11 @@ script = ExtResource("1_et50h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.638673, 0.714844)
+scale = Vector2(0.7, 0.7)
 texture = SubResource("GradientTexture2D_ffmts")
 
 [node name="Killzone" parent="." instance=ExtResource("1_lmcs8")]
 collision_layer = 4
-collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 z_index = 1
