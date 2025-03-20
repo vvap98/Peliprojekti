@@ -17,20 +17,17 @@ func _physics_process(delta: float) -> void:
 	#Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
-	if position.x == player.position.x:
-		velocity.x = 0
-	
-	if ray_cast_right.is_colliding() or player.position.x < position.x and player.position.x >= position.x - 200:
+
+	if ray_cast_right.is_colliding(): #or player.position.x < position.x and player.position.x >= position.x - 200:
 		direction = -1
-	if ray_cast_left.is_colliding() or player.position.x > position.x and player.position.x <= position.x + 200:
+	if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
 		direction = 1
 	position.x += direction * SPEED * delta
 	#print(position)
 	
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	checkHp() 
 
 func checkHp():

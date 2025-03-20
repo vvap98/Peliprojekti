@@ -20,8 +20,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
-@onready var sfx_player: AudioStreamPlayer2D = $SfxPlayer
-@onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
+@onready var sfx_player: AudioStreamPlayer2D = $Sfx/JumpPlayer
+@onready var movement_player: AudioStreamPlayer2D = $Sfx/MovementPlayer
 @onready var grapple: Node2D = $grappleController
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
@@ -62,7 +62,6 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
-	# TODO muokkaa pelaajan kävelyääntä, jotta se pysähtyy ilmassa
 	if direction > 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://rigbp1e0xb46"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_byw55"]
+[ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_x7hql"]
+
+[sub_resource type="Gradient" id="Gradient_c5ycd"]
+offsets = PackedFloat32Array(0.638462, 0.669231, 0.673077)
+colors = PackedColorArray(0.169496, 0.768755, 1.92523e-06, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ixwg"]
+gradient = SubResource("Gradient_c5ycd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r0ql"]
+radius = 7.0
+
+[node name="Projectile" type="CharacterBody2D"]
+script = ExtResource("1_byw55")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_0ixwg")
+
+[node name="Killzone" parent="." instance=ExtResource("1_x7hql")]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+z_index = 1
+shape = SubResource("CircleShape2D_3r0ql")
+debug_color = Color(0, 0.6, 0.7, 0.42)

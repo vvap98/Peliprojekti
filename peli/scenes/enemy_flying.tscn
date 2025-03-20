@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_ydsgm"]
 
-[sub_resource type="Gradient" id="Gradient_c5ycd"]
+[sub_resource type="Gradient" id="Gradient_q4n1k"]
 offsets = PackedFloat32Array(0.638462, 0.669231, 0.673077)
 colors = PackedColorArray(0.45585, 0.00127498, 0.638635, 1, 0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tr2g4"]
-gradient = SubResource("Gradient_c5ycd")
+gradient = SubResource("Gradient_q4n1k")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -32,6 +32,7 @@ scale = Vector2(0.638673, 0.714844)
 texture = SubResource("GradientTexture2D_tr2g4")
 
 [node name="Killzone" parent="." instance=ExtResource("2_ydsgm")]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 z_index = 1
@@ -53,10 +54,5 @@ path_postprocessing = 1
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 1, 1)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
