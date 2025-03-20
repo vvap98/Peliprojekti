@@ -18,6 +18,8 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2(0, -SPEED).rotated(dir)
 	move_and_slide()
 
+func getDamaged():
+	velocity = -(velocity)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Hit!")
