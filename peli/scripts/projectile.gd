@@ -29,6 +29,7 @@ func getDamaged():
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if (hit and body.is_in_group("enemy")) or body == player:
 		print("Hit!")
+		body.getDamaged()
 		queue_free()
 
 func _on_timer_timeout() -> void:

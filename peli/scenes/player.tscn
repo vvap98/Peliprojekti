@@ -66,7 +66,7 @@ hframes = 9
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
-collision_mask = 4
+collision_mask = 12
 
 [node name="AttackTimer" type="Timer" parent="Sprite2D/Hitbox"]
 wait_time = 0.5
