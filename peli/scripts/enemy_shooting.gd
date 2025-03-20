@@ -4,12 +4,18 @@ var hp = 3
 #@onready var world = get_tree().get_root().get_node("world")
 @onready var projectile = load("res://scenes/projectile.tscn")
 var world
+var playerchase = false
+var player
+
+func _physics_process(delta: float) -> void:
+	pass
 
 func _process(_delta: float) -> void:
 	checkHp()
 	
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
+	player = get_tree().get_first_node_in_group("player")
 
 func shoot():
 	var instance = projectile.instantiate()
@@ -33,6 +39,16 @@ func enemyDeath():
 	# self.set_deferred("monitoring", false)
 	queue_free()
 
-
 func _on_timer_timeout() -> void:
-	shoot()
+	if playerchase:
+		shoot()
+
+
+func _on_detection_zone_body_entered(body: Node2D) -> void:
+	if body == player:
+		playerchase = true
+
+
+func _on_detection_zone_body_exited(body: Node2D) -> void:
+	if body == player:
+		playerchase = false

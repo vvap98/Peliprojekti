@@ -50,4 +50,6 @@ shape = SubResource("CircleShape2D_2wgi7")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
