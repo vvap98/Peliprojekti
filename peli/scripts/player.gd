@@ -62,7 +62,6 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
-	# TODO muokkaa pelaajan kävelyääntä, jotta se pysähtyy ilmassa
 	if direction > 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
