@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 
 @export var SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 var dir : float
 var spawnPos : Vector2
 var spawnRot : float
 var zdex : int
+var hit = false
 
 func _ready():
 	global_position = spawnPos
@@ -15,11 +15,14 @@ func _ready():
 	zdex = z_index
 
 func _physics_process(delta: float) -> void:
-	velocity = Vector2(0, -SPEED).rotated(dir)
+	if !hit:
+		velocity = Vector2(0, -SPEED).rotated(dir)
+	
 	move_and_slide()
 
 func getDamaged():
-	velocity = -(velocity)
+	hit = true
+	velocity = -velocity
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Hit!")
