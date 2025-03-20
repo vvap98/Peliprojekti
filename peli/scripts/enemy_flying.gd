@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	#print(player.global_position)
 	#print(dir)
 		velocity = dir * SPEED
+	else:
+		velocity = Vector2(0,0)
 		#position += (player.position - position).normalized() * SPEED
 	#lif position != ogposition:
 	#	position += (ogposition - position).normalized() * SPEED
