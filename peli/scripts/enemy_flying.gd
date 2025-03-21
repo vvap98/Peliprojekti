@@ -5,9 +5,11 @@ extends CharacterBody2D
 const SPEED = 100
 var direction = 1
 var playerchase = false
+var delta : float
 
-var hp = 1
+var hp = 3
 var ogposition
+var knockbackforce = 10000
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
@@ -44,7 +46,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-		checkHp()
+	delta = _delta
+	checkHp()
 
 func pathSetup():
 	await get_tree().physics_frame
@@ -70,6 +73,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
+	position += (global_position - player.global_position).normalized()*knockbackforce*delta
 	
 func enemyDeath():
 	print("ded")

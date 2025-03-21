@@ -10,10 +10,13 @@ class_name GroundEnemy extends Entity
 
 const SPEED = 120.0
 var direction = 1
+var knockbackforce = 10000
 var player
+var delta : float
+
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	hp = 1
+	hp = 3
 	
 func _physics_process(delta: float) -> void:
 	#Get gravity
@@ -34,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	delta = _delta
 	checkHp() 
 
 func platformEdge():
@@ -48,6 +52,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
+	position += (global_position - player.global_position).normalized()*knockbackforce*delta
 	
 func enemyDeath():
 	print("Enemy killed")

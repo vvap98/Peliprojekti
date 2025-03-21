@@ -23,7 +23,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_3oqvp")
 
 [node name="Killzone" parent="." instance=ExtResource("1_x7hql")]
-collision_layer = 4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 z_index = 1
