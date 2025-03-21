@@ -1,7 +1,6 @@
 class_name Entity extends CharacterBody2D
 
 var hp
-var knockback
 var damage
 
 func checkHp():

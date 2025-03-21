@@ -9,10 +9,11 @@ class_name GroundEnemy extends Entity
 
 
 const SPEED = 120.0
-var direction = 1
-var knockbackforce = 10000
 var player
-var delta : float
+
+var knockback = Vector2.ZERO
+var knockbackforce = 900.0
+var dir = Vector2(1.0, 1.0)
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -24,25 +25,25 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if ray_cast_right.is_colliding(): #or player.position.x < position.x and player.position.x >= position.x - 200:
-		direction = -1
+		dir = -dir
 		ray_cast_edge.position.x *= -1
 	if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
-		direction = 1
+		dir = -dir
 		ray_cast_edge.position.x *= -1
 	
 	platformEdge()
-	position.x += direction * SPEED * delta
-	#print(position)
+	velocity.x = dir.x * SPEED + knockback.x
+
+	knockback = lerp(knockback, Vector2.ZERO, 0.15)
 	
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	delta = _delta
 	checkHp() 
 
 func platformEdge():
 	if !ray_cast_edge.is_colliding():
-		direction = -direction
+		dir = -dir
 		ray_cast_edge.position.x *= -1
 
 func checkHp():
@@ -52,7 +53,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
-	position += (global_position - player.global_position).normalized()*knockbackforce*delta
+	knockback = -dir * knockbackforce
 	
 func enemyDeath():
 	print("Enemy killed")
