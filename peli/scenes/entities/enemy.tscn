@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt5vvk4xtscnt"]
+[gd_scene load_steps=9 format=3 uid="uid://dt5vvk4xtscnt"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8dv88"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_jvvar"]
+[ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="3_2vbww"]
+[ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="4_n5i5x"]
 
 [sub_resource type="Gradient" id="Gradient_c5ycd"]
 offsets = PackedFloat32Array(0.669231, 0.673077)
@@ -29,15 +31,11 @@ scale = Vector2(0.638673, 0.714844)
 texture = SubResource("GradientTexture2D_omnfu")
 
 [node name="Killzone" parent="." instance=ExtResource("2_jvvar")]
-collision_layer = 4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 z_index = 1
 shape = SubResource("CircleShape2D_k1uwc")
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ciktq")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -49,3 +47,12 @@ target_position = Vector2(-25, 0)
 [node name="RayCastEdge" type="RayCast2D" parent="."]
 position = Vector2(22, 6)
 target_position = Vector2(0, 15)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_2vbww")]
+position = Vector2(-22.2901, 31.0113)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_n5i5x")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ciktq")
+debug_color = Color(0, 0.6, 0.7, 0.42)

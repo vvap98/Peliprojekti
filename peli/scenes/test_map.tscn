@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="Texture2D" uid="uid://4lag3teltqhp" path="res://assets/sprites/TestDirt.png" id="2_n6eo6"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="3_8ivdq"]
-[ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/player.tscn" id="4_y7uys"]
-[ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/enemy_flying.tscn" id="5_ekjxb"]
-[ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/enemy.tscn" id="6_ypgh8"]
+[ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="4_y7uys"]
+[ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="5_ekjxb"]
+[ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="6_ypgh8"]
 [ext_resource type="PackedScene" uid="uid://bmc6fh37iw580" path="res://scenes/powerup.tscn" id="7_bgj7e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]

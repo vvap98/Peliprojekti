@@ -25,7 +25,6 @@ func shoot():
 	instance.spawnRot = rotation + PI/2
 	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
-	print(rotation)
 
 func checkHp():
 	if hp <= 0:
