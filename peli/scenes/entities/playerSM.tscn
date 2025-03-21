@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://lv2fwpfk61v5"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_05qfn"]
+[ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_loen6"]
+[ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_orkkn"]
+[ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_7ppb1"]
+[ext_resource type="Script" path="res://scripts/States/IdleState.gd" id="5_tgy8j"]
+[ext_resource type="Script" path="res://scripts/States/MovingState.gd" id="6_hj0na"]
+[ext_resource type="Script" path="res://scripts/States/JumpingState.gd" id="7_rdgr2"]
+[ext_resource type="Script" path="res://scripts/States/grappling_state.gd" id="8_yqb5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
+
+[sub_resource type="Animation" id="Animation_tjg8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ysyrg"]
+resource_name = "idle"
+length = 0.66
+loop_mode = 1
+step = 0.085
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
+_data = {
+"RESET": SubResource("Animation_tjg8t"),
+"idle": SubResource("Animation_ysyrg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
+size = Vector2(26, 46)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
+position = Vector2(0, -23)
+collision_layer = 2
+script = ExtResource("1_05qfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -9)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_loen6")
+hframes = 9
+
+[node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_uo3at")
+target_position = Vector2(86, 0)
+collision_mask = 4
+
+[node name="AttackTimer" type="Timer" parent="Sprite2D/Hitbox"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ystvh")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_6sjkd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="JumpPlayer" type="AudioStreamPlayer2D" parent="Sfx"]
+position = Vector2(0, -23)
+stream = ExtResource("3_orkkn")
+
+[node name="MovementPlayer" type="AudioStreamPlayer2D" parent="Sfx"]
+position = Vector2(0, -23)
+stream = ExtResource("4_7ppb1")
+volume_db = -10.599
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 1.8
+one_shot = true
+
+[node name="IdleState" type="Node" parent="."]
+script = ExtResource("5_tgy8j")
+
+[node name="MovingState" type="Node" parent="."]
+script = ExtResource("6_hj0na")
+
+[node name="JumpingState" type="Node" parent="."]
+script = ExtResource("7_rdgr2")
+
+[node name="GrapplingState" type="Node" parent="."]
+script = ExtResource("8_yqb5v")
+
+[connection signal="timeout" from="Sprite2D/Hitbox/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
