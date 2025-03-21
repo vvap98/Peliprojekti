@@ -5,7 +5,6 @@ extends CharacterBody2D
 const SPEED = 100
 var direction = 1
 var playerchase = false
-var delta : float
 
 var hp = 3
 var ogposition
@@ -48,7 +47,6 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	delta = _delta
 	checkHp()
 
 func pathSetup():
