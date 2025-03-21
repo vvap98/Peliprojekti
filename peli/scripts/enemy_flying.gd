@@ -9,8 +9,10 @@ var delta : float
 
 var hp = 3
 var ogposition
-var knockbackforce = 10000
 
+var knockback = Vector2.ZERO
+var knockbackforce = 900.0
+var dir : Vector2
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 var player # = null
@@ -28,19 +30,19 @@ func _physics_process(_delta: float) -> void:
 	if playerchase:
 		nav_agent.target_position = player.global_position 
 		var next_path_pos = nav_agent.get_next_path_position()
-		var dir = global_position.direction_to(next_path_pos)
-		velocity = dir * SPEED
+		dir = global_position.direction_to(next_path_pos)
+		velocity = dir * SPEED + knockback
 	#print(player.global_position)
 	#print(dir)
 	else:
 		nav_agent.target_position = ogposition
 		var next_path_pos = nav_agent.get_next_path_position()
-		var dir = global_position.direction_to(next_path_pos)
-		velocity = dir * SPEED
+		dir = global_position.direction_to(next_path_pos)
+		velocity = dir * SPEED + knockback
 	#lif position != ogposition:
 	#	position += (ogposition - position).normalized() * SPEED
 		#position.x += direction * SPEED * delta
-		
+	knockback = lerp(knockback, Vector2.ZERO, 0.15)
 	#print(position)
 	
 	move_and_slide()
@@ -73,7 +75,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
-	position += (global_position - player.global_position).normalized()*knockbackforce*delta
+	knockback = -dir * knockbackforce
 	
 func enemyDeath():
 	print("ded")
