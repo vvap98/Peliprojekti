@@ -25,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var grapple: Node2D = $grappleController
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
+@onready var coyote_timer: Timer = $CoyoteTimer
 
 
 func _ready() -> void:
@@ -38,10 +39,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or grapple.launched): #and jumps > 0: #and jumps > 0:
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or grapple.launched or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		grapple.grappleRetract()
 		sfx_player.play()
+		coyote_timer.stop()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
 		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
-	
+	#print(velocity.y)
 	# jos powerup on saatu, resettaa tuplahypyn pelaajan laskeutuessa
 	if can_double_jump and is_on_floor():
 		has_double_jumped = false
@@ -82,7 +84,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		movement_player.stop()
 	
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide()
+	
+	if was_on_floor and !is_on_floor():
+		#print(is_on_floor())
+		if !velocity.y < 0: 
+			coyote_timer.start()
+			print("coyote timer started")
 	
 	# Check for attack input, then check if enemy is in attack 
 	# hitbox area

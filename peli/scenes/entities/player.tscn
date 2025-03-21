@@ -99,5 +99,9 @@ volume_db = -10.599
 wait_time = 1.8
 one_shot = true
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Sprite2D/Hitbox/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
