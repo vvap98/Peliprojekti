@@ -5,6 +5,8 @@ class_name GroundEnemy extends Entity
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_edge: RayCast2D = $RayCastEdge
+
 
 const SPEED = 120.0
 var direction = 1
@@ -20,8 +22,12 @@ func _physics_process(delta: float) -> void:
 
 	if ray_cast_right.is_colliding(): #or player.position.x < position.x and player.position.x >= position.x - 200:
 		direction = -1
+		ray_cast_edge.position.x *= -1
 	if ray_cast_left.is_colliding(): #or player.position.x > position.x and player.position.x <= position.x + 200:
 		direction = 1
+		ray_cast_edge.position.x *= -1
+	
+	platformEdge()
 	position.x += direction * SPEED * delta
 	#print(position)
 	
@@ -29,6 +35,11 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	checkHp() 
+
+func platformEdge():
+	if !ray_cast_edge.is_colliding():
+		direction = -direction
+		ray_cast_edge.position.x *= -1
 
 func checkHp():
 	if hp <= 0:
