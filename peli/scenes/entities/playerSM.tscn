@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://lv2fwpfk61v5"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_05qfn"]
+[ext_resource type="Script" path="res://scripts/playerSM.gd" id="1_g404g"]
 [ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_loen6"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_orkkn"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_7ppb1"]
@@ -57,7 +57,7 @@ size = Vector2(26, 46)
 z_index = 5
 position = Vector2(0, -23)
 collision_layer = 2
-script = ExtResource("1_05qfn")
+script = ExtResource("1_g404g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
