@@ -12,11 +12,13 @@ var can_attack = true
 var can_double_jump = false
 var has_double_jumped = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var direction = 0
 #var max_jumps = 1
 #func handleHp() -> void:
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+#@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
@@ -58,9 +60,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("moveLeft", "moveRight")
+	direction = Input.get_axis("moveLeft", "moveRight")
 	
-	#if direction:
+	if direction == 0:
+		animatedSprite_2d.play("Idle")
+	else:
+		animatedSprite_2d.play("Run")
 	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
@@ -68,13 +73,13 @@ func _physics_process(delta: float) -> void:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
-		sprite_2d.flip_h = false
+		animatedSprite_2d.flip_h = false
 		hitbox.target_position = Vector2(86.0, 0.0)
 	elif direction < 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
-		sprite_2d.flip_h = true
+		animatedSprite_2d.flip_h = true
 		hitbox.target_position = Vector2(-86.0, 0.0)
 	else:
 		#if movement_player.playing:
