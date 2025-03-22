@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=44 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Texture2D" uid="uid://bgult83fetof" path="res://assets/sprites/Juoksu_sprite_sheet.png" id="2_usfl5"]
 [ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_yu7fv"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_hri3i"]
+[ext_resource type="Texture2D" uid="uid://b4lgdtkwnmmrc" path="res://assets/sprites/attack.png" id="4_bfwpn"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_h6n40"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
@@ -168,11 +169,78 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_01n64"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoi6x"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2rj8"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76y5u"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntvjs"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etuw5"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixf6w"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0tk1"]
+atlas = ExtResource("4_bfwpn")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_te3c0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01n64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoi6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2rj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76y5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntvjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etuw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixf6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0tk1")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}]
+
 [sub_resource type="Animation" id="Animation_tjg8t"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -181,6 +249,57 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D/Hitbox/attack:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Sprite2D/Hitbox:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_n4xu8"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Hitbox/attack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0625, 0.125, 0.1875, 0.25, 0.3, 0.366667, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Hitbox:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ysyrg"]
@@ -204,6 +323,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
 _data = {
 "RESET": SubResource("Animation_tjg8t"),
+"attack": SubResource("Animation_n4xu8"),
 "idle": SubResource("Animation_ysyrg")
 }
 
@@ -221,10 +341,9 @@ unique_name_in_owner = true
 position = Vector2(-1, -9)
 scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_784si")
-animation = &"Run"
+animation = &"Idle"
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
-visible = false
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
@@ -233,6 +352,13 @@ collision_mask = 12
 [node name="AttackTimer" type="Timer" parent="Sprite2D/Hitbox"]
 wait_time = 0.5
 one_shot = true
+
+[node name="attack" type="AnimatedSprite2D" parent="Sprite2D/Hitbox"]
+position = Vector2(48.563, 0.333332)
+scale = Vector2(1.01529, 0.238932)
+sprite_frames = SubResource("SpriteFrames_te3c0")
+animation = &"attack"
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")

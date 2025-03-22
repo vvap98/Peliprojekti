@@ -1,8 +1,8 @@
 #TODO Korjaa fysiikan käsittely heilumiselle. crosshair
 extends Node2D
 
-@export var rest_length = 70.0 #Tarttumisköyden pituus lepotilassa
-@export var stiffness = 15.0 # Voima jolla pelaajaa vedetään tarttumispistettä kohti
+@export var rest_length = 30.0 #Tarttumisköyden pituus lepotilassa
+@export var stiffness = 13.0 # Voima jolla pelaajaa vedetään tarttumispistettä kohti
 @export var damping = 2.0 #liikkeen vaimennus
 
 @onready var player := get_parent()

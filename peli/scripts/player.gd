@@ -28,6 +28,7 @@ var direction = 0
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var attack: AnimatedSprite2D = $Sprite2D/Hitbox/attack #väliaikainen hyökkäysanimaatio
 
 
 func _ready() -> void:
@@ -103,6 +104,8 @@ func _physics_process(delta: float) -> void:
 	# hitbox area
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
+		attack.position = hitbox.target_position #TODO korjaa. Tällä hetkellä sentään flippaa hitboksin mukana mutta positio vähän väärä
+		attack.play("attack")
 		can_attack = false
 		cooldowntimer.start()
 		if hitbox.is_colliding():
