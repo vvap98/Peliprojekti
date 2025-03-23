@@ -1,5 +1,5 @@
 extends Control
-
+#Pausemenu. Lisää kenttään CanvasLayer ja tämä sen alanodeksi. Varmista että Process Mode == Always asetuksista
 
 
 func _ready():
