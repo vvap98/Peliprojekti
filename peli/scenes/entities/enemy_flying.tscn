@@ -1,22 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://fhmjrqj77d30"]
+[gd_scene load_steps=12 format=3 uid="uid://fhmjrqj77d30"]
 
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_ydsgm"]
+[ext_resource type="Texture2D" uid="uid://bivsa4m2hufx" path="res://assets/sprites/Lentävä_vihollinen_proto.png" id="3_qoe1s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6e6l"]
 shader = ExtResource("2_fg54v")
 shader_parameter/flash_color = Color(0.878431, 0, 0, 0.588235)
 shader_parameter/flash_value = null
-
-[sub_resource type="Gradient" id="Gradient_q4n1k"]
-offsets = PackedFloat32Array(0.638462, 0.669231, 0.673077)
-colors = PackedColorArray(0.45585, 0.00127498, 0.638635, 1, 0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tr2g4"]
-gradient = SubResource("Gradient_q4n1k")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_iyltr"]
 resource_name = "damage"
@@ -72,8 +64,9 @@ script = ExtResource("1_5paxa")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_q6e6l")
-scale = Vector2(0.639, 0.639)
-texture = SubResource("GradientTexture2D_tr2g4")
+position = Vector2(2, 1)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("3_qoe1s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -93,6 +86,7 @@ shape = SubResource("CircleShape2D_ra5xv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="DetectionZone" type="Area2D" parent="."]
+visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
@@ -100,6 +94,7 @@ shape = SubResource("CircleShape2D_i1pvv")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
+avoidance_mask = 5
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 1, 1)
 

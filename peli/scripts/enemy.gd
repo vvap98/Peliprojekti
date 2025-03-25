@@ -24,7 +24,10 @@ func _physics_process(delta: float) -> void:
 	#Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	if dir.x > 0:
+		sprite_2d.flip_h = true
+	if dir.x < 0:
+		sprite_2d.flip_h = false	
 	if ray_cast_right.is_colliding(): #or player.position.x < position.x and player.position.x >= position.x - 200:
 		dir = -dir
 		ray_cast_edge.position.x *= -1

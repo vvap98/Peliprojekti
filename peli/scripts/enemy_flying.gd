@@ -14,6 +14,7 @@ var knockbackforce = 900.0
 var dir : Vector2
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var player # = null
 func _ready():
@@ -27,6 +28,10 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	await get_tree().physics_frame
 
+	if dir.x > 0:
+		sprite_2d.flip_h = true
+	if dir.x < 0:
+		sprite_2d.flip_h = false	
 	if playerchase:
 		nav_agent.target_position = player.global_position 
 		var next_path_pos = nav_agent.get_next_path_position()
