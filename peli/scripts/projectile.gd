@@ -19,7 +19,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if !hit:
 		velocity = Vector2(0, -SPEED).rotated(dir)
-	
+	if is_on_wall() or is_on_ceiling() or is_on_floor():
+		queue_free()
 	move_and_slide()
 
 func getDamaged():
