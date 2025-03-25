@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_lmcs8"]
 [ext_resource type="Texture2D" uid="uid://dqjcadj5xcxjp" path="res://assets/icon.svg" id="2_m0hd2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wd820"]
-radius = 25.02
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rke0y"]
+size = Vector2(42, 42)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8adlx"]
 radius = 20.0998
@@ -27,7 +27,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 z_index = 1
-shape = SubResource("CircleShape2D_wd820")
+shape = SubResource("RectangleShape2D_rke0y")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]

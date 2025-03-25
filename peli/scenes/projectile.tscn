@@ -14,6 +14,7 @@ radius = 3.0
 
 [node name="Projectile" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
+motion_mode = 1
 script = ExtResource("1_byw55")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
