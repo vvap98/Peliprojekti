@@ -20,7 +20,6 @@ func _ready():
 	hp = 3
 	
 func _physics_process(delta: float) -> void:
-	sprite_2d.modulate = Color.RED
 	#Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
