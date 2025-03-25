@@ -137,6 +137,7 @@ func checkHP():
 
 func getDamaged():
 	if !took_damage:
+		animation_player.play("flash")
 		damage_timer.start()
 		took_damage = true
 		hp = hp - 1
