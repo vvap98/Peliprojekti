@@ -53,7 +53,9 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
-	knockback = -dir * knockbackforce
+	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
+		knockback = dir * knockbackforce
+	else: knockback = -dir * knockbackforce
 	
 func enemyDeath():
 	print("Enemy killed")

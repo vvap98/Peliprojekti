@@ -15,7 +15,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1uwc"]
-radius = 25.02
+radius = 19.0263
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ciktq"]
 radius = 20.0998
@@ -26,7 +26,7 @@ script = ExtResource("1_8dv88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.638673, 0.714844)
+scale = Vector2(0.639, 0.639)
 texture = SubResource("GradientTexture2D_omnfu")
 
 [node name="Killzone" parent="." instance=ExtResource("2_jvvar")]
