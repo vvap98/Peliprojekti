@@ -1,11 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=47 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
+[ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
 [ext_resource type="Texture2D" uid="uid://bgult83fetof" path="res://assets/sprites/Juoksu_sprite_sheet.png" id="2_usfl5"]
 [ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_yu7fv"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_hri3i"]
 [ext_resource type="Texture2D" uid="uid://b4lgdtkwnmmrc" path="res://assets/sprites/attack.png" id="4_bfwpn"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_h6n40"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
+shader = ExtResource("2_8ho0w")
+shader_parameter/flash_color = Color(0.647059, 0, 0, 0.588235)
+shader_parameter/flash_value = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
 atlas = ExtResource("2_yu7fv")
@@ -274,6 +280,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_n4xu8"]
 resource_name = "attack"
@@ -320,10 +338,26 @@ tracks/0/keys = {
 "values": [1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_abmm1"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
 _data = {
 "RESET": SubResource("Animation_tjg8t"),
 "attack": SubResource("Animation_n4xu8"),
+"flash": SubResource("Animation_abmm1"),
 "idle": SubResource("Animation_ysyrg")
 }
 
@@ -338,10 +372,11 @@ script = ExtResource("1_yglu2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_7tew6")
 position = Vector2(-1, -9)
 scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_784si")
-animation = &"Idle"
+animation = &"Run"
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
 scale = Vector2(4, 4)

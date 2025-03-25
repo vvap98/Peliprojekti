@@ -13,6 +13,7 @@ var knockback = Vector2.ZERO
 var knockbackforce = 900.0
 var dir : Vector2
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 
 var player # = null
 func _ready():
@@ -71,6 +72,7 @@ func checkHp():
 		enemyDeath()
 
 func getDamaged():
+	animation_player.play("damage")
 	hp = hp - 1
 	print(hp)
 	knockback = -dir * knockbackforce

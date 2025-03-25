@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+
 var hp = 3
 #@onready var world = get_tree().get_root().get_node("world")
 @onready var projectile = load("res://scenes/projectile.tscn")
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+
 var world
 var playerchase = false
 var player
@@ -31,6 +34,7 @@ func checkHp():
 		enemyDeath()
 
 func getDamaged():
+	animation_player.play("damage")
 	hp = hp - 1
 	print(hp)
 	
