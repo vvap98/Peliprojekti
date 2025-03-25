@@ -1,11 +1,11 @@
 class_name GroundEnemy extends Entity
 #extends CharacterBody2D
-# TODO vihu kääntyy, kun on kielekkeellä
-# TODO vihu tarkistaa myös pituussuunnassa kuinka lähellä pelaaja on
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_edge: RayCast2D = $RayCastEdge
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 
 
 const SPEED = 120.0
@@ -20,6 +20,7 @@ func _ready():
 	hp = 3
 	
 func _physics_process(delta: float) -> void:
+	sprite_2d.modulate = Color.RED
 	#Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -51,6 +52,7 @@ func checkHp():
 		enemyDeath()
 
 func getDamaged():
+	animation_player.play("damage")
 	hp = hp - 1
 	print(hp)
 	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):

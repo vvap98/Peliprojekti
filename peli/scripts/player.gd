@@ -29,7 +29,7 @@ var direction = 0
 @onready var dash: Node2D = $Dash
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var attack: AnimatedSprite2D = $Sprite2D/Hitbox/attack #väliaikainen hyökkäysanimaatio
-
+ 
 
 func _ready() -> void:
 	health_bar.init_health(hp)
