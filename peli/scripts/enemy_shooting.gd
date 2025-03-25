@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if playerchase:
 		sprite_2d.look_at(player.global_position)
+	
+	move_and_slide()
 
 func _process(_delta: float) -> void:
 	checkHp()
