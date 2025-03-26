@@ -31,6 +31,7 @@ var last_direction = 1
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var attack: AnimatedSprite2D = $Sprite2D/Hitbox/attack #väliaikainen hyökkäysanimaatio
 @onready var player: CharacterBody2D = $"."
+@onready var trap_hitbox: Area2D = $TrapHitbox
 
 
 func _ready() -> void:
@@ -147,3 +148,7 @@ func getDamaged():
 #alustaa scenen pelaajan kuollessa
 func playerDeath():
 	get_tree().reload_current_scene()
+
+
+func _on_trap_hitbox_body_entered(body: Node2D) -> void:
+	playerDeath()
