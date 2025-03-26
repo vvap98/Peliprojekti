@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="4_n5i5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ekyw"]
+resource_local_to_scene = true
 shader = ExtResource("2_ri85n")
 shader_parameter/flash_color = Color(0.877346, 4.06705e-06, 1.92523e-07, 0.588235)
 shader_parameter/flash_value = null

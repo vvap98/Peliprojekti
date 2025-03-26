@@ -17,15 +17,14 @@ var new_velocity : Vector2
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var hit_flash_player: AnimationPlayer = $Sprite2D/HitFlashPlayer
 
 var player # = null
 func _ready():
-	#set_physics_process(false)
-	#await get_tree().physics_frame
-	#set_physics_process(true)
 	player = get_tree().get_first_node_in_group("player")
 	pathSetup()
 	ogposition = position
+	sprite_2d.modulate = Color.RED
 	
 func _physics_process(_delta: float) -> void:
 	await get_tree().physics_frame
@@ -83,11 +82,11 @@ func checkHp():
 		enemyDeath()
 
 func getDamaged():
-	animation_player.play("damage")
+	hit_flash_player.play("damage")
 	hp = hp - 1
 	print(hp)
 	knockback = -dir * knockbackforce
-	
+
 func enemyDeath():
 	print("ded")
 	# self.visible = false

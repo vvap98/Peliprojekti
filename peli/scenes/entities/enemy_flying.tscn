@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://fhmjrqj77d30"]
+[gd_scene load_steps=15 format=3 uid="uid://fhmjrqj77d30"]
 
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_ydsgm"]
-[ext_resource type="Texture2D" uid="uid://bivsa4m2hufx" path="res://assets/sprites/Lentävä_vihollinen_proto.png" id="3_qoe1s"]
+[ext_resource type="Texture2D" uid="uid://kvm8sd5htcax" path="res://assets/sprites/Lentävä_vihollinen_proto_sheet.png" id="3_n0jtk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6e6l"]
+resource_local_to_scene = true
 shader = ExtResource("2_fg54v")
 shader_parameter/flash_color = Color(0.878431, 0, 0, 0.588235)
 shader_parameter/flash_value = null
@@ -14,7 +15,7 @@ shader_parameter/flash_value = null
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -23,6 +24,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_iyltr"]
@@ -41,10 +54,48 @@ tracks/0/keys = {
 "values": [null, 0.7, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_17odd"]
+resource_name = "default"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt2k"]
 _data = {
 "RESET": SubResource("Animation_4boys"),
-"damage": SubResource("Animation_iyltr")
+"damage": SubResource("Animation_iyltr"),
+"default": SubResource("Animation_17odd")
+}
+
+[sub_resource type="Animation" id="Animation_pykes"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 0.7, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcliq"]
+_data = {
+"damage": SubResource("Animation_pykes")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxsbo"]
@@ -66,11 +117,19 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_q6e6l")
 position = Vector2(2, 1)
 scale = Vector2(0.165, 0.165)
-texture = ExtResource("3_qoe1s")
+texture = ExtResource("3_n0jtk")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_hyt2k")
+}
+autoplay = "default"
+
+[node name="HitFlashPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_kcliq")
 }
 
 [node name="Killzone" parent="." instance=ExtResource("2_ydsgm")]

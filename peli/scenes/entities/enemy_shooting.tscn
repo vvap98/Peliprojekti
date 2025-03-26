@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dxmoor3w78oqh" path="res://assets/sprites/Kukka_lehdet_proto.png" id="6_bvdx1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljf6d"]
+resource_local_to_scene = true
 shader = ExtResource("2_7daid")
 shader_parameter/flash_color = Color(0.878431, 0, 0, 0.588235)
 shader_parameter/flash_value = null
@@ -90,7 +91,6 @@ shape = SubResource("RectangleShape2D_5wgqt")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="DetectionZone" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
