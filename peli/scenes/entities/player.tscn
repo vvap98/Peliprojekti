@@ -380,7 +380,8 @@ sprite_frames = SubResource("SpriteFrames_784si")
 animation = &"Run"
 
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
-scale = Vector2(4, 4)
+position = Vector2(45.8333, -41.6667)
+scale = Vector2(2.29367, 16.3986)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
 collision_mask = 12
@@ -390,8 +391,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="attack" type="AnimatedSprite2D" parent="Sprite2D/Hitbox"]
-position = Vector2(48.563, 0.333332)
-scale = Vector2(1.01529, 0.238932)
+position = Vector2(47.8265, 0.196488)
+scale = Vector2(0.7645, 0.157195)
 sprite_frames = SubResource("SpriteFrames_te3c0")
 animation = &"attack"
 frame = 8

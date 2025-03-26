@@ -17,6 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	#print(player.direction)
 	if dashing: dash()
 	if Input.is_action_just_pressed("dash") and not dashing:
 		if dashCount > 0:
@@ -56,7 +57,7 @@ func dash():
 		input_dir.x -= 1
 	if Input.is_action_pressed("jump"):
 		input_dir.y -= 1
-	else: input_dir.x = input_dir.x -1 if playerSprite.flip_h else input_dir.x +1 #jos ei paineta mitään suuntaa niin dashataan eteenpäin
+	else: input_dir.x = player.last_direction #jos ei paineta mitään suuntaa niin dashataan eteenpäin
 
 	if input_dir != Vector2.ZERO:
 		input_dir = input_dir.normalized()

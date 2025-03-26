@@ -13,6 +13,7 @@ var can_double_jump = false
 var has_double_jumped = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 0
+var last_direction = 1
 #var max_jumps = 1
 #func handleHp() -> void:
 
@@ -29,7 +30,8 @@ var direction = 0
 @onready var dash: Node2D = $Dash
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var attack: AnimatedSprite2D = $Sprite2D/Hitbox/attack #väliaikainen hyökkäysanimaatio
- 
+@onready var player: CharacterBody2D = $"."
+
 
 func _ready() -> void:
 	health_bar.init_health(hp)
@@ -62,7 +64,8 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_axis("moveLeft", "moveRight")
-	
+	if direction != 0:
+		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0:
 		animatedSprite_2d.play("Idle")
 	else:
@@ -74,14 +77,12 @@ func _physics_process(delta: float) -> void:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
-		animatedSprite_2d.flip_h = false
-		hitbox.target_position = Vector2(86.0, 0.0)
+		animatedSprite_2d.scale.x = abs(animatedSprite_2d.scale.x) #parempi tapa flipata sprite ja hitbox
 	elif direction < 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
-		animatedSprite_2d.flip_h = true
-		hitbox.target_position = Vector2(-86.0, 0.0)
+		animatedSprite_2d.scale.x = -abs(animatedSprite_2d.scale.x)
 	else:
 		#if movement_player.playing:
 		movement_player.stop()
@@ -104,7 +105,6 @@ func _physics_process(delta: float) -> void:
 	# hitbox area
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
-		attack.position = hitbox.target_position #TODO korjaa. Tällä hetkellä sentään flippaa hitboksin mukana mutta positio vähän väärä
 		attack.play("attack")
 		can_attack = false
 		cooldowntimer.start()
