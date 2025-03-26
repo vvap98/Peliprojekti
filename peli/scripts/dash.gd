@@ -69,6 +69,7 @@ func dash():
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
+	player.velocity.x = lerp(player.velocity.x, 0.0, 0.5)
 	dashAnimationTimer.stop()
 
 

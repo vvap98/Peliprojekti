@@ -1,7 +1,7 @@
 #TODO Korjaa fysiikan käsittely heilumiselle. crosshair
 extends Node2D
 
-@export var rest_length = 30.0 #Tarttumisköyden pituus lepotilassa
+@export var rest_length = 15.0 #Tarttumisköyden pituus lepotilassa
 @export var stiffness = 13.0 # Voima jolla pelaajaa vedetään tarttumispistettä kohti
 @export var damping = 2.0 #liikkeen vaimennus
 
@@ -44,7 +44,7 @@ func handleGrapple(delta):
 		var dampingForce = -damping * velocityDot * targetDir
 		
 		force = springForce + dampingForce
-	force += Vector2(0, ProjectSettings.get_setting("physics/2d/default_gravity"))
+	#force += Vector2(0, ProjectSettings.get_setting("physics/2d/default_gravity"))
 
 	player.velocity += force * delta
 	updateRope()

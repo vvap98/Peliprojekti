@@ -92,6 +92,8 @@ func _physics_process(delta: float) -> void:
 			movement_player.play()
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		animatedSprite_2d.scale.x = -abs(animatedSprite_2d.scale.x)
+	elif  not is_on_floor():
+		velocity.x = lerp(velocity.x, 0.8 * velocity.x, 0.1)
 	else:
 		#if movement_player.playing:
 		movement_player.stop()
