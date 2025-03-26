@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var hp = 3
+var hp = 4
 #@onready var world = get_tree().get_root().get_node("world")
 @onready var projectile = load("res://scenes/projectile.tscn")
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer

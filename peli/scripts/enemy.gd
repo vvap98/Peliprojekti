@@ -17,7 +17,7 @@ var dir = Vector2(1.0, 1.0)
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	hp = 3
+	hp = 2
 	
 func _physics_process(delta: float) -> void:
 	#Get gravity
