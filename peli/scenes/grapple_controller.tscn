@@ -6,7 +6,7 @@
 script = ExtResource("1_bdyvl")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(800, 0)
+target_position = Vector2(400, 0)
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
