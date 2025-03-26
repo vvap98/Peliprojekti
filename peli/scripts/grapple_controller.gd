@@ -9,6 +9,10 @@ extends Node2D
 @onready var ray := $RayCast2D #Tarttumisköyden raycast
 @onready var rope := $Line2D #Piirrettävä tarttumisköysi
 
+@onready var attach_player: AudioStreamPlayer2D = $AttachPlayer
+@onready var detach_player: AudioStreamPlayer2D = $DetachPlayer
+
+
 var launched = false # Onko pelaaja laukaissut tarttumis "köyden"
 var target: Vector2 #Tarttumisen kohteen muuttuja
 var crosshair_position: Vector2 # Tähtäimen sijainti
@@ -47,12 +51,14 @@ func handleGrapple(delta):
 #Tarttumisköyden laukaisu.	
 func grappleLaunch():
 	if ray.is_colliding():
+		attach_player.play()
 		launched = true
 		target = ray.get_collision_point()
 		rope.show()
 		
 #Tarttumisköyden irroitus.
 func grappleRetract():
+	detach_player.play()
 	launched = false
 	rope.hide()
 	

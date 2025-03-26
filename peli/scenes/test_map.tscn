@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=17 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
 [ext_resource type="Texture2D" uid="uid://4lag3teltqhp" path="res://assets/sprites/TestDirt.png" id="2_n6eo6"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="3_8ivdq"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="3_i0r5a"]
-[ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="4_02wpo"]
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="4_y7uys"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="5_ekjxb"]
 [ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="5_fchc2"]
@@ -271,8 +270,6 @@ offset_bottom = -62.0
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("3_i0r5a")
 volume_db = -15.898
-
-[node name="grappleController" parent="Player" instance=ExtResource("4_02wpo")]
 
 [node name="Dash" parent="Player" instance=ExtResource("5_fchc2")]
 

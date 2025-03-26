@@ -23,8 +23,14 @@ var last_direction = 1
 @onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
 @onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
 @onready var health_bar: ProgressBar = $healthBar
-@onready var sfx_player: AudioStreamPlayer2D = $Sfx/JumpPlayer
-@onready var movement_player: AudioStreamPlayer2D = $Sfx/MovementPlayer
+
+@onready var hit_player: AudioStreamPlayer2D = $HitPlayer
+@onready var attack_player: AudioStreamPlayer2D = $AttackPlayer
+@onready var sfx_player: AudioStreamPlayer2D = $JumpPlayer
+@onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
+@onready var landing_player: AudioStreamPlayer2D = $LandingPlayer
+
+
 @onready var grapple: Node2D = $grappleController
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
@@ -45,15 +51,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or grapple.launched or !coyote_timer.is_stopped()):
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
-		grapple.grappleRetract()
+		#grapple.grappleRetract()
 		sfx_player.play()
 		coyote_timer.stop()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
 		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
 		has_double_jumped = true
+	if Input.is_action_just_pressed("jump") and grapple.launched:
+		grapple.grappleRetract()
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
@@ -96,6 +104,9 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if !was_on_floor and is_on_floor():
+		landing_player.play()
+	
 	if was_on_floor and !is_on_floor():
 		#print(is_on_floor())
 		if !velocity.y < 0: 
@@ -107,6 +118,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
 		attack.play("attack")
+		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
 		if hitbox.is_colliding():
@@ -114,6 +126,7 @@ func _physics_process(delta: float) -> void:
 				var body = hitbox.get_collider(i)
 				if body.is_in_group("enemy"):
 					print("enemy damaged")
+					hit_player.play()
 					body.getDamaged()
 				
 
