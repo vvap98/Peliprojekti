@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://fhmjrqj77d30"]
+[gd_scene load_steps=17 format=3 uid="uid://fhmjrqj77d30"]
 
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_ydsgm"]
 [ext_resource type="Texture2D" uid="uid://kvm8sd5htcax" path="res://assets/sprites/Lentävä_vihollinen_proto_sheet.png" id="3_n0jtk"]
+[ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="5_ka4bm"]
+[ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="6_iekno"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6e6l"]
 resource_local_to_scene = true
@@ -101,14 +103,14 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxsbo"]
 radius = 19.0263
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ra5xv"]
-radius = 20.0998
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_i1pvv"]
 radius = 392.001
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra5xv"]
+radius = 20.0998
+
 [node name="EnemyFlying" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 4
+collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_5paxa")
 
@@ -140,10 +142,6 @@ z_index = 1
 shape = SubResource("CircleShape2D_nxsbo")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ra5xv")
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="DetectionZone" type="Area2D" parent="."]
 visible = false
 collision_mask = 2
@@ -158,6 +156,21 @@ radius = 7.0
 avoidance_mask = 5
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 1, 1)
+
+[node name="HpComponent" parent="." instance=ExtResource("5_ka4bm")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_iekno")]
+collision_layer = 4
+collision_mask = 0
+health_component = NodePath("../HpComponent")
+
+[node name="HitBox" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_ra5xv")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ra5xv")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]

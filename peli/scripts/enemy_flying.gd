@@ -81,10 +81,10 @@ func checkHp():
 	if hp <= 0:
 		enemyDeath()
 
-func getDamaged():
-	hit_flash_player.play("damage")
-	hp = hp - 1
-	print(hp)
+func playDamageAnimation():
+	hit_flash_player.play("damage")	
+
+func getKnockedBack():
 	knockback = -dir * knockbackforce
 
 func enemyDeath():

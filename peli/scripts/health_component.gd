@@ -4,7 +4,6 @@ class_name hpComponent
 
 @export var MAXHP = 3
 var hp : int
-@onready var animation_player: AnimationPlayer = $"../Sprite2D/AnimationPlayer"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +22,7 @@ func checkHp():
 func getDamaged():
 	hp = hp - 1
 	print(hp)
-	animation_player.play("damage")
+	get_parent().playDamageAnimation()
 	get_parent().getKnockedBack()
 	checkHp()
 
