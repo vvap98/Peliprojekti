@@ -1,5 +1,4 @@
-class_name GroundEnemy extends Entity
-#extends CharacterBody2D
+extends CharacterBody2D
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
@@ -17,7 +16,6 @@ var dir = Vector2(1.0, 1.0)
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	hp = 2
 	
 func _physics_process(delta: float) -> void:
 	#Get gravity
@@ -46,18 +44,18 @@ func platformEdge():
 		dir = -dir
 		ray_cast_edge.position.x *= -1
 
-func checkHp():
-	if hp <= 0:
-		enemyDeath()
+#func checkHp():
+#	if hp <= 0:
+#		enemyDeath()
 
-func getDamaged():
-	animation_player.play("damage")
-	hp = hp - 1
-	print(hp)
-	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
-		knockback = dir * knockbackforce
-	else: knockback = -dir * knockbackforce
-	checkHp()
+#func getDamaged():
+#	animation_player.play("damage")
+#	hp = hp - 1
+#	print(hp)
+#	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
+#		knockback = dir * knockbackforce
+#	else: knockback = -dir * knockbackforce
+#	checkHp()
 	
 func getKnockedBack():
 	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
