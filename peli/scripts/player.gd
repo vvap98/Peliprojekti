@@ -118,11 +118,10 @@ func _physics_process(delta: float) -> void:
 	# pelaajan hyökätessä toistetaan hyökkäysanimaatio- ja ääniefektit
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
-		attack.play("attack")
+		animation_player.play("attack")
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
-		var body_array = hitbox.get_overlapping_bodies()
 
 #hyökkäyksen varsinainen logiikka
 func _on_hit_box_area_entered(area: Area2D) -> void:
@@ -131,9 +130,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		hit_player.play()
 		area.damage()
 
-
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+	print("can attack")
 
 func _on_damage_timer_timeout() -> void:
 	print("damage timer reset!")
