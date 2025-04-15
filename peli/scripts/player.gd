@@ -139,8 +139,7 @@ func _on_damage_timer_timeout() -> void:
 	took_damage = false
 
 func _process(_delta: float) -> void:
-	#print(velocity.y)
-	checkHP()
+	hitbox.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("reset"):
 		playerDeath()
 		
