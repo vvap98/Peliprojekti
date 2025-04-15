@@ -115,8 +115,7 @@ func _physics_process(delta: float) -> void:
 			coyote_timer.start()
 			print("coyote timer started")
 	
-	# Check for attack input, then check if enemy is in attack 
-	# hitbox area
+	# pelaajan hyökätessä toistetaan hyökkäysanimaatio- ja ääniefektit
 	if Input.is_action_just_pressed("attack") and can_attack:
 		print("attack")
 		attack.play("attack")
@@ -124,15 +123,14 @@ func _physics_process(delta: float) -> void:
 		can_attack = false
 		cooldowntimer.start()
 		var body_array = hitbox.get_overlapping_bodies()
-		if hitbox.has_overlapping_bodies():
-			for i in body_array:
-				print(body_array)
-				#var body = body_array[i]
-				#if body.is_in_group("enemy"):
-					#print("enemy damaged")
-					#hit_player.play()
-					#body.getDamaged()
-				
+
+#hyökkäyksen varsinainen logiikka
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurtbox"):
+		print("enemy damaged")
+		hit_player.play()
+		area.damage()
+
 
 func _on_attack_timer_timeout() -> void:
 	can_attack = true

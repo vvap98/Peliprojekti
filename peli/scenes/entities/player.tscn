@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=52 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -247,8 +247,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3rgh"]
 radius = 91.6667
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
-
 [sub_resource type="Animation" id="Animation_tjg8t"]
 length = 0.001
 tracks/0/type = "value"
@@ -277,31 +275,32 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("Sprite2D/Hitbox:enabled")
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [null]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/3/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [null]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_n4xu8"]
 resource_name = "attack"
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -309,7 +308,7 @@ tracks/0/path = NodePath("Sprite2D/HitBox/attack:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0625, 0.125, 0.1875, 0.25, 0.3, 0.366667, 0.433333, 0.5),
+"times": PackedFloat32Array(0.025, 0.075, 0.125, 0.175, 0.225, 0.275, 0.325, 0.375),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 8]
@@ -317,14 +316,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Hitbox:enabled")
+tracks/1/path = NodePath("Sprite2D/HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.133333, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.025, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_abmm1"]
@@ -399,8 +398,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="attack" type="AnimatedSprite2D" parent="Sprite2D/HitBox"]
-position = Vector2(155.532, -38.4446)
-scale = Vector2(1.75351, 2.57778)
+position = Vector2(202.903, -49.2334)
+scale = Vector2(2.4937, 2.74635)
 sprite_frames = SubResource("SpriteFrames_te3c0")
 animation = &"attack"
 frame = 8
@@ -409,14 +408,7 @@ frame = 8
 position = Vector2(208.333, -54.1667)
 scale = Vector2(1.5, 2)
 shape = SubResource("CircleShape2D_w3rgh")
-
-[node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
-visible = false
-position = Vector2(45.8333, -41.6667)
-scale = Vector2(2.29367, 16.3986)
-shape = SubResource("RectangleShape2D_uo3at")
-target_position = Vector2(86, 0)
-collision_mask = 12
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -467,6 +459,7 @@ shape = SubResource("RectangleShape2D_gm8rw")
 
 [node name="grappleController" parent="." instance=ExtResource("11_3tx1o")]
 
+[connection signal="area_entered" from="Sprite2D/HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Sprite2D/HitBox/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="body_entered" from="TrapHitbox" to="." method="_on_trap_hitbox_body_entered"]
