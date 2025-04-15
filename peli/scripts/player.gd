@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
-const ACCELERATION = 40
+const ACCELERATION = 50
 
 var hp = 5
 var took_damage = false
