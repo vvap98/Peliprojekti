@@ -32,15 +32,6 @@ func shoot():
 	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
 
-#func checkHp():
-#	if hp <= 0:
-#		enemyDeath()
-
-func getDamaged():
-	animation_player.play("damage")
-	hp = hp - 1
-	print(hp)
-	
 func getKnockedBack():
 	pass
 

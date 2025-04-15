@@ -6,7 +6,6 @@ const SPEED = 100
 var direction = 1
 var playerchase = false
 
-var hp = 3
 var ogposition
 
 var knockback = Vector2.ZERO
@@ -57,9 +56,6 @@ func _physics_process(_delta: float) -> void:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
 	move_and_slide()
 
-func _process(_delta: float) -> void:
-	checkHp()
-
 func pathSetup():
 	await get_tree().physics_frame
 	nav_agent.target_position = player.global_position 
@@ -76,10 +72,6 @@ func _on_detection_zone_body_exited(body) -> void:
 func makePath() -> void:
 	nav_agent.target_position = player.global_position 
 	print(nav_agent.target_position)
-
-func checkHp():
-	if hp <= 0:
-		enemyDeath()
 
 func playDamageAnimation():
 	hit_flash_player.play("damage")	

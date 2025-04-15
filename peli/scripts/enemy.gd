@@ -44,18 +44,6 @@ func platformEdge():
 		dir = -dir
 		ray_cast_edge.position.x *= -1
 
-#func checkHp():
-#	if hp <= 0:
-#		enemyDeath()
-
-#func getDamaged():
-#	animation_player.play("damage")
-#	hp = hp - 1
-#	print(hp)
-#	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
-#		knockback = dir * knockbackforce
-#	else: knockback = -dir * knockbackforce
-#	checkHp()
 func playDamageAnimation():
 	animation_player.play("damage")
 
