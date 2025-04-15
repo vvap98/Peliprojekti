@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=53 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -177,8 +177,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_01n64"]
 atlas = ExtResource("4_bfwpn")
 region = Rect2(0, 0, 128, 128)
@@ -246,6 +244,11 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3rgh"]
+radius = 91.6667
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
+
 [sub_resource type="Animation" id="Animation_tjg8t"]
 length = 0.001
 tracks/0/type = "value"
@@ -263,7 +266,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = false
-tracks/1/path = NodePath("Sprite2D/Hitbox/attack:frame")
+tracks/1/path = NodePath("Sprite2D/HitBox/attack:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -302,7 +305,7 @@ resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/Hitbox/attack:frame")
+tracks/0/path = NodePath("Sprite2D/HitBox/attack:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -386,23 +389,34 @@ scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_784si")
 animation = &"Run"
 
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+scale = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="AttackTimer" type="Timer" parent="Sprite2D/HitBox"]
+wait_time = 0.5
+one_shot = true
+
+[node name="attack" type="AnimatedSprite2D" parent="Sprite2D/HitBox"]
+position = Vector2(155.532, -38.4446)
+scale = Vector2(1.75351, 2.57778)
+sprite_frames = SubResource("SpriteFrames_te3c0")
+animation = &"attack"
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(208.333, -54.1667)
+scale = Vector2(1.5, 2)
+shape = SubResource("CircleShape2D_w3rgh")
+
 [node name="Hitbox" type="ShapeCast2D" parent="Sprite2D"]
+visible = false
 position = Vector2(45.8333, -41.6667)
 scale = Vector2(2.29367, 16.3986)
 shape = SubResource("RectangleShape2D_uo3at")
 target_position = Vector2(86, 0)
 collision_mask = 12
-
-[node name="AttackTimer" type="Timer" parent="Sprite2D/Hitbox"]
-wait_time = 0.5
-one_shot = true
-
-[node name="attack" type="AnimatedSprite2D" parent="Sprite2D/Hitbox"]
-position = Vector2(47.8265, 0.196488)
-scale = Vector2(0.7645, 0.157195)
-sprite_frames = SubResource("SpriteFrames_te3c0")
-animation = &"attack"
-frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -453,6 +467,6 @@ shape = SubResource("RectangleShape2D_gm8rw")
 
 [node name="grappleController" parent="." instance=ExtResource("11_3tx1o")]
 
-[connection signal="timeout" from="Sprite2D/Hitbox/AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Sprite2D/HitBox/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="body_entered" from="TrapHitbox" to="." method="_on_trap_hitbox_body_entered"]

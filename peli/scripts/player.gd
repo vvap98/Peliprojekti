@@ -20,8 +20,8 @@ var last_direction = 1
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 #@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
-@onready var cooldowntimer: Timer = $Sprite2D/Hitbox/AttackTimer
-@onready var hitbox: ShapeCast2D = $Sprite2D/Hitbox
+@onready var cooldowntimer: Timer = $Sprite2D/HitBox/AttackTimer
+@onready var hitbox: Area2D = $Sprite2D/HitBox
 @onready var health_bar: ProgressBar = $healthBar
 
 @onready var hit_player: AudioStreamPlayer2D = $HitPlayer
@@ -35,7 +35,7 @@ var last_direction = 1
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
 @onready var coyote_timer: Timer = $CoyoteTimer
-@onready var attack: AnimatedSprite2D = $Sprite2D/Hitbox/attack #väliaikainen hyökkäysanimaatio
+@onready var attack: AnimatedSprite2D = $Sprite2D/HitBox/attack
 @onready var player: CharacterBody2D = $"."
 @onready var trap_hitbox: Area2D = $TrapHitbox
 
@@ -123,13 +123,15 @@ func _physics_process(delta: float) -> void:
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
-		if hitbox.is_colliding():
-			for i in hitbox.get_collision_count():
-				var body = hitbox.get_collider(i)
-				if body.is_in_group("enemy"):
-					print("enemy damaged")
-					hit_player.play()
-					body.getDamaged()
+		var body_array = hitbox.get_overlapping_bodies()
+		if hitbox.has_overlapping_bodies():
+			for i in body_array:
+				print(body_array)
+				#var body = body_array[i]
+				#if body.is_in_group("enemy"):
+					#print("enemy damaged")
+					#hit_player.play()
+					#body.getDamaged()
 				
 
 func _on_attack_timer_timeout() -> void:

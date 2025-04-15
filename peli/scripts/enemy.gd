@@ -41,9 +41,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _process(_delta: float) -> void:
-	checkHp() 
-
 func platformEdge():
 	if !ray_cast_edge.is_colliding():
 		dir = -dir
@@ -57,6 +54,12 @@ func getDamaged():
 	animation_player.play("damage")
 	hp = hp - 1
 	print(hp)
+	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
+		knockback = dir * knockbackforce
+	else: knockback = -dir * knockbackforce
+	checkHp()
+	
+func getKnockedBack():
 	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
 		knockback = dir * knockbackforce
 	else: knockback = -dir * knockbackforce

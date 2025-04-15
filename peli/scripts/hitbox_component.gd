@@ -4,4 +4,4 @@ extends Area2D
 
 func damage():
 	if health_component:
-		health_component.damage()
+		health_component.getDamaged()
