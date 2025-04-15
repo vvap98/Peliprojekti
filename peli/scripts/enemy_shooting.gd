@@ -19,8 +19,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _process(_delta: float) -> void:
-	checkHp()
 	
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
@@ -34,20 +32,20 @@ func shoot():
 	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
 
-func checkHp():
-	if hp <= 0:
-		enemyDeath()
+#func checkHp():
+#	if hp <= 0:
+#		enemyDeath()
 
 func getDamaged():
 	animation_player.play("damage")
 	hp = hp - 1
 	print(hp)
 	
-func enemyDeath():
-	print("ded")
-	# self.visible = false
-	# self.set_deferred("monitoring", false)
-	queue_free()
+func getKnockedBack():
+	pass
+
+func playDamageAnimation():
+	animation_player.play("damage")
 
 func _on_timer_timeout() -> void:
 	if playerchase:
