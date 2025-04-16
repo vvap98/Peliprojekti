@@ -1,13 +1,11 @@
 extends Node2D
-#TODO korjaa miten dash käyttäytyy jos liikkuu samalla
+#TODO lisää cooldown
 @onready var player: CharacterBody2D = get_parent()
-#@onready var playerSprite: Sprite2D =  player.get_child(0) #Viite pelaajan spriteen TODO korjaa paremmaksi
 @onready var playerSprite: AnimatedSprite2D = player.get_child(0)
 @onready var dashTimer: Timer = $dashTimer #timer dashille
 @onready var dashAnimationTimer: Timer = $dashAnimationTimer #timer dashin animaatiolle
 var dashing = false #onko dash käynnissä
-var dashMultiplier = 3 #arvo millä pelaajan liike kerrotaan dashin aikana. 
-var dashSpeed = 300.0
+var dashSpeed = 900.0
 var dashCount = 2
 
 # Called when the node enters the scene tree for the first time.
@@ -17,9 +15,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	#print(player.direction)
-	if dashing: dash()
-	if Input.is_action_just_pressed("dash") and not dashing:
+	if dashing: 
+		dash()
+	if Input.is_action_just_pressed("dashLeft") or Input.is_action_just_pressed("dashRight") and not dashing:
+		if Input.is_action_just_pressed("dashLeft"): dashSpeed = -abs(dashSpeed)
+		if Input.is_action_just_pressed("dashRight"): dashSpeed = abs(dashSpeed)
 		if dashCount > 0:
 			handleDash()
 			dashCount = dashCount - 1
@@ -48,28 +48,12 @@ func playDashAnimation():
 
 #Varsinainen dashin liike tapahtuu tässä
 func dash():
-	var input_dir = Vector2.ZERO
-	
-	# Tarkistetaan pelaajan syötteet ja asetetaan suunta
-	if Input.is_action_pressed("moveRight"):
-		input_dir.x += 1
-	if Input.is_action_pressed("moveLeft"):
-		input_dir.x -= 1
-	if Input.is_action_pressed("jump"):
-		input_dir.y -= 1
-	else: input_dir.x = player.last_direction #jos ei paineta mitään suuntaa niin dashataan eteenpäin
-
-	if input_dir != Vector2.ZERO:
-		input_dir = input_dir.normalized()
-		input_dir.y *= 0.5 #rajoitetaan liiketta y-akselilla
-	
-	# Pelaajan nopeus dashin aikana
-	player.velocity = input_dir * dashSpeed * dashMultiplier
+	player.velocity.x = dashSpeed
+	player.velocity.y = 0
 
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
-	player.velocity.x = lerp(player.velocity.x, 0.0, 0.5)
 	dashAnimationTimer.stop()
 
 

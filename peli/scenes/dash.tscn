@@ -6,7 +6,7 @@
 script = ExtResource("1_46j17")
 
 [node name="dashTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.265
 one_shot = true
 
 [node name="dashAnimationTimer" type="Timer" parent="."]
