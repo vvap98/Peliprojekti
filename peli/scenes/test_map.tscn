@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=18 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="6_ypgh8"]
 [ext_resource type="PackedScene" uid="uid://bmc6fh37iw580" path="res://scenes/powerup.tscn" id="7_bgj7e"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="11_gsb4w"]
+[ext_resource type="PackedScene" uid="uid://bwkn2dtn7hmlt" path="res://scenes/spike_ball.tscn" id="13_am6ms"]
 [ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="13_x7edu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]
@@ -411,3 +412,6 @@ position = Vector2(-456, 581)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_x7edu")]
 visible = false
+
+[node name="Spikeball" parent="." instance=ExtResource("13_am6ms")]
+position = Vector2(381, -215)

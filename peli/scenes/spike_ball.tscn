@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwkn2dtn7hmlt"]
+
+[ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_ctnwc"]
+
+[sub_resource type="Gradient" id="Gradient_lafk7"]
+offsets = PackedFloat32Array(0.980769, 0.992308, 0.996154, 1)
+colors = PackedColorArray(0.619608, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m36ag"]
+gradient = SubResource("Gradient_lafk7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.85, 0.85)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqqyj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgikg"]
+
+[node name="Spikeball" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.320313, 0.320313)
+texture = SubResource("GradientTexture2D_m36ag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cqqyj")
+
+[node name="Killzone" parent="." instance=ExtResource("1_ctnwc")]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_tgikg")
