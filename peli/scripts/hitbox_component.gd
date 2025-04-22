@@ -7,3 +7,5 @@ func damage():
 	if health_component:
 		print("yes health component :)")
 		health_component.getDamaged()
+	else:
+		get_parent().getDamaged()

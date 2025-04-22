@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://rigbp1e0xb46"]
+[gd_scene load_steps=6 format=3 uid="uid://rigbp1e0xb46"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_byw55"]
-[ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_x7hql"]
 [ext_resource type="Texture2D" uid="uid://datclo5mhvtuh" path="res://assets/sprites/vihudebug.png" id="2_3oqvp"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3r0ql"]
-radius = 8.0
+[ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="4_ajrac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8dlp"]
 radius = 3.0
@@ -22,14 +19,6 @@ texture_filter = 1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_3oqvp")
 
-[node name="Killzone" parent="." instance=ExtResource("1_x7hql")]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-z_index = 1
-shape = SubResource("CircleShape2D_3r0ql")
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 6
@@ -41,9 +30,17 @@ shape = SubResource("CircleShape2D_w8dlp")
 wait_time = 3.0
 autostart = true
 
-[node name="ParryBox" type="CollisionShape2D" parent="."]
+[node name="HitboxComponent" parent="." instance=ExtResource("4_ajrac")]
+collision_layer = 8
+collision_mask = 0
+
+[node name="ParryBox" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_kfkal")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kfkal")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

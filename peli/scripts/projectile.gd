@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 
+@onready var hurtbox: Area2D = $HitboxComponent
+
 var dir : float
 var spawnPos : Vector2
 var spawnRot : float
@@ -35,3 +37,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_hitbox_component_area_entered(area: Area2D) -> void:
+	if area.is_in_group("hurtbox"):
+		print("enemy damaged")
+		area.damage()

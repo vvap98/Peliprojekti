@@ -157,6 +157,7 @@ func getDamaged():
 		hp = hp - 1
 		health_bar._set_health(hp)
 		print(hp)
+		checkHP()
 
 #alustaa scenen pelaajan kuollessa
 func playerDeath():
