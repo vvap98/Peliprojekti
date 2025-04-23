@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=21 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="13_x7edu"]
 [ext_resource type="PackedScene" uid="uid://biy3p64fg2oao" path="res://scenes/switch.tscn" id="14_ay6r4"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="15_0i7y2"]
+[ext_resource type="PackedScene" path="res://scenes/box.tscn" id="16_nqty1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]
 texture = ExtResource("1_5rohc")
@@ -433,3 +434,6 @@ buttons = 1
 [node name="EnemyShooting2" parent="." instance=ExtResource("11_gsb4w")]
 position = Vector2(49, -31)
 ground = false
+
+[node name="Box" parent="." instance=ExtResource("16_nqty1")]
+position = Vector2(540, -134)
