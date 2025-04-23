@@ -240,7 +240,7 @@ texture = ExtResource("5_wsjpg")
 3:5/0 = 0
 3:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
-4:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -4.75, 8, -4.625, 8, 8, -8, 8)
 5:5/0 = 0
 6:5/0 = 0
 7:5/0 = 0
@@ -571,6 +571,10 @@ zoom = Vector2(1.7, 1.7)
 position_smoothing_enabled = true
 
 [node name="healthBar" parent="Player" instance=ExtResource("2_1il2f")]
+offset_left = -317.0
+offset_top = 148.0
+offset_right = -94.0
+offset_bottom = 178.0
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("3_w1sb2")
@@ -723,7 +727,8 @@ position = Vector2(4234, -839)
 
 [node name="EnemyShooting2" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(4572, -553)
-rotation = 3.14159
+motion_mode = 1
+ground = false
 
 [node name="EnemyShooting3" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(5108, -215)
@@ -766,9 +771,10 @@ visible = false
 position = Vector2(11018, -2256)
 
 [node name="EnemyShooting8" parent="Enemies" instance=ExtResource("10_ut0g5")]
-visible = false
 position = Vector2(11012, -2448)
 rotation = -3.14159
+motion_mode = 1
+ground = false
 
 [node name="EnemyShooting9" parent="Enemies" instance=ExtResource("10_ut0g5")]
 visible = false
