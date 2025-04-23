@@ -3,9 +3,9 @@ extends Area2D
 @export var gate : unlockableGate
 
 func _on_body_entered(body: Node2D) -> void:
-	if gate:
-		print("gate disabled!")
-		gate.visible = false
-		gate.set_deferred("monitoring", false)
-		gate.get_node("CollisionShape2D").set_deferred("disabled", true)
-		print(gate.get_node("CollisionShape2D"))
+	if gate and gate.buttons != 0:
+		gate.buttons = gate.buttons - 1
+		print("gate has ", gate.buttons, "buttons left!")
+		if gate.buttons == 0:
+			self.scale = Vector2(1, 0.5)
+			self.get_node("CollisionShape2D").set_deferred("disabled", true)
