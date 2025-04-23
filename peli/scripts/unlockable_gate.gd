@@ -1,3 +1,3 @@
-extends Area2D
+extends StaticBody2D
 
 class_name unlockableGate
