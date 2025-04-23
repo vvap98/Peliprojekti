@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var ground = true
 
 var hp = 4
 #@onready var world = get_tree().get_root().get_node("world")
@@ -12,8 +13,10 @@ var playerchase = false
 var player
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
+	if ground and not is_on_floor():
 		velocity += get_gravity() * delta
+	if not ground and not is_on_ceiling():
+		velocity -= get_gravity() * delta 
 	if playerchase:
 		sprite_2d.look_at(player.global_position)
 	
@@ -23,12 +26,18 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
 	player = get_tree().get_first_node_in_group("player")
+	if !ground:
+		self.rotation_degrees = 180
 
 func shoot():
 	var instance = projectile.instantiate()
-	instance.dir = sprite_2d.rotation + PI/2
+	if ground: 
+		instance.dir = sprite_2d.rotation + PI/2
+		instance.spawnRot = sprite_2d.rotation + PI/2
+	else:
+		instance.dir = sprite_2d.rotation - PI/2
+		instance.spawnRot = sprite_2d.rotation - PI/2
 	instance.spawnPos = sprite_2d.global_position
-	instance.spawnRot = sprite_2d.rotation + PI/2
 	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
 

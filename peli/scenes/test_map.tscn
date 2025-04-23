@@ -429,3 +429,7 @@ gate = NodePath("../UnlockableGate")
 [node name="UnlockableGate" parent="." instance=ExtResource("15_0i7y2")]
 position = Vector2(587, -51)
 buttons = 1
+
+[node name="EnemyShooting2" parent="." instance=ExtResource("11_gsb4w")]
+position = Vector2(49, -31)
+ground = false
