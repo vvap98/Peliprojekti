@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=20 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="11_gsb4w"]
 [ext_resource type="PackedScene" uid="uid://bwkn2dtn7hmlt" path="res://scenes/spike_ball.tscn" id="13_am6ms"]
 [ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="13_x7edu"]
+[ext_resource type="PackedScene" uid="uid://biy3p64fg2oao" path="res://scenes/switch.tscn" id="14_ay6r4"]
+[ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="15_0i7y2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]
 texture = ExtResource("1_5rohc")
@@ -419,3 +421,10 @@ visible = false
 
 [node name="Spikeball" parent="." instance=ExtResource("13_am6ms")]
 position = Vector2(381, -215)
+
+[node name="Switch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("14_ay6r4")]
+position = Vector2(417, -12)
+gate = NodePath("../UnlockableGate")
+
+[node name="UnlockableGate" parent="." instance=ExtResource("15_0i7y2")]
+position = Vector2(587, -51)

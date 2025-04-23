@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ij3mxtnfp51"]
+
+[ext_resource type="Texture2D" uid="uid://dqjcadj5xcxjp" path="res://assets/icon.svg" id="1_7lenx"]
+[ext_resource type="Script" path="res://scripts/unlockable_gate.gd" id="1_35mqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw8e7"]
+size = Vector2(20, 102)
+
+[node name="UnlockableGate" type="Area2D"]
+script = ExtResource("1_35mqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.42109e-14, 0)
+scale = Vector2(0.15625, 0.794922)
+texture = ExtResource("1_7lenx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jw8e7")
