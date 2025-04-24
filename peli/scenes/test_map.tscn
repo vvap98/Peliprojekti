@@ -447,5 +447,5 @@ position = Vector2(76, -50)
 buttons = 1
 
 [node name="HoldableSwitch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("18_kamku")]
-position = Vector2(162, -12)
+position = Vector2(493, -12)
 gate = NodePath("../UnlockableGate2")

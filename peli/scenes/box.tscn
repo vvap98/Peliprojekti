@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1c15biyt3f40"]
+[gd_scene load_steps=3 format=3 uid="uid://buinumhq4clql"]
 
-[ext_resource type="Texture2D" uid="uid://dx6adbwabot7d" path="res://assets/sprites/box.png" id="1_ffdg8"]
+[ext_resource type="Texture2D" uid="uid://bka4sboknrmfy" path="res://assets/sprites/box.png" id="1_ffdg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alp31"]
 
