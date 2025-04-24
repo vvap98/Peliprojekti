@@ -8,9 +8,9 @@ var world
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		spawn_spike()
+#func _on_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+	#spawn_spike()
 
 func spawn_spike():
 	var instance = spikeball.instantiate()
