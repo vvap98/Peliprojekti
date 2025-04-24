@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=23 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="15_0i7y2"]
 [ext_resource type="PackedScene" uid="uid://dcs1bm32jex38" path="res://scenes/spike_trap.tscn" id="16_eakv8"]
 [ext_resource type="PackedScene" path="res://scenes/box.tscn" id="16_nqty1"]
+[ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="18_kamku"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]
 texture = ExtResource("1_5rohc")
@@ -440,3 +441,11 @@ position = Vector2(1232, -204)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_am6ms")]
 position = Vector2(187, -275)
+
+[node name="UnlockableGate2" parent="." instance=ExtResource("15_0i7y2")]
+position = Vector2(76, -50)
+buttons = 1
+
+[node name="HoldableSwitch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("18_kamku")]
+position = Vector2(162, -12)
+gate = NodePath("../UnlockableGate2")
