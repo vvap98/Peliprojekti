@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="6_a4128"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" uid="uid://d1abmggqdl3yb" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -797,6 +797,7 @@ position = Vector2(10133, -2663)
 
 [node name="UnlockableGate" parent="." instance=ExtResource("12_73hnm")]
 position = Vector2(8533, -450)
+buttons = 1
 
 [node name="Switch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
 position = Vector2(8436, -1335)

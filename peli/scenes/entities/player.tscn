@@ -13,9 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="11_3tx1o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
+render_priority = 0
 shader = ExtResource("2_8ho0w")
-shader_parameter/flash_color = Color(0.647059, 0, 0, 0.588235)
-shader_parameter/flash_value = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
 atlas = ExtResource("2_yu7fv")
