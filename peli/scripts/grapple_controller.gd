@@ -63,6 +63,7 @@ func grappleLaunch():
 			var body = shape.get_collider(i)
 			if body.is_in_group("spiketrap"):
 				grappleRetract()
+				body.spawn_spike()
 				print("spiketrap found")
 				
 #Tarttumisköyden irroitus.
