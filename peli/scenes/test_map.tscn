@@ -432,8 +432,11 @@ buttons = 1
 [node name="Box" parent="." instance=ExtResource("16_nqty1")]
 position = Vector2(540, -134)
 
+[node name="SpikeTrap2" parent="." instance=ExtResource("16_eakv8")]
+position = Vector2(1256, -204)
+
 [node name="SpikeTrap" parent="." instance=ExtResource("16_eakv8")]
-position = Vector2(129, -52)
+position = Vector2(1232, -204)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_am6ms")]
 position = Vector2(187, -275)

@@ -8,6 +8,7 @@ extends Node2D
 @onready var player := get_parent()
 @onready var ray := $RayCast2D #Tarttumisköyden raycast
 @onready var rope := $Line2D #Piirrettävä tarttumisköysi
+@onready var shape : ShapeCast2D = $ShapeCast2D
 
 @onready var attach_player: AudioStreamPlayer2D = $AttachPlayer
 @onready var detach_player: AudioStreamPlayer2D = $DetachPlayer
@@ -19,6 +20,7 @@ var crosshair_position: Vector2 # Tähtäimen sijainti
 
 func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position()) #tähtää muuttujan "ray" hiiren osoittamaan kohtaan
+	shape.look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("grapple"):
 		grappleLaunch()
@@ -55,7 +57,14 @@ func grappleLaunch():
 		launched = true
 		target = ray.get_collision_point()
 		rope.show()
-		
+	if shape.is_colliding:
+		print(shape.get_collision_count())
+		for i in shape.get_collision_count():
+			var body = shape.get_collider(i)
+			if body.is_in_group("spiketrap"):
+				grappleRetract()
+				print("spiketrap found")
+				
 #Tarttumisköyden irroitus.
 func grappleRetract():
 	detach_player.play()
