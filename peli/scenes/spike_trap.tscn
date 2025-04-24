@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcs1bm32jex38"]
+
+[ext_resource type="Script" path="res://scripts/spike_trap.gd" id="1_it8g6"]
+
+[sub_resource type="Gradient" id="Gradient_nnqw1"]
+offsets = PackedFloat32Array(0.992727, 1)
+colors = PackedColorArray(0.662745, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_naldk"]
+gradient = SubResource("Gradient_nnqw1")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1aj5"]
+size = Vector2(22, 22)
+
+[node name="SpikeTrap" type="Area2D"]
+collision_layer = 0
+collision_mask = 34
+script = ExtResource("1_it8g6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -5.96046e-08)
+scale = Vector2(0.365, 0.365)
+texture = SubResource("GradientTexture2D_naldk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b1aj5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

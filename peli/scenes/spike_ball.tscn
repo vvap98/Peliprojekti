@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwkn2dtn7hmlt"]
+[gd_scene load_steps=7 format=3 uid="uid://bwkn2dtn7hmlt"]
 
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_ctnwc"]
+[ext_resource type="Script" path="res://scripts/spike_ball.gd" id="1_m7yln"]
 
 [sub_resource type="Gradient" id="Gradient_lafk7"]
 offsets = PackedFloat32Array(0.980769, 0.992308, 0.996154, 1)
@@ -16,8 +17,9 @@ fill_to = Vector2(0.85, 0.85)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgikg"]
 
-[node name="Spikeball" type="RigidBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 0
+script = ExtResource("1_m7yln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
