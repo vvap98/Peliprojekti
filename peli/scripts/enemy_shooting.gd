@@ -7,6 +7,9 @@ var hp = 4
 @onready var projectile = load("res://scenes/projectile.tscn")
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var death_player: AudioStreamPlayer2D = $DeathPlayer
+@onready var death_timer: Timer = $DeathTimer
+@onready var detect_shape: CollisionShape2D = $DetectionZone/CollisionShape2D
 
 var world
 var playerchase = false
@@ -43,6 +46,15 @@ func shoot():
 
 func getKnockedBack():
 	pass
+	
+func death():
+	print("Enemy killed")
+	# self.visible = false
+	# self.set_deferred("monitoring", false)
+	detect_shape.set_deferred("disabled", true)
+	death_timer.start()
+	death_player.play()
+
 
 func playDamageAnimation():
 	animation_player.play("damage")
@@ -60,3 +72,7 @@ func _on_detection_zone_body_entered(body: Node2D) -> void:
 func _on_detection_zone_body_exited(body: Node2D) -> void:
 	if body == player:
 		playerchase = false
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

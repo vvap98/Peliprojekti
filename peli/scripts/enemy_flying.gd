@@ -79,11 +79,12 @@ func playDamageAnimation():
 func getKnockedBack():
 	knockback = -dir * knockbackforce
 
-func enemyDeath():
-	print("ded")
+func death():
+	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
 	queue_free()
+
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:

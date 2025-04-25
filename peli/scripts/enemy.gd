@@ -47,6 +47,14 @@ func platformEdge():
 func playDamageAnimation():
 	animation_player.play("damage")
 
+func death():
+	print("Enemy killed")
+	# self.visible = false
+	# self.set_deferred("monitoring", false)
+
+	queue_free()
+
+
 func getKnockedBack():
 	if (player.global_position.x < global_position.x and dir.x > 0) or (player.global_position.x > global_position.x and dir.x < 0):
 		knockback = dir * knockbackforce

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yjc3ca4ynqds"
+path="res://.godot/imported/kukkatuhoutuminen .wav-068b947cf3c19882043cbcbafd2a45b6.sample"
+
+[deps]
+
+source_file="res://assets/sfx/kukkatuhoutuminen .wav"
+dest_files=["res://.godot/imported/kukkatuhoutuminen .wav-068b947cf3c19882043cbcbafd2a45b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
