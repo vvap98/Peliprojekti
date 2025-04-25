@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fhmjrqj77d30"]
+[gd_scene load_steps=18 format=3 uid="uid://fhmjrqj77d30"]
 
 [ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://kvm8sd5htcax" path="res://assets/sprites/Lentävä_vihollinen_proto_sheet.png" id="3_n0jtk"]
 [ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="5_ka4bm"]
 [ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="6_iekno"]
+[ext_resource type="AudioStream" uid="uid://cl1dvue8qrwsh" path="res://assets/sfx/lentovihun_lentoääniä.wav" id="7_foici"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6e6l"]
 resource_local_to_scene = true
+render_priority = 0
 shader = ExtResource("2_fg54v")
-shader_parameter/flash_color = Color(0.878431, 0, 0, 0.588235)
-shader_parameter/flash_value = null
 
 [sub_resource type="Animation" id="Animation_4boys"]
 length = 0.001
@@ -171,6 +171,10 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ra5xv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="FlyPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_foici")
+volume_db = -8.733
 
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]

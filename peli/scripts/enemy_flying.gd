@@ -17,6 +17,7 @@ var new_velocity : Vector2
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hit_flash_player: AnimationPlayer = $Sprite2D/HitFlashPlayer
+@onready var fly_player: AudioStreamPlayer2D = $FlyPlayer
 
 var player # = null
 func _ready():
@@ -63,10 +64,12 @@ func pathSetup():
 func _on_detection_zone_body_entered(body) -> void:
 	#player = body
 	if body == player:
+		fly_player.play()
 		playerchase = true
 
 func _on_detection_zone_body_exited(body) -> void:
 	if body == player:
+		fly_player.stop()
 		playerchase = false
 	
 func makePath() -> void:

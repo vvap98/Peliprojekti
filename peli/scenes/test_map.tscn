@@ -447,7 +447,7 @@ position = Vector2(1232, -204)
 position = Vector2(187, -275)
 
 [node name="UnlockableGate2" parent="." instance=ExtResource("15_0i7y2")]
-position = Vector2(83, -61)
+position = Vector2(136, -236)
 buttons = 1
 
 [node name="HoldableSwitch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("18_kamku")]
