@@ -466,6 +466,7 @@ position = Vector2(-5.96046e-08, -6)
 scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_784si")
 animation = &"Jump"
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")

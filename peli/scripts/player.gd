@@ -54,9 +54,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		#grapple.grappleRetract()
+		animatedSprite_2d.play("Jump")
 		sfx_player.play()
 		coyote_timer.stop()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
+		animatedSprite_2d.play("Jump")
 		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
 		has_double_jumped = true
