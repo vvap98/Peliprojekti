@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 func checkHp():
 	if hp <= 0:
-		death()
+		get_parent().death()
 
 func getDamaged():
 	hp = hp - 1
@@ -25,9 +25,3 @@ func getDamaged():
 	get_parent().playDamageAnimation()
 	get_parent().getKnockedBack()
 	checkHp()
-
-func death():
-	print("Enemy killed")
-	# self.visible = false
-	# self.set_deferred("monitoring", false)
-	get_parent().queue_free()
