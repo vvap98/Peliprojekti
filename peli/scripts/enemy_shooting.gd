@@ -54,6 +54,7 @@ func death():
 	detect_shape.set_deferred("disabled", true)
 	death_timer.start()
 	death_player.play()
+	animation_player.play("death")
 
 
 func playDamageAnimation():
