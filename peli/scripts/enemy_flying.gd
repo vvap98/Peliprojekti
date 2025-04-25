@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # TODO bugi: vihu jää jumiin kulmiin
 
-const SPEED = 100
+var speed = 100
 var direction = 1
 var playerchase = false
 
@@ -18,6 +18,8 @@ var new_velocity : Vector2
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hit_flash_player: AnimationPlayer = $Sprite2D/HitFlashPlayer
 @onready var fly_player: AudioStreamPlayer2D = $FlyPlayer
+@onready var death_player: AudioStreamPlayer2D = $DeathPlayer
+@onready var death_timer: Timer = $DeathTimer
 
 var player # = null
 func _ready():
@@ -37,14 +39,14 @@ func _physics_process(_delta: float) -> void:
 		nav_agent.target_position = player.global_position 
 		var next_path_pos = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
-		new_velocity = dir * SPEED + knockback
+		new_velocity = dir * speed + knockback
 	#print(player.global_position)
 	#print(dir)
 	else:
 		nav_agent.target_position = ogposition
 		var next_path_pos = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
-		new_velocity = dir * SPEED + knockback
+		new_velocity = dir * speed + knockback
 	#lif position != ogposition:
 	#	position += (ogposition - position).normalized() * SPEED
 		#position.x += direction * SPEED * delta
@@ -86,9 +88,16 @@ func death():
 	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
-	queue_free()
+	speed = 0
+	animation_player.play("death")
+	death_timer.start()
+	death_player.play()
 
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
