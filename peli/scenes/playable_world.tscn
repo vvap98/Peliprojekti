@@ -861,20 +861,16 @@ position = Vector2(3725, -864)
 
 [node name="EnemyShooting" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(4234, -839)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting2" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(4572, -553)
-scale = Vector2(1, 1)
 ground = false
 
 [node name="EnemyShooting3" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(5108, -215)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting4" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(5779, -214)
-scale = Vector2(1, 1)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("8_ry65y")]
 position = Vector2(6004, -285)
@@ -896,31 +892,26 @@ position = Vector2(10834, -830)
 
 [node name="EnemyShooting5" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(9839, -2036)
-scale = Vector2(1, 1)
 
 [node name="Enemy9" parent="Enemies" instance=ExtResource("8_ry65y")]
 position = Vector2(8928, -380)
 
 [node name="EnemyShooting6" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(10490, -2253)
-scale = Vector2(1, 1)
 
 [node name="Enemy10" parent="Enemies" instance=ExtResource("8_ry65y")]
 position = Vector2(10728, -407)
 
 [node name="EnemyShooting7" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(11018, -2256)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting8" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(11012, -2448)
 rotation = -3.14159
-scale = Vector2(1, 1)
 ground = false
 
 [node name="EnemyShooting9" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(11303, -2473)
-scale = Vector2(1, 1)
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource("8_ry65y")]
 position = Vector2(11765, -2352)
@@ -939,23 +930,18 @@ position = Vector2(10133, -2663)
 
 [node name="EnemyShooting10" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(12193, -2255)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting11" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(12003, -1415)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting12" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(11136, 120)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting13" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(10944, 504)
-scale = Vector2(1, 1)
 
 [node name="EnemyShooting14" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(10730, 698)
-scale = Vector2(1, 1)
 
 [node name="SpikeTrap" parent="Enemies" instance=ExtResource("13_v1qir")]
 position = Vector2(11196, -3492)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5c3keby6mp81"]
+[gd_scene load_steps=19 format=3 uid="uid://b5c3keby6mp81"]
 
 [ext_resource type="Script" path="res://scripts/enemy_shooting.gd" id="1_et50h"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_lmcs8"]
@@ -80,6 +80,9 @@ _data = {
 "death": SubResource("Animation_vt6hp")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oqrf2"]
+streams_count = 3
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rke0y"]
 size = Vector2(29, 42)
 
@@ -121,6 +124,7 @@ texture = ExtResource("6_bvdx1")
 stream = ExtResource("9_crphh")
 
 [node name="ShootPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_oqrf2")
 
 [node name="ShootTimer" type="Timer" parent="."]
 autostart = true

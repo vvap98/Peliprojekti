@@ -422,16 +422,20 @@ position = Vector2(-456, 581)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_x7edu")]
 visible = false
 
+[node name="Switch2" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("14_ay6r4")]
+position = Vector2(454, -13)
+gate = NodePath("../UnlockableGate")
+
 [node name="Switch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("14_ay6r4")]
 position = Vector2(417, -12)
 gate = NodePath("../UnlockableGate")
 
 [node name="UnlockableGate" parent="." instance=ExtResource("15_0i7y2")]
 position = Vector2(587, -51)
-buttons = 1
+buttons = 2
 
 [node name="Box" parent="." instance=ExtResource("16_nqty1")]
-position = Vector2(364, -25)
+position = Vector2(188, -28)
 
 [node name="SpikeTrap2" parent="." instance=ExtResource("16_eakv8")]
 position = Vector2(1256, -204)
@@ -447,5 +451,5 @@ position = Vector2(83, -61)
 buttons = 1
 
 [node name="HoldableSwitch" parent="." node_paths=PackedStringArray("gate") instance=ExtResource("18_kamku")]
-position = Vector2(493, -12)
+position = Vector2(529, -11)
 gate = NodePath("../UnlockableGate2")
