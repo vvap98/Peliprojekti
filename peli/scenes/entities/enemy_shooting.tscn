@@ -15,8 +15,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljf6d"]
 resource_local_to_scene = true
-render_priority = 0
 shader = ExtResource("2_7daid")
+shader_parameter/flash_color = Color(0.827451, 0, 0, 1)
+shader_parameter/flash_value = null
 
 [sub_resource type="Animation" id="Animation_4boys"]
 length = 0.001

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=50 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -11,10 +11,12 @@
 [ext_resource type="AudioStream" uid="uid://c87bal28sdn6p" path="res://assets/sfx/miekka_huitaisu_uusi.wav" id="8_nshpn"]
 [ext_resource type="AudioStream" uid="uid://bitjdjkoyvo3y" path="res://assets/sfx/hahmo_hyppy_maahantulo.wav" id="9_pb7cs"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="11_3tx1o"]
+[ext_resource type="Texture2D" uid="uid://72l587lewfre" path="res://assets/sprites/Miekka_sprite_sheet.png" id="12_jho7g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
-render_priority = 0
 shader = ExtResource("2_8ho0w")
+shader_parameter/flash_color = null
+shader_parameter/flash_value = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
 atlas = ExtResource("2_yu7fv")
@@ -304,67 +306,43 @@ size = Vector2(26, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm8rw"]
 size = Vector2(26, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_01n64"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoi6x"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k2rj8"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_76y5u"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ntvjs"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_etuw5"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixf6w"]
-atlas = ExtResource("4_bfwpn")
-region = Rect2(384, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0tk1"]
 atlas = ExtResource("4_bfwpn")
 region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kom7w"]
+atlas = ExtResource("12_jho7g")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8gly"]
+atlas = ExtResource("12_jho7g")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cua4f"]
+atlas = ExtResource("12_jho7g")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_157ct"]
+atlas = ExtResource("12_jho7g")
+region = Rect2(1536, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_te3c0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_01n64")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eoi6x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k2rj8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_76y5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ntvjs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_etuw5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ixf6w")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_s0tk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kom7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8gly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cua4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_157ct")
 }],
 "loop": false,
 "name": &"attack",
@@ -452,7 +430,7 @@ position = Vector2(200, 1.90735e-06)
 scale = Vector2(2.4937, 2.74635)
 sprite_frames = SubResource("SpriteFrames_te3c0")
 animation = &"attack"
-frame = 8
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(200, 9.53674e-07)
