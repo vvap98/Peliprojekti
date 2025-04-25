@@ -10,6 +10,7 @@ var hp = 4
 @onready var death_player: AudioStreamPlayer2D = $DeathPlayer
 @onready var death_timer: Timer = $DeathTimer
 @onready var detect_shape: CollisionShape2D = $DetectionZone/CollisionShape2D
+@onready var shoot_player: AudioStreamPlayer2D = $ShootPlayer
 
 var world
 var playerchase = false
@@ -43,6 +44,7 @@ func shoot():
 	instance.spawnPos = sprite_2d.global_position
 	instance.zdex = z_index - 1
 	world.add_child.call_deferred(instance)
+	shoot_player.play()
 
 func getKnockedBack():
 	pass

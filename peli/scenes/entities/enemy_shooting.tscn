@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5c3keby6mp81"]
+[gd_scene load_steps=22 format=3 uid="uid://b5c3keby6mp81"]
 
 [ext_resource type="Script" path="res://scripts/enemy_shooting.gd" id="1_et50h"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_lmcs8"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://dhwt0qmv5bpbp" path="res://assets/sprites/Kukka_nuppu_proto.png" id="3_oa00k"]
 [ext_resource type="Texture2D" uid="uid://dd2u01gm8qtho" path="res://assets/sprites/Kukka_varsi_proto.png" id="5_osjfd"]
 [ext_resource type="Texture2D" uid="uid://dxmoor3w78oqh" path="res://assets/sprites/Kukka_lehdet_proto.png" id="6_bvdx1"]
+[ext_resource type="AudioStream" uid="uid://d4d5kigurbnd4" path="res://assets/sfx/kukkavihupanos 2.wav" id="7_da61d"]
 [ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="7_lstwc"]
+[ext_resource type="AudioStream" uid="uid://bbbylqa628ge" path="res://assets/sfx/kukkavihupanos 3.wav" id="8_2qtbp"]
 [ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="8_6lxfl"]
 [ext_resource type="AudioStream" uid="uid://yjc3ca4ynqds" path="res://assets/sfx/kukkatuhoutuminen .wav" id="9_crphh"]
+[ext_resource type="AudioStream" uid="uid://qxonac2w5yj2" path="res://assets/sfx/kukkavihupanos 4.wav" id="9_m30kb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljf6d"]
 resource_local_to_scene = true
@@ -82,6 +85,9 @@ _data = {
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oqrf2"]
 streams_count = 3
+stream_0/stream = ExtResource("7_da61d")
+stream_1/stream = ExtResource("8_2qtbp")
+stream_2/stream = ExtResource("9_m30kb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rke0y"]
 size = Vector2(29, 42)
