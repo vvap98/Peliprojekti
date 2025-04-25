@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0ij3mxtnfp51"]
 
-[ext_resource type="Texture2D" uid="uid://dqjcadj5xcxjp" path="res://assets/icon.svg" id="1_7lenx"]
 [ext_resource type="Script" path="res://scripts/unlockable_gate.gd" id="1_35mqo"]
+[ext_resource type="Texture2D" uid="uid://ckfrid28ae13" path="res://assets/sprites/Ovi.png" id="2_oar25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw8e7"]
 size = Vector2(24, 119.75)
@@ -10,9 +10,9 @@ size = Vector2(24, 119.75)
 script = ExtResource("1_35mqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 5.96046e-08)
-scale = Vector2(0.1875, 0.935303)
-texture = ExtResource("1_7lenx")
+position = Vector2(0, 0.499992)
+scale = Vector2(0.1875, 0.236328)
+texture = ExtResource("2_oar25")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jw8e7")
