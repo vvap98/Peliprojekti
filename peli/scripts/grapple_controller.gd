@@ -68,7 +68,7 @@ func grappleLaunch():
 				
 #Tarttumisköyden irroitus.
 func grappleRetract():
-	detach_player.play()
+	#detach_player.play()
 	launched = false
 	rope.hide()
 	

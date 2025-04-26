@@ -5,9 +5,13 @@ extends CharacterBody2D
 @onready var ray_cast_edge: RayCast2D = $RayCastEdge
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var death_player: AudioStreamPlayer2D = $DeathPlayer
+@onready var death_timer: Timer = $DeathTimer
+@onready var hurtbox: CollisionPolygon2D = $Killzone/Hurtbox
+@onready var hitbox: CollisionShape2D = $HitboxComponent/Hitbox
 
 
-const SPEED = 120.0
+var speed = 120.0
 var player
 
 var knockback = Vector2.ZERO
@@ -33,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		ray_cast_edge.position.x *= -1
 	
 	platformEdge()
-	velocity.x = dir.x * SPEED + knockback.x
+	velocity.x = dir.x * speed + knockback.x
 
 	knockback = lerp(knockback, Vector2.ZERO, 0.15)
 	
@@ -51,8 +55,13 @@ func death():
 	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
-
-	queue_free()
+	speed = 0
+	hitbox.set_deferred("disabled", true)
+	hurtbox.set_deferred("disabled", true)
+	animation_player.play("death")
+	death_player.play()
+	death_timer.start()
+	
 
 
 func getKnockedBack():
@@ -64,4 +73,8 @@ func enemyDeath():
 	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
+	queue_free()
+
+
+func _on_death_timer_timeout() -> void:
 	queue_free()
