@@ -172,11 +172,9 @@ func getDamaged():
 func playerDeath():
 	get_tree().reload_current_scene()
 
-
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
 	playerDeath()
 
-
-func _on_heal_box_area_entered(area: Area2D) -> void:
+func _on_heal_box_body_entered(body: Node2D) -> void:
 	hp = max_hp
 	health_bar._set_health(hp)

@@ -562,4 +562,4 @@ shape = SubResource("CircleShape2D_gmaq1")
 [connection signal="body_entered" from="TrapHitbox" to="." method="_on_trap_hitbox_body_entered"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="HitBox/AttackTimer" to="." method="_on_attack_timer_timeout"]
-[connection signal="area_entered" from="HealBox" to="." method="_on_heal_box_area_entered"]
+[connection signal="body_entered" from="HealBox" to="." method="_on_heal_box_body_entered"]
