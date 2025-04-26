@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 		if !velocity.y < 0: 
 			coyote_timer.start()
 			print("coyote timer started")
+
 	
 	# pelaajan hyökätessä toistetaan hyökkäysanimaatio- ja ääniefektit
 	if Input.is_action_just_pressed("attack") and can_attack:
@@ -142,6 +143,9 @@ func _on_damage_timer_timeout() -> void:
 
 func _process(_delta: float) -> void:
 	hitbox.look_at(get_global_mouse_position())
+	if get_global_mouse_position().x < global_position.x:
+		attack.flip_v = true
+	else: attack.flip_v = false
 	if Input.is_action_just_pressed("reset"):
 		playerDeath()
 		

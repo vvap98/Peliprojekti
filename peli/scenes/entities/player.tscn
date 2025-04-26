@@ -12,8 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c87bal28sdn6p" path="res://assets/sfx/miekka_huitaisu_uusi.wav" id="8_nshpn"]
 [ext_resource type="AudioStream" uid="uid://bitjdjkoyvo3y" path="res://assets/sfx/hahmo_hyppy_maahantulo.wav" id="9_pb7cs"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="11_3tx1o"]
-[ext_resource type="Texture2D" uid="uid://72l587lewfre" path="res://assets/sprites/Miekka_sprite_sheet.png" id="12_jho7g"]
-[ext_resource type="Texture2D" uid="uid://dft3sypsq4dq7" path="res://assets/sprites/Miekan_terä_2&aalto.png" id="14_fsrv7"]
+[ext_resource type="Texture2D" uid="uid://cmqoxjucarrhm" path="res://assets/sprites/Miekka_uusi_sprite_sheet.png" id="13_5lghs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
 shader = ExtResource("2_8ho0w")
@@ -292,7 +291,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("HitBox/attack:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -329,7 +328,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_n4xu8"]
 resource_name = "attack"
-length = 0.4
+length = 0.25
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -338,10 +337,10 @@ tracks/0/path = NodePath("HitBox/attack:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.025, 0.075, 0.125, 0.175, 0.225, 0.275, 0.325, 0.375),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.025, 0.075, 0.125, 0.175, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -350,7 +349,7 @@ tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.025, 0.325),
+"times": PackedFloat32Array(0, 0.025, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -412,21 +411,25 @@ size = Vector2(26, 46)
 atlas = ExtResource("4_bfwpn")
 region = Rect2(384, 128, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kom7w"]
-atlas = ExtResource("12_jho7g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f4as"]
+atlas = ExtResource("13_5lghs")
 region = Rect2(1024, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8gly"]
-atlas = ExtResource("12_jho7g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a6j8"]
+atlas = ExtResource("13_5lghs")
 region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cua4f"]
-atlas = ExtResource("12_jho7g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d054w"]
+atlas = ExtResource("13_5lghs")
 region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f3sey"]
-atlas = ExtResource("14_fsrv7")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssjpw"]
+atlas = ExtResource("13_5lghs")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulvf4"]
+atlas = ExtResource("13_5lghs")
+region = Rect2(2048, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_te3c0"]
 animations = [{
@@ -435,20 +438,23 @@ animations = [{
 "texture": SubResource("AtlasTexture_s0tk1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kom7w")
+"texture": SubResource("AtlasTexture_6f4as")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l8gly")
+"texture": SubResource("AtlasTexture_2a6j8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cua4f")
+"texture": SubResource("AtlasTexture_d054w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f3sey")
+"texture": SubResource("AtlasTexture_ssjpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulvf4")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w3rgh"]
@@ -534,7 +540,6 @@ position = Vector2(112.5, -41.6667)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_te3c0")
 animation = &"attack"
-frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(200, 9.53674e-07)
