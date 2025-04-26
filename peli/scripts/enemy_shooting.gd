@@ -11,6 +11,9 @@ var hp = 4
 @onready var death_timer: Timer = $DeathTimer
 @onready var detect_shape: CollisionShape2D = $DetectionZone/CollisionShape2D
 @onready var shoot_player: AudioStreamPlayer2D = $ShootPlayer
+@onready var hit_box: CollisionShape2D = $HitboxComponent/HitBox
+@onready var kill_box: CollisionShape2D = $Killzone/CollisionShape2D
+
 
 var world
 var playerchase = false
@@ -53,6 +56,8 @@ func death():
 	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
+	kill_box.set_deferred("disabled", true)
+	hit_box.set_deferred("disabled", true)
 	detect_shape.set_deferred("disabled", true)
 	death_timer.start()
 	death_player.play()

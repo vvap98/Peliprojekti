@@ -20,6 +20,8 @@ var new_velocity : Vector2
 @onready var fly_player: AudioStreamPlayer2D = $FlyPlayer
 @onready var death_player: AudioStreamPlayer2D = $DeathPlayer
 @onready var death_timer: Timer = $DeathTimer
+@onready var hit_box: CollisionShape2D = $HitboxComponent/HitBox
+@onready var kill_box: CollisionShape2D = $Killzone/CollisionShape2D
 
 var player # = null
 func _ready():
@@ -88,6 +90,8 @@ func death():
 	print("Enemy killed")
 	# self.visible = false
 	# self.set_deferred("monitoring", false)
+	kill_box.set_deferred("disabled", true)
+	hit_box.set_deferred("disabled", true)
 	speed = 0
 	animation_player.play("death")
 	death_timer.start()

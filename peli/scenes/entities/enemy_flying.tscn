@@ -207,7 +207,7 @@ health_component = NodePath("../HpComponent")
 shape = SubResource("CircleShape2D_ra5xv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ra5xv")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
