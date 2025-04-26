@@ -92,6 +92,8 @@ dashRight={
 2d_physics/layer_4="projectiles"
 2d_physics/layer_5="watertraps"
 2d_physics/layer_6="spikeballtraps"
+2d_physics/layer_7="box"
+2d_physics/layer_8="heals"
 
 [physics]
 
