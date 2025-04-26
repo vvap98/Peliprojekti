@@ -15,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cmqoxjucarrhm" path="res://assets/sprites/Miekka_uusi_sprite_sheet.png" id="13_5lghs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
+resource_local_to_scene = true
 shader = ExtResource("2_8ho0w")
-shader_parameter/flash_color = null
+shader_parameter/flash_color = Color(0.901961, 0, 0, 1)
 shader_parameter/flash_value = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
@@ -337,10 +338,10 @@ tracks/0/path = NodePath("HitBox/attack:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.025, 0.075, 0.125, 0.175, 0.225),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.025, 0.075, 0.125, 0.175, 0.225, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4, 5, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

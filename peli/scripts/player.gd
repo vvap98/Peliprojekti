@@ -120,6 +120,10 @@ func _physics_process(delta: float) -> void:
 	
 	# pelaajan hyökätessä toistetaan hyökkäysanimaatio- ja ääniefektit
 	if Input.is_action_just_pressed("attack") and can_attack:
+		hitbox.look_at(get_global_mouse_position())
+		if get_global_mouse_position().x < global_position.x:
+			attack.flip_v = true
+		else: attack.flip_v = false
 		print("attack")
 		animation_player.play("attack")
 		attack_player.play()
@@ -142,10 +146,6 @@ func _on_damage_timer_timeout() -> void:
 	took_damage = false
 
 func _process(_delta: float) -> void:
-	hitbox.look_at(get_global_mouse_position())
-	if get_global_mouse_position().x < global_position.x:
-		attack.flip_v = true
-	else: attack.flip_v = false
 	if Input.is_action_just_pressed("reset"):
 		playerDeath()
 		
