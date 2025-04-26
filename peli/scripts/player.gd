@@ -6,7 +6,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
 const ACCELERATION = 50
 
-var hp = 5
+var max_hp = 5
+var hp
 var took_damage = false
 var can_attack = true
 var can_double_jump = false
@@ -38,9 +39,11 @@ var last_direction = 1
 @onready var attack: AnimatedSprite2D = $HitBox/attack
 @onready var player: CharacterBody2D = $"."
 @onready var trap_hitbox: Area2D = $TrapHitbox
+@onready var heal_box: Area2D = $HealBox
 
 
 func _ready() -> void:
+	hp = max_hp
 	health_bar.init_health(hp)
 
 func _physics_process(delta: float) -> void:
@@ -172,3 +175,8 @@ func playerDeath():
 
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
 	playerDeath()
+
+
+func _on_heal_box_area_entered(area: Area2D) -> void:
+	hp = max_hp
+	health_bar._set_health(hp)
