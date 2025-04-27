@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="13_x7edu"]
 [ext_resource type="PackedScene" uid="uid://biy3p64fg2oao" path="res://scenes/switch.tscn" id="14_ay6r4"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="15_0i7y2"]
-[ext_resource type="PackedScene" path="res://scenes/spike_trap.tscn" id="16_eakv8"]
+[ext_resource type="PackedScene" uid="uid://dcs1bm32jex38" path="res://scenes/spike_trap.tscn" id="16_eakv8"]
 [ext_resource type="PackedScene" uid="uid://buinumhq4clql" path="res://scenes/box.tscn" id="16_nqty1"]
-[ext_resource type="PackedScene" path="res://scenes/holdable_switch.tscn" id="18_kamku"]
+[ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="18_kamku"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afhc3"]
 texture = ExtResource("1_5rohc")
