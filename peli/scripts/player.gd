@@ -110,6 +110,7 @@ func _physics_process(delta: float) -> void:
 	var was_on_floor = is_on_floor()
 	
 	move_and_slide()
+	boxCollision()
 	
 	if !was_on_floor and is_on_floor():
 		landing_player.play()
@@ -147,6 +148,12 @@ func _on_attack_timer_timeout() -> void:
 func _on_damage_timer_timeout() -> void:
 	print("damage timer reset!")
 	took_damage = false
+	
+func boxCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * 80)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
