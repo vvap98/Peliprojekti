@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="7_8oq6c"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" uid="uid://d1abmggqdl3yb" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -86,7 +86,7 @@ texture = ExtResource("5_wsjpg")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/modulate = Color(0.389294, 0.777811, 0.512179, 1)
+3:1/0/modulate = Color(0.388235, 0.776471, 0.513726, 0)
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dy2ty")
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
