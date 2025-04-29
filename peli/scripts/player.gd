@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 # TODO hahmolle hetkellinen kuolemattomuus sen jälkeen kun on ottanut damagea
 
-const SPEED = 300.0
+var speed = 300.0
+var prev_speed : float
+
 const JUMP_VELOCITY = -700.0
 const ACCELERATION = 50
 
@@ -18,6 +20,7 @@ var last_direction = 1
 
 var last_position : Vector2
 var was_on_ledge = false
+var can_move = true
 #var max_jumps = 1
 #func handleHp() -> void:
 
@@ -39,6 +42,7 @@ var was_on_ledge = false
 @onready var damage_timer: Timer = $DamageTimer
 @onready var dash: Node2D = $Dash
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var fall_timer: Timer = $FallTimer
 @onready var attack: AnimatedSprite2D = $HitBox/attack
 @onready var player: CharacterBody2D = $"."
 @onready var trap_hitbox: Area2D = $TrapHitbox
@@ -59,22 +63,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
-		velocity.y = JUMP_VELOCITY
-		#grapple.grappleRetract()
-		animatedSprite_2d.play("Jump")
-		sfx_player.play()
-		coyote_timer.stop()
-	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
-		animatedSprite_2d.play("Jump")
-		sfx_player.play()
-		velocity.y = JUMP_VELOCITY
-		has_double_jumped = true
-	if Input.is_action_just_pressed("jump") and grapple.launched:
-		grapple.grappleRetract()
-	# Stop jump if key is released
-	if Input.is_action_just_released("jump") && velocity.y < 0:
-		velocity.y = 0
+	if can_move:
+		handle_inputs(delta)
 	#print(velocity.y)
 	# jos powerup on saatu, resettaa tuplahypyn pelaajan laskeutuessa
 	if can_double_jump and is_on_floor():
@@ -82,27 +72,21 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_axis("moveLeft", "moveRight")
-	if direction != 0:
-		last_direction = direction #väliaikainen ratkaisu dashiin
-	if direction == 0:
-		animatedSprite_2d.play("Idle")
-	else:
-		animatedSprite_2d.play("Run")
+	
 	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
 	if direction > 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
-		velocity.x = min(velocity.x + ACCELERATION, SPEED)
+		if can_move: velocity.x = min(velocity.x + ACCELERATION, speed)
 		animatedSprite_2d.scale.x = abs(animatedSprite_2d.scale.x) #parempi tapa flipata sprite ja hitbox
 		if pit_ray.position.x < 0:
 			pit_ray.position.x *= -1
 	elif direction < 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
-		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
+		if can_move: velocity.x = max(velocity.x - ACCELERATION, -speed)
 		animatedSprite_2d.scale.x = -abs(animatedSprite_2d.scale.x)
 		if pit_ray.position.x > 0:
 			pit_ray.position.x *= -1
@@ -113,8 +97,6 @@ func _physics_process(delta: float) -> void:
 		movement_player.stop()
 		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
 	
-	if Input.is_action_just_pressed("jump"):
-		movement_player.stop()
 	
 	if is_on_floor() and !pit_ray.is_colliding() and was_on_ledge == false:
 		was_on_ledge = true
@@ -198,7 +180,12 @@ func playerDeath():
 	get_tree().reload_current_scene()
 
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
-	fallen()
+	#prev_speed = speed
+	#speed = 0
+	can_move = false
+	velocity.x = 0.0
+	movement_player.stop()
+	fall_timer.start()
 
 func _on_heal_box_body_entered(body: Node2D) -> void:
 	hp = max_hp
@@ -207,3 +194,38 @@ func _on_heal_box_body_entered(body: Node2D) -> void:
 func fallen():
 	getDamaged()
 	position = last_position
+
+func _on_fall_timer_timeout() -> void:
+	fallen()
+	can_move = true
+	#speed = prev_speed
+	
+func handle_inputs(delta) -> void:
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
+		velocity.y = JUMP_VELOCITY
+		#grapple.grappleRetract()
+		animatedSprite_2d.play("Jump")
+		sfx_player.play()
+		coyote_timer.stop()
+	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
+		animatedSprite_2d.play("Jump")
+		sfx_player.play()
+		velocity.y = JUMP_VELOCITY
+		has_double_jumped = true
+	if Input.is_action_just_pressed("jump") and grapple.launched:
+		grapple.grappleRetract()
+	# Stop jump if key is released
+	if Input.is_action_just_released("jump") && velocity.y < 0:
+		velocity.y = 0
+	
+	direction = Input.get_axis("moveLeft", "moveRight")
+	if direction != 0:
+		last_direction = direction #väliaikainen ratkaisu dashiin
+	if direction == 0:
+		animatedSprite_2d.play("Idle")
+	else:
+		animatedSprite_2d.play("Run")
+	
+	if Input.is_action_just_pressed("jump"):
+		movement_player.stop()
+	
