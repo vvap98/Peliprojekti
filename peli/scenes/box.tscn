@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buinumhq4clql"]
 
-[ext_resource type="Texture2D" uid="uid://bka4sboknrmfy" path="res://assets/sprites/box.png" id="1_ffdg8"]
+[ext_resource type="Texture2D" uid="uid://cvm3hqrrv6y0w" path="res://assets/sprites/Kivilaatikko.png" id="1_716us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alp31"]
 size = Vector2(47, 47)
@@ -10,9 +10,9 @@ collision_layer = 64
 collision_mask = 95
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-9.53674e-07, -9.53674e-07)
-scale = Vector2(0.0917969, 0.0917969)
-texture = ExtResource("1_ffdg8")
+position = Vector2(-0.609376, -0.328122)
+scale = Vector2(0.224, 0.217)
+texture = ExtResource("1_716us")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_alp31")
