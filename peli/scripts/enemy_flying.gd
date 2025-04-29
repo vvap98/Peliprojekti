@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # TODO bugi: vihu jää jumiin kulmiin
 
-var speed = 100
+var speed : float = 400
 var direction = 1
 var playerchase = false
 
@@ -30,7 +30,7 @@ func _ready():
 	ogposition = position
 	sprite_2d.modulate = Color.RED
 	
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	await get_tree().physics_frame
 
 	if dir.x > 0:
@@ -42,9 +42,12 @@ func _physics_process(_delta: float) -> void:
 		var next_path_pos = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
 		new_velocity = dir * speed + knockback
+		print(new_velocity)
 	#print(player.global_position)
 	#print(dir)
 	else:
+		if nav_agent.is_navigation_finished():
+			return
 		nav_agent.target_position = ogposition
 		var next_path_pos = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
@@ -101,7 +104,6 @@ func death():
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
-
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
