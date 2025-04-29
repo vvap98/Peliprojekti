@@ -257,13 +257,21 @@ texture = ExtResource("5_wsjpg")
 1:5/0 = 0
 2:5/0 = 0
 3:5/0 = 0
+3:5/0/modulate = Color(1, 1, 1, 0.760784)
+3:5/0/z_index = 4
 3:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
+4:5/0/modulate = Color(1, 1, 1, 0.760784)
+4:5/0/z_index = 4
 4:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -4.75, 8, -4.625, 8, 8, -8, 8)
 5:5/0 = 0
 6:5/0 = 0
+6:5/0/modulate = Color(1, 1, 1, 0.721569)
+6:5/0/z_index = 4
 6:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:5/0 = 0
+7:5/0/modulate = Color(1, 1, 1, 0.721569)
+7:5/0/z_index = 4
 7:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:5/0 = 0
 9:5/0 = 0
@@ -588,6 +596,7 @@ sources/0 = SubResource("TileSetAtlasSource_uej7y")
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
+z_index = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
