@@ -15,6 +15,9 @@ var has_double_jumped = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 0
 var last_direction = 1
+
+var last_position : Vector2
+var was_on_ledge = false
 #var max_jumps = 1
 #func handleHp() -> void:
 
@@ -40,11 +43,13 @@ var last_direction = 1
 @onready var player: CharacterBody2D = $"."
 @onready var trap_hitbox: Area2D = $TrapHitbox
 @onready var heal_box: Area2D = $HealBox
+@onready var pit_ray: RayCast2D = $RayCast2D
 
 
 func _ready() -> void:
 	hp = max_hp
 	health_bar.init_health(hp)
+	last_position = global_position
 
 func _physics_process(delta: float) -> void:
 	#TODO kojoottiaika, eli pelaaja voi hypätä vielä platformilta putoamisen jälkeen
@@ -92,11 +97,15 @@ func _physics_process(delta: float) -> void:
 			movement_player.play()
 		velocity.x = min(velocity.x + ACCELERATION, SPEED)
 		animatedSprite_2d.scale.x = abs(animatedSprite_2d.scale.x) #parempi tapa flipata sprite ja hitbox
+		if pit_ray.position.x < 0:
+			pit_ray.position.x *= -1
 	elif direction < 0 and not dash.dashing:
 		if !movement_player.playing and is_on_floor() :
 			movement_player.play()
 		velocity.x = max(velocity.x - ACCELERATION, -SPEED)
 		animatedSprite_2d.scale.x = -abs(animatedSprite_2d.scale.x)
+		if pit_ray.position.x > 0:
+			pit_ray.position.x *= -1
 	elif  not is_on_floor():
 		velocity.x = lerp(velocity.x, 0.8 * velocity.x, 0.1)
 	else:
@@ -106,6 +115,15 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		movement_player.stop()
+	
+	if is_on_floor() and !pit_ray.is_colliding() and was_on_ledge == false:
+		was_on_ledge = true
+		last_position = global_position
+		print(was_on_ledge)
+		
+	if is_on_floor() and pit_ray.is_colliding() and was_on_ledge == true:
+		print("no longer on edge")
+		was_on_ledge = false
 	
 	var was_on_floor = is_on_floor()
 	
@@ -180,8 +198,12 @@ func playerDeath():
 	get_tree().reload_current_scene()
 
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
-	playerDeath()
+	fallen()
 
 func _on_heal_box_body_entered(body: Node2D) -> void:
 	hp = max_hp
 	health_bar._set_health(hp)
+	
+func fallen():
+	getDamaged()
+	position = last_position
