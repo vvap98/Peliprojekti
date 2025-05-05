@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if can_move:
+		#pelaajan liikkuminen käsitellään erillisessä aliohjelmassa
 		handle_inputs(delta)
 	#print(velocity.y)
 	# jos powerup on saatu, resettaa tuplahypyn pelaajan laskeutuessa
@@ -213,6 +214,9 @@ func handle_inputs(delta) -> void:
 		has_double_jumped = true
 	if Input.is_action_just_pressed("jump") and grapple.launched:
 		grapple.grappleRetract()
+		velocity.y = JUMP_VELOCITY/2
+		animatedSprite_2d.play("Jump")
+		sfx_player.play()
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
 		velocity.y = 0
