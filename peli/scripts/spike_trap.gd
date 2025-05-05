@@ -4,9 +4,12 @@ var world
 
 @onready var spikeball = load("res://scenes/spike_ball.tscn")
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var timer: Timer = $Timer
 
 @export var on_wall : bool
 @export var flipped : bool 
+
+var can_spawn = true
 
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
@@ -20,6 +23,12 @@ func _ready() -> void:
 	#spawn_spike()
 
 func spawn_spike():
-	var instance = spikeball.instantiate()
-	instance.spawnPos = sprite_2d.global_position
-	world.add_child.call_deferred(instance)
+	if can_spawn:
+		var instance = spikeball.instantiate()
+		instance.spawnPos = sprite_2d.global_position
+		world.add_child.call_deferred(instance)
+		can_spawn = false
+		timer.start()
+
+func _on_timer_timeout() -> void:
+	can_spawn = true
