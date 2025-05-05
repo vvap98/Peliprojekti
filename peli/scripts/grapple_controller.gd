@@ -62,6 +62,7 @@ func grappleLaunch():
 		for i in shape.get_collision_count():
 			var body = shape.get_collider(i)
 			if body.is_in_group("spiketrap"):
+				detach_player.play()
 				grappleRetract()
 				body.spawn_spike()
 				print("spiketrap found")
