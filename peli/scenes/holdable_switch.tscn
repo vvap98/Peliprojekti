@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciqhdql6grb3"]
 
 [ext_resource type="Script" path="res://scripts/holdable_switch.gd" id="1_uigo4"]
-[ext_resource type="Texture2D" uid="uid://dqjcadj5xcxjp" path="res://assets/icon.svg" id="2_mik0h"]
+[ext_resource type="Texture2D" uid="uid://by6p6dygu81da" path="res://assets/sprites/Nappi_rihmasto.png" id="2_40wkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23r6l"]
 size = Vector2(23, 23)
@@ -13,9 +13,12 @@ collision_mask = 66
 script = ExtResource("1_uigo4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.180243, 0.623489, 0, 1)
-scale = Vector2(0.184, 0.184)
-texture = ExtResource("2_mik0h")
+position = Vector2(-0.612, -0.612)
+scale = Vector2(0.193563, 0.193563)
+texture = ExtResource("2_40wkl")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_23r6l")
