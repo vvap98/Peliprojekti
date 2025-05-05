@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	if gate and gate.buttons == 0:
 		gate.buttons = gate.buttons + 1
 		if gate.buttons != 0:

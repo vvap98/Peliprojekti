@@ -23,12 +23,12 @@ func _ready() -> void:
 	#spawn_spike()
 
 func spawn_spike():
-	if can_spawn:
-		var instance = spikeball.instantiate()
-		instance.spawnPos = sprite_2d.global_position
-		world.add_child.call_deferred(instance)
-		can_spawn = false
-		timer.start()
+	#if can_spawn:
+	var instance = spikeball.instantiate()
+	instance.spawnPos = sprite_2d.global_position
+	world.add_child.call_deferred(instance)
+		#can_spawn = false
+	#timer.start()
 
 func _on_timer_timeout() -> void:
 	can_spawn = true

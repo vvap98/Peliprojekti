@@ -13,6 +13,8 @@ extends Node2D
 @onready var attach_player: AudioStreamPlayer2D = $AttachPlayer
 @onready var detach_player: AudioStreamPlayer2D = $DetachPlayer
 
+@onready var timer: Timer = $Timer
+var spike_ready = true
 
 var launched = false # Onko pelaaja laukaissut tarttumis "köyden"
 var target: Vector2 #Tarttumisen kohteen muuttuja
@@ -64,7 +66,10 @@ func grappleLaunch():
 			if body.is_in_group("spiketrap"):
 				detach_player.play()
 				grappleRetract()
-				body.spawn_spike()
+				if spike_ready:
+					body.spawn_spike()
+					spike_ready = false
+					timer.start()
 				print("spiketrap found")
 				
 #Tarttumisköyden irroitus.
@@ -76,3 +81,7 @@ func grappleRetract():
 #piirtää köyden
 func updateRope():
 	rope.set_point_position(1, to_local(target))
+
+
+func _on_timer_timeout() -> void:
+	spike_ready = true

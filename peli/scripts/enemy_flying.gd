@@ -30,7 +30,7 @@ func _ready():
 	ogposition = position
 	sprite_2d.modulate = Color.RED
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	await get_tree().physics_frame
 
 	if dir.x > 0:
