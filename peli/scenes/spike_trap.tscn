@@ -1,15 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcs1bm32jex38"]
+[gd_scene load_steps=6 format=3 uid="uid://dcs1bm32jex38"]
 
 [ext_resource type="Script" path="res://scripts/spike_trap.gd" id="1_it8g6"]
+[ext_resource type="Texture2D" uid="uid://cbm6trpo4p4k4" path="res://assets/sprites/Piikkipallo&ansa_sprite_sheet.png" id="2_1kdnr"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_4degm"]
-
-[sub_resource type="Gradient" id="Gradient_nnqw1"]
-offsets = PackedFloat32Array(0.992727, 1)
-colors = PackedColorArray(0.662745, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_naldk"]
-gradient = SubResource("Gradient_nnqw1")
-fill_from = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1aj5"]
 size = Vector2(22, 22)
@@ -23,11 +16,14 @@ collision_mask = 2
 script = ExtResource("1_it8g6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, -5.96046e-08)
-scale = Vector2(0.365, 0.365)
-texture = SubResource("GradientTexture2D_naldk")
+position = Vector2(0.431875, -1.64)
+scale = Vector2(0.182, 0.182)
+texture = ExtResource("2_1kdnr")
+hframes = 3
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_b1aj5")
 
 [node name="Killzone" parent="." instance=ExtResource("2_4degm")]

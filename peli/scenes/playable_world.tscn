@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="7_8oq6c"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" uid="uid://d1abmggqdl3yb" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -597,7 +597,7 @@ sources/0 = SubResource("TileSetAtlasSource_uej7y")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
 z_index = 3
-position = Vector2(-241, -48)
+position = Vector2(-205, -52)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
@@ -1021,15 +1021,20 @@ position = Vector2(9852, -3043)
 
 [node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6660, -536)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
-position = Vector2(347, -111)
+position = Vector2(348, -107)
+flipped = true
 
 [node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(8929, -593)
 
 [node name="SpikeTrap4" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6660, -563)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap5" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6948, -398)
@@ -1042,9 +1047,13 @@ position = Vector2(6923, -396)
 
 [node name="SpikeTrap8" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(7261, -660)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap9" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(7259, -589)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap10" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9900, -1067)
@@ -1183,12 +1192,17 @@ position = Vector2(7837, -1477)
 
 [node name="SpikeTrap55" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6757, -253)
+flipped = true
 
 [node name="SpikeTrap56" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(7261, -637)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap57" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(7259, -613)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap58" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10235, -2412)
@@ -1648,9 +1662,13 @@ position = Vector2(11819, -2941)
 
 [node name="SpikeTrap215" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6661, -591)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap216" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(7261, -684)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap210" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11317, -2605)
