@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://3vidjjw6xp52"]
+[gd_scene load_steps=3 format=3 uid="uid://08muvew1f08t"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint_scene.gd" id="1_ksndr"]
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="7_8oq6c"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" uid="uid://d1abmggqdl3yb" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://crmfnb6y7x31n" path="res://assets/sprites/Metsämaata_yhdistetyt.png" id="18_s82uo"]
 [ext_resource type="Texture2D" uid="uid://bpmvo6i81qexl" path="res://assets/sprites/Puu_1_vaalea_tausta_lähellä.png" id="19_rn3re"]
 [ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/Puita_tausta_kauempana.png" id="20_hbkvg"]
-[ext_resource type="PackedScene" uid="uid://3vidjjw6xp52" path="res://scenes/CheckpointScene.tscn" id="22_7wijd"]
+[ext_resource type="PackedScene" uid="uid://08muvew1f08t" path="res://scenes/CheckpointScene.tscn" id="22_7wijd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -603,7 +603,7 @@ script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
 z_index = 3
-position = Vector2(-153, -98)
+position = Vector2(-192, -73)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
