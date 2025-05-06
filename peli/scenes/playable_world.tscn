@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=27 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_wvhf1"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_1il2f"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="3_w1sb2"]
 [ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="4_agnio"]
@@ -9,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="7_8oq6c"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" uid="uid://d1abmggqdl3yb" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://crmfnb6y7x31n" path="res://assets/sprites/Metsämaata_yhdistetyt.png" id="18_s82uo"]
 [ext_resource type="Texture2D" uid="uid://bpmvo6i81qexl" path="res://assets/sprites/Puu_1_vaalea_tausta_lähellä.png" id="19_rn3re"]
 [ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/Puita_tausta_kauempana.png" id="20_hbkvg"]
+[ext_resource type="PackedScene" uid="uid://3vidjjw6xp52" path="res://scenes/CheckpointScene.tscn" id="22_7wijd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -597,6 +599,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_uej7y")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
 z_index = 3
@@ -1719,3 +1722,41 @@ z_index = -2
 position = Vector2(2536, -655)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("20_hbkvg")
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="CheckpointScene" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(469, 35)
+scale = Vector2(1.31029, 0.599668)
+
+[node name="CheckpointScene2" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(10, 104)
+scale = Vector2(0.488013, 0.50458)
+
+[node name="CheckpointScene3" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(1886, -37)
+scale = Vector2(0.63891, 0.579578)
+
+[node name="CheckpointScene4" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(6208, -185)
+scale = Vector2(0.638528, 0.515074)
+
+[node name="CheckpointScene5" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(8702, -327)
+scale = Vector2(0.552079, 0.46454)
+
+[node name="CheckpointScene6" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(11003, -3613)
+scale = Vector2(0.191605, 0.525223)
+
+[node name="CheckpointScene7" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(10955, -2846)
+scale = Vector2(0.294978, 0.335072)
+
+[node name="CheckpointScene8" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(10279, -1956)
+scale = Vector2(0.118948, 0.340409)
+
+[node name="CheckpointScene9" parent="Checkpoints" instance=ExtResource("22_7wijd")]
+position = Vector2(7639, -2628)
+scale = Vector2(0.207405, 0.361585)
