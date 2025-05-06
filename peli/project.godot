@@ -15,6 +15,10 @@ run/main_scene="res://scenes/playable_world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+Checkpoint="*res://scripts/checkpoint.gd"
+
 [debug]
 
 shapes/collision/shape_color=Color(0, 0.6, 0.701961, 0.67451)
