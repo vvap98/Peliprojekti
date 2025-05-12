@@ -185,6 +185,7 @@ func _on_trap_hitbox_body_entered(body: Node2D) -> void:
 	#speed = 0
 	can_move = false
 	velocity.x = 0.0
+	fallen()
 	fall_timer.start()
 
 func _on_heal_box_body_entered(body: Node2D) -> void:
@@ -196,7 +197,6 @@ func fallen():
 	position = last_position
 
 func _on_fall_timer_timeout() -> void:
-	fallen()
 	can_move = true
 	#speed = prev_speed
 	
