@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b13gc5g8i727n"
-path="res://.godot/imported/Puu_1_tauti.png-0824144a007524f764ab98b2ad60460c.ctex"
+uid="uid://cl1i3ti5u2euc"
+path="res://.godot/imported/Puu_1_tausta_lähellä.png-b001e17b6fbc48ba95f97a5d1b541cbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Puu_1_tauti.png"
-dest_files=["res://.godot/imported/Puu_1_tauti.png-0824144a007524f764ab98b2ad60460c.ctex"]
+source_file="res://assets/sprites/trees/Puu_1_tausta_lähellä.png"
+dest_files=["res://.godot/imported/Puu_1_tausta_lähellä.png-b001e17b6fbc48ba95f97a5d1b541cbd.ctex"]
 
 [params]
 

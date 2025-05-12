@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csd3aiaas1gre"
-path="res://.godot/imported/Puita_tausta_kauempana.png-4c5269fadf5eee38647cd5fff8a5d9ea.ctex"
+uid="uid://02q6ssxwj3wc"
+path="res://.godot/imported/Puu_2_variant1.png-b0b31e68c09ee12989e0f3a61cdb2a55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Puita_tausta_kauempana.png"
-dest_files=["res://.godot/imported/Puita_tausta_kauempana.png-4c5269fadf5eee38647cd5fff8a5d9ea.ctex"]
+source_file="res://assets/sprites/trees/Puu_2_variant1.png"
+dest_files=["res://.godot/imported/Puu_2_variant1.png-b0b31e68c09ee12989e0f3a61cdb2a55.ctex"]
 
 [params]
 

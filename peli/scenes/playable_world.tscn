@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=36 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ciqhdql6grb3" path="res://scenes/holdable_switch.tscn" id="7_8oq6c"]
 [ext_resource type="PackedScene" uid="uid://bk66oi2s0hv20" path="res://scenes/platform.tscn" id="7_kvi6r"]
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
-[ext_resource type="PackedScene" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
+[ext_resource type="PackedScene" uid="uid://cnol6u63it8ml" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
@@ -18,10 +18,19 @@
 [ext_resource type="PackedScene" uid="uid://biy3p64fg2oao" path="res://scenes/switch.tscn" id="13_oxxfi"]
 [ext_resource type="PackedScene" uid="uid://dcs1bm32jex38" path="res://scenes/spike_trap.tscn" id="13_v1qir"]
 [ext_resource type="PackedScene" uid="uid://buinumhq4clql" path="res://scenes/box.tscn" id="16_k138q"]
-[ext_resource type="Texture2D" uid="uid://crmfnb6y7x31n" path="res://assets/sprites/Metsämaata_yhdistetyt.png" id="18_s82uo"]
-[ext_resource type="Texture2D" uid="uid://bpmvo6i81qexl" path="res://assets/sprites/Puu_1_vaalea_tausta_lähellä.png" id="19_rn3re"]
-[ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/Puita_tausta_kauempana.png" id="20_hbkvg"]
+[ext_resource type="Texture2D" uid="uid://bgka2csbxb366" path="res://assets/sprites/terrain/Ruohikko_iso_sprite_sheet.png" id="16_r5eik"]
+[ext_resource type="Texture2D" uid="uid://dtg335bargdni" path="res://assets/sprites/plants/Kasveja_&_lehtiplatformit.png" id="17_m7oo7"]
+[ext_resource type="Texture2D" uid="uid://bte2mk02d30w8" path="res://assets/sprites/trees/Puu_2_variant3.png" id="18_6lgad"]
+[ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/trees/Puita_tausta_kauempana.png" id="19_becdp"]
+[ext_resource type="Texture2D" uid="uid://dts1bbsyd6851" path="res://assets/sprites/trees/Puita_kaukana.png" id="20_sbn0s"]
+[ext_resource type="Texture2D" uid="uid://b561gkryk0dyv" path="res://assets/sprites/trees/Puu_2_tauti.png" id="21_f7307"]
+[ext_resource type="Texture2D" uid="uid://cn18rc76mhldb" path="res://assets/sprites/trees/Puita_kaukana_tauti.png" id="21_l1cs0"]
+[ext_resource type="Texture2D" uid="uid://crmfnb6y7x31n" path="res://assets/sprites/terrain/Metsämaata_yhdistetyt.png" id="22_5udgp"]
 [ext_resource type="PackedScene" uid="uid://08muvew1f08t" path="res://scenes/CheckpointScene.tscn" id="22_7wijd"]
+[ext_resource type="Texture2D" uid="uid://b5wxm8navb7b" path="res://assets/sprites/terrain/Metsämaata.png" id="23_3tde3"]
+[ext_resource type="Texture2D" uid="uid://ds5wobdnvj7nk" path="res://assets/sprites/trees/Violetit_oksat.png" id="23_bjbb2"]
+[ext_resource type="Texture2D" uid="uid://thyqn80oy7fb" path="res://assets/sprites/trees/Puu_2_tauti_variant1.png" id="24_j3e0g"]
+[ext_resource type="Texture2D" uid="uid://b13gc5g8i727n" path="res://assets/sprites/trees/Puu_1_tauti.png" id="31_lfcv5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -603,7 +612,7 @@ script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
 z_index = 3
-position = Vector2(-192, -73)
+position = Vector2(-359, -76)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
@@ -1022,6 +1031,78 @@ position = Vector2(10730, 698)
 
 [node name="EnemyFlying6" parent="Enemies" instance=ExtResource("9_ljyvg")]
 position = Vector2(9852, -3043)
+
+[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="Enemies"]
+position = Vector2(-111, 11)
+scale = Vector2(0.113281, 0.117913)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(1, 340, 1920, 745)
+
+[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="Enemies"]
+position = Vector2(-349, 13)
+scale = Vector2(0.136539, 0.129671)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(7677, 1418, 1923, 742)
+
+[node name="Kasveja&Lehtiplatformit2" type="Sprite2D" parent="Enemies"]
+z_index = 1
+position = Vector2(449, -68)
+scale = Vector2(0.23125, 0.195139)
+texture = ExtResource("17_m7oo7")
+region_enabled = true
+region_rect = Rect2(456, 38, 195, 360)
+
+[node name="Kasveja&Lehtiplatformit" type="Sprite2D" parent="Enemies"]
+position = Vector2(-10, 12)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_m7oo7")
+region_enabled = true
+region_rect = Rect2(456, 38, 195, 360)
+
+[node name="Puu2Variant3" type="Sprite2D" parent="Enemies"]
+position = Vector2(303, -516.25)
+scale = Vector2(0.329012, 0.388657)
+texture = ExtResource("18_6lgad")
+
+[node name="PuitaTaustaKauempana" type="Sprite2D" parent="Enemies"]
+z_index = -1
+position = Vector2(-23.75, -444.25)
+scale = Vector2(0.499219, 0.549769)
+texture = ExtResource("19_becdp")
+
+[node name="PuitaKaukana" type="Sprite2D" parent="Enemies"]
+z_index = -1
+position = Vector2(668, -419)
+scale = Vector2(0.539323, 0.488426)
+texture = ExtResource("20_sbn0s")
+flip_h = true
+
+[node name="PuitaKaukanaTauti" type="Sprite2D" parent="Enemies"]
+z_index = -1
+position = Vector2(1324, -397)
+scale = Vector2(0.490104, 0.500926)
+texture = ExtResource("21_l1cs0")
+
+[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="Enemies"]
+z_index = 1
+position = Vector2(1676, -93)
+scale = Vector2(0.327746, 0.409782)
+texture = ExtResource("22_5udgp")
+vframes = 2
+frame = 1
+
+[node name="VioletitOksat" type="Sprite2D" parent="Enemies"]
+position = Vector2(1491, -285)
+texture = ExtResource("23_bjbb2")
+region_enabled = true
+
+[node name="Puu2TautiVariant1" type="Sprite2D" parent="Enemies"]
+z_index = -1
+position = Vector2(1554.69, -526.938)
+scale = Vector2(0.214429, 0.377836)
+texture = ExtResource("24_j3e0g")
 
 [node name="SpikeTraps" type="Node" parent="."]
 
@@ -1705,24 +1786,6 @@ position = Vector2(7776, -2709)
 [node name="Powerup2" parent="." instance=ExtResource("12_oxq05")]
 position = Vector2(13045, -1404)
 
-[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="."]
-position = Vector2(-196, -9)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_s82uo")
-vframes = 2
-
-[node name="Puu1VaaleaTaustaLähellä" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(493, -517)
-scale = Vector2(0.39, 0.39)
-texture = ExtResource("19_rn3re")
-
-[node name="PuitaTaustaKauempana" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(2536, -655)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("20_hbkvg")
-
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="CheckpointScene" parent="Checkpoints" instance=ExtResource("22_7wijd")]
@@ -1760,3 +1823,71 @@ scale = Vector2(0.118948, 0.340409)
 [node name="CheckpointScene9" parent="Checkpoints" instance=ExtResource("22_7wijd")]
 position = Vector2(7639, -2628)
 scale = Vector2(0.207405, 0.361585)
+
+[node name="Puu2Tauti" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2704, -550)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_f7307")
+
+[node name="Metsämaata3" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(206, 58)
+rotation = 3.14159
+scale = Vector2(0.19059, 0.179976)
+texture = ExtResource("23_3tde3")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(21, 25, 740, 189)
+
+[node name="Metsämaata2" type="Sprite2D" parent="."]
+position = Vector2(277, -18)
+rotation = -1.5708
+scale = Vector2(0.213767, 0.222919)
+texture = ExtResource("23_3tde3")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(775, 39, 754, 156)
+
+[node name="Metsämaata" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(357, -82)
+scale = Vector2(0.284121, 0.283721)
+texture = ExtResource("23_3tde3")
+region_enabled = true
+region_rect = Rect2(0, 0, 762, 215)
+
+[node name="Puu1Tauti" type="Sprite2D" parent="."]
+position = Vector2(1115.81, -528.5)
+scale = Vector2(0.286651, 0.377315)
+texture = ExtResource("31_lfcv5")
+
+[node name="Metsämaata4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1013, -106)
+scale = Vector2(0.219648, 0.229712)
+texture = ExtResource("23_3tde3")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 248, 766, 191)
+
+[node name="PuitaKaukanaTauti" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(2096, -546)
+scale = Vector2(0.391406, 0.501736)
+texture = ExtResource("21_l1cs0")
+flip_h = true
+
+[node name="PuitaKaukanaTauti2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(2637.56, -458.25)
+scale = Vector2(0.413086, 0.584954)
+texture = ExtResource("21_l1cs0")
+
+[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(282.007, 113.884)
+scale = Vector2(0.705814, 0.702274)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(1915.45, 361.502, 1924.46, 718.364)

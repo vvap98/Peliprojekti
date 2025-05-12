@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dts1bbsyd6851"
-path="res://.godot/imported/Puita_kaukana.png-df05a522c89fda2e5024c71cfd3003c0.ctex"
+uid="uid://baungrkharr53"
+path="res://.godot/imported/Puu_1_tumma.png-471040dac046233abf8bf74c4732321b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Puita_kaukana.png"
-dest_files=["res://.godot/imported/Puita_kaukana.png-df05a522c89fda2e5024c71cfd3003c0.ctex"]
+source_file="res://assets/sprites/trees/Puu_1_tumma.png"
+dest_files=["res://.godot/imported/Puu_1_tumma.png-471040dac046233abf8bf74c4732321b.ctex"]
 
 [params]
 

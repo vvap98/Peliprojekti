@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8rl4ocxqkf8"]
+
+[ext_resource type="Texture2D" uid="uid://dtg335bargdni" path="res://assets/sprites/plants/Kasveja_&_lehtiplatformit.png" id="1_oucfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p33uw"]
+size = Vector2(110, 20)
+
+[node name="PlatformEvil" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("1_oucfb")
+region_enabled = true
+region_rect = Rect2(67, 836, 383, 123)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p33uw")
+one_way_collision = true
+debug_color = Color(0, 0.6, 0.7, 0.42)

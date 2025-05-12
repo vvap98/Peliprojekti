@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtg335bargdni"
-path="res://.godot/imported/Kasveja_&_lehtiplatformit.png-e7d259823818be185c3f81f9430349c6.ctex"
+uid="uid://ckda1tt8vnl20"
+path="res://.godot/imported/Ruskeat_oksat.png-6a21a156689b5d8541116465ea385627.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Kasveja_&_lehtiplatformit.png"
-dest_files=["res://.godot/imported/Kasveja_&_lehtiplatformit.png-e7d259823818be185c3f81f9430349c6.ctex"]
+source_file="res://assets/sprites/trees/Ruskeat_oksat.png"
+dest_files=["res://.godot/imported/Ruskeat_oksat.png-6a21a156689b5d8541116465ea385627.ctex"]
 
 [params]
 

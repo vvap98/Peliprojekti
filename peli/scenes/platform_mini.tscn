@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1abmggqdl3yb"]
+[gd_scene load_steps=3 format=3 uid="uid://cnol6u63it8ml"]
 
-[sub_resource type="Gradient" id="Gradient_dgbmy"]
-offsets = PackedFloat32Array(0.783133)
-colors = PackedColorArray(0.00639414, 0.216802, 0.00519742, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6pnt3"]
-gradient = SubResource("Gradient_dgbmy")
+[ext_resource type="Texture2D" uid="uid://dedbwba35waqt" path="res://assets/sprites/plants/Lehtiplatform_vihreä.png" id="1_r2cyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flwwg"]
 size = Vector2(55, 20)
@@ -13,11 +8,10 @@ size = Vector2(55, 20)
 [node name="PlatformMini" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.8147e-06, -4.76837e-07)
-scale = Vector2(0.210937, 20)
-texture = SubResource("GradientTexture1D_6pnt3")
+position = Vector2(0, -1)
+scale = Vector2(0.16, 0.211)
+texture = ExtResource("1_r2cyy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_flwwg")
 one_way_collision = true

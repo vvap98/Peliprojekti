@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ksl5tfoaimag"
-path="res://.godot/imported/Puu_1_vaalea.png-4b863141f6a6020e7b002c13ea01d790.ctex"
+uid="uid://6cxk0h3j5gnf"
+path="res://.godot/imported/pikkukasveja_variants.png-9d64ec8733f41c288f0a8a4540c1de0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Puu_1_vaalea.png"
-dest_files=["res://.godot/imported/Puu_1_vaalea.png-4b863141f6a6020e7b002c13ea01d790.ctex"]
+source_file="res://assets/sprites/plants/pikkukasveja_variants.png"
+dest_files=["res://.godot/imported/pikkukasveja_variants.png-9d64ec8733f41c288f0a8a4540c1de0c.ctex"]
 
 [params]
 

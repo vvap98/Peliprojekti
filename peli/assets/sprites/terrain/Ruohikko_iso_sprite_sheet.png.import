@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5wxm8navb7b"
-path="res://.godot/imported/Metsämaata.png-5c5fdfad318d79af34e63b474fdcc2da.ctex"
+uid="uid://bgka2csbxb366"
+path="res://.godot/imported/Ruohikko_iso_sprite_sheet.png-315702a6a2f516b5b3ceae86ab59f037.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Metsämaata.png"
-dest_files=["res://.godot/imported/Metsämaata.png-5c5fdfad318d79af34e63b474fdcc2da.ctex"]
+source_file="res://assets/sprites/terrain/Ruohikko_iso_sprite_sheet.png"
+dest_files=["res://.godot/imported/Ruohikko_iso_sprite_sheet.png-315702a6a2f516b5b3ceae86ab59f037.ctex"]
 
 [params]
 

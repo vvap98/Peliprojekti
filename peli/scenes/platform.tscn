@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk66oi2s0hv20"]
+[gd_scene load_steps=3 format=3 uid="uid://bk66oi2s0hv20"]
 
-[sub_resource type="Gradient" id="Gradient_trcif"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0.188235, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6324t"]
-gradient = SubResource("Gradient_trcif")
+[ext_resource type="Texture2D" uid="uid://dtg335bargdni" path="res://assets/sprites/plants/Kasveja_&_lehtiplatformit.png" id="1_lwsig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b85p6"]
 size = Vector2(110, 20)
@@ -13,9 +8,12 @@ size = Vector2(110, 20)
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.8147e-06, 0)
-scale = Vector2(1.71875, 0.3125)
-texture = SubResource("GradientTexture2D_6324t")
+z_index = 5
+position = Vector2(2.38419e-07, -2)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("1_lwsig")
+region_enabled = true
+region_rect = Rect2(67, 836, 383, 123)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b85p6")

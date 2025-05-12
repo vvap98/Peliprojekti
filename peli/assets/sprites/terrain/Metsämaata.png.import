@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crmfnb6y7x31n"
-path="res://.godot/imported/Metsämaata_yhdistetyt.png-043946baeae5a47044a18f456e446913.ctex"
+uid="uid://b5wxm8navb7b"
+path="res://.godot/imported/Metsämaata.png-ac44302e863f67f8203fdeaa88b358e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Metsämaata_yhdistetyt.png"
-dest_files=["res://.godot/imported/Metsämaata_yhdistetyt.png-043946baeae5a47044a18f456e446913.ctex"]
+source_file="res://assets/sprites/terrain/Metsämaata.png"
+dest_files=["res://.godot/imported/Metsämaata.png-ac44302e863f67f8203fdeaa88b358e4.ctex"]
 
 [params]
 

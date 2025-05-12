@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgka2csbxb366"
-path="res://.godot/imported/Ruohikko_iso_sprite_sheet.png-15ae55c7c030b47279f7cf8c26f6dd54.ctex"
+uid="uid://thyqn80oy7fb"
+path="res://.godot/imported/Puu_2_tauti_variant1.png-8b70235b166b13fa705a4c3db35fba1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ruohikko_iso_sprite_sheet.png"
-dest_files=["res://.godot/imported/Ruohikko_iso_sprite_sheet.png-15ae55c7c030b47279f7cf8c26f6dd54.ctex"]
+source_file="res://assets/sprites/trees/Puu_2_tauti_variant1.png"
+dest_files=["res://.godot/imported/Puu_2_tauti_variant1.png-8b70235b166b13fa705a4c3db35fba1f.ctex"]
 
 [params]
 

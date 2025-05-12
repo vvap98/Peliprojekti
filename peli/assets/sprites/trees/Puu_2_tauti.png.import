@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baungrkharr53"
-path="res://.godot/imported/Puu_1_tumma.png-e4da604dd55ad0cd1dc9e1b32cefa975.ctex"
+uid="uid://b561gkryk0dyv"
+path="res://.godot/imported/Puu_2_tauti.png-21d5c60d73e819d91e884272bbe2ae6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Puu_1_tumma.png"
-dest_files=["res://.godot/imported/Puu_1_tumma.png-e4da604dd55ad0cd1dc9e1b32cefa975.ctex"]
+source_file="res://assets/sprites/trees/Puu_2_tauti.png"
+dest_files=["res://.godot/imported/Puu_2_tauti.png-21d5c60d73e819d91e884272bbe2ae6b.ctex"]
 
 [params]
 
