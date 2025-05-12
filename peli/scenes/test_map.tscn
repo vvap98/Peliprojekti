@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bewwl4dh1k2io"]
+[gd_scene load_steps=25 format=4 uid="uid://bewwl4dh1k2io"]
 
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="1_5rohc"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_l85y1"]
@@ -262,6 +262,14 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_afhc3")
 sources/4 = SubResource("TileSetAtlasSource_n5gno")
 
+[sub_resource type="Gradient" id="Gradient_nkl6e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.621818, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8wlk"]
+gradient = SubResource("Gradient_nkl6e")
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("4_y7uys")]
@@ -462,3 +470,14 @@ position = Vector2(24, -85)
 
 [node name="SpikeTrap4" parent="." instance=ExtResource("16_eakv8")]
 position = Vector2(47, -85)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(228, 791.702)
+rotation = -1.5708
+scale = Vector2(3.33992, 40.7104)
+texture = SubResource("GradientTexture2D_n8wlk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1161, 471)
+scale = Vector2(8, 11.7578)
+texture = SubResource("GradientTexture2D_n8wlk")
