@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=39 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -31,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://ds5wobdnvj7nk" path="res://assets/sprites/trees/Violetit_oksat.png" id="23_bjbb2"]
 [ext_resource type="Texture2D" uid="uid://thyqn80oy7fb" path="res://assets/sprites/trees/Puu_2_tauti_variant1.png" id="24_j3e0g"]
 [ext_resource type="Texture2D" uid="uid://b13gc5g8i727n" path="res://assets/sprites/trees/Puu_1_tauti.png" id="31_lfcv5"]
+[ext_resource type="Texture2D" uid="uid://dehrmkdneon20" path="res://assets/sprites/trees/Puu_törmäys.png" id="32_80l6c"]
+[ext_resource type="Texture2D" uid="uid://cgc4gekdc8i3l" path="res://assets/sprites/plants/pikkukasveja_variants2.png" id="33_w0aju"]
+[ext_resource type="Texture2D" uid="uid://bs65phb7grqmp" path="res://assets/sprites/trees/Puu_2_tauti_variant2.png" id="34_x6jaj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -612,7 +615,7 @@ script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
 z_index = 3
-position = Vector2(-359, -76)
+position = Vector2(10264, -1139)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
@@ -1032,78 +1035,6 @@ position = Vector2(10730, 698)
 [node name="EnemyFlying6" parent="Enemies" instance=ExtResource("9_ljyvg")]
 position = Vector2(9852, -3043)
 
-[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="Enemies"]
-position = Vector2(-111, 11)
-scale = Vector2(0.113281, 0.117913)
-texture = ExtResource("16_r5eik")
-region_enabled = true
-region_rect = Rect2(1, 340, 1920, 745)
-
-[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="Enemies"]
-position = Vector2(-349, 13)
-scale = Vector2(0.136539, 0.129671)
-texture = ExtResource("16_r5eik")
-region_enabled = true
-region_rect = Rect2(7677, 1418, 1923, 742)
-
-[node name="Kasveja&Lehtiplatformit2" type="Sprite2D" parent="Enemies"]
-z_index = 1
-position = Vector2(449, -68)
-scale = Vector2(0.23125, 0.195139)
-texture = ExtResource("17_m7oo7")
-region_enabled = true
-region_rect = Rect2(456, 38, 195, 360)
-
-[node name="Kasveja&Lehtiplatformit" type="Sprite2D" parent="Enemies"]
-position = Vector2(-10, 12)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("17_m7oo7")
-region_enabled = true
-region_rect = Rect2(456, 38, 195, 360)
-
-[node name="Puu2Variant3" type="Sprite2D" parent="Enemies"]
-position = Vector2(303, -516.25)
-scale = Vector2(0.329012, 0.388657)
-texture = ExtResource("18_6lgad")
-
-[node name="PuitaTaustaKauempana" type="Sprite2D" parent="Enemies"]
-z_index = -1
-position = Vector2(-23.75, -444.25)
-scale = Vector2(0.499219, 0.549769)
-texture = ExtResource("19_becdp")
-
-[node name="PuitaKaukana" type="Sprite2D" parent="Enemies"]
-z_index = -1
-position = Vector2(668, -419)
-scale = Vector2(0.539323, 0.488426)
-texture = ExtResource("20_sbn0s")
-flip_h = true
-
-[node name="PuitaKaukanaTauti" type="Sprite2D" parent="Enemies"]
-z_index = -1
-position = Vector2(1324, -397)
-scale = Vector2(0.490104, 0.500926)
-texture = ExtResource("21_l1cs0")
-
-[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="Enemies"]
-z_index = 1
-position = Vector2(1676, -93)
-scale = Vector2(0.327746, 0.409782)
-texture = ExtResource("22_5udgp")
-vframes = 2
-frame = 1
-
-[node name="VioletitOksat" type="Sprite2D" parent="Enemies"]
-position = Vector2(1491, -285)
-texture = ExtResource("23_bjbb2")
-region_enabled = true
-
-[node name="Puu2TautiVariant1" type="Sprite2D" parent="Enemies"]
-z_index = -1
-position = Vector2(1554.69, -526.938)
-scale = Vector2(0.214429, 0.377836)
-texture = ExtResource("24_j3e0g")
-
 [node name="SpikeTraps" type="Node" parent="."]
 
 [node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
@@ -1150,27 +1081,43 @@ position = Vector2(9876, -1068)
 
 [node name="SpikeTrap12" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1092)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap13" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1116)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap14" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1140)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap15" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1164)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap16" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1188)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap17" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9949, -1236)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap18" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9949, -1284)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap19" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9949, -1308)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap20" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9949, -1332)
@@ -1180,30 +1127,48 @@ position = Vector2(9973, -1332)
 
 [node name="SpikeTrap22" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1380)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap23" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1356)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap24" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9949, -1260)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap25" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9924, -1212)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap26" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1404)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap27" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1428)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap28" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1452)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap29" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1476)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap30" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(9997, -1500)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap31" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10597, -1355)
@@ -1237,21 +1202,31 @@ position = Vector2(10857, -875)
 
 [node name="SpikeTrap41" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10451, -1067)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap42" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10596, -515)
+on_wall = true
 
 [node name="SpikeTrap43" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10596, -493)
+on_wall = true
 
 [node name="SpikeTrap44" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
-position = Vector2(10453, -565)
+position = Vector2(10451, -568)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap45" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10451, -591)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap46" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10451, -1042)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap47" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10645, -1380)
@@ -1317,9 +1292,11 @@ position = Vector2(11411, -3421)
 
 [node name="SpikeTrap66" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -3446)
+on_wall = true
 
 [node name="SpikeTrap67" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -3470)
+on_wall = true
 
 [node name="SpikeTrap68" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10022, -2844)
@@ -1350,9 +1327,13 @@ position = Vector2(10931, -108)
 
 [node name="SpikeTrap77" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10549, -1190)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap78" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10548, -1165)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap79" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10500, -1140)
@@ -1398,108 +1379,161 @@ position = Vector2(10728, 228)
 
 [node name="SpikeTrap93" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1093)
+on_wall = true
 
 [node name="SpikeTrap94" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1118)
+on_wall = true
 
 [node name="SpikeTrap95" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1144)
+on_wall = true
 
 [node name="SpikeTrap96" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1170)
+on_wall = true
 
 [node name="SpikeTrap97" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1195)
+on_wall = true
 
 [node name="SpikeTrap98" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1220)
+on_wall = true
 
 [node name="SpikeTrap99" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1244)
+on_wall = true
 
 [node name="SpikeTrap100" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1269)
+on_wall = true
 
 [node name="SpikeTrap101" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1295)
+on_wall = true
 
 [node name="SpikeTrap102" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1321)
+on_wall = true
 
 [node name="SpikeTrap103" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1347)
+on_wall = true
 
 [node name="SpikeTrap104" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1373)
+on_wall = true
 
 [node name="SpikeTrap105" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10886, -1398)
+on_wall = true
 
 [node name="SpikeTrap106" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10885, -1424)
+on_wall = true
 
 [node name="SpikeTrap107" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10886, -1448)
+on_wall = true
 
 [node name="SpikeTrap108" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10883, -1473)
+on_wall = true
 
 [node name="SpikeTrap109" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10884, -1500)
+on_wall = true
 
 [node name="SpikeTrap110" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -615)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap111" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -639)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap112" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10451, -662)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap113" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -687)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap114" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10451, -712)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap115" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -737)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap116" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -761)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap117" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10453, -786)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap118" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -810)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap119" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -831)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap120" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10453, -855)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap121" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10453, -879)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap122" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -905)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap123" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -929)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap124" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10453, -953)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap125" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -977)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap126" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10453, -997)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap127" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10452, -1020)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap128" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(10164, -1908)
@@ -1548,81 +1582,122 @@ position = Vector2(9829, -1909)
 
 [node name="SpikeTrap143" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11319, -2631)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap144" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11319, -2656)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap145" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11317, -2680)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap146" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11318, -2704)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap147" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11317, -2728)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap148" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11340, -2751)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap149" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2775)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap150" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2800)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap151" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2824)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap152" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2848)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap153" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2871)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap154" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2896)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap155" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2920)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap156" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11341, -2943)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap157" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11340, -2966)
+on_wall = true
+flipped = true
 
 [node name="SpikeTrap158" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2677)
+on_wall = true
 
 [node name="SpikeTrap159" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2701)
+on_wall = true
 
 [node name="SpikeTrap160" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2725)
+on_wall = true
 
 [node name="SpikeTrap161" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2749)
+on_wall = true
 
 [node name="SpikeTrap162" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2774)
+on_wall = true
 
 [node name="SpikeTrap163" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11822, -2798)
+on_wall = true
 
 [node name="SpikeTrap164" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2823)
+on_wall = true
 
 [node name="SpikeTrap165" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11822, -2848)
+on_wall = true
 
 [node name="SpikeTrap166" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11821, -2872)
+on_wall = true
 
 [node name="SpikeTrap167" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11822, -2894)
+on_wall = true
 
 [node name="SpikeTrap168" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11822, -2916)
+on_wall = true
 
 [node name="SpikeTrap169" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11774, -1716)
@@ -1746,6 +1821,7 @@ position = Vector2(8883, -593)
 
 [node name="SpikeTrap209" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11819, -2941)
+on_wall = true
 
 [node name="SpikeTrap215" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(6661, -591)
@@ -1759,6 +1835,8 @@ flipped = true
 
 [node name="SpikeTrap210" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(11317, -2605)
+on_wall = true
+flipped = true
 
 [node name="BoxStone" type="Node" parent="."]
 
@@ -1824,6 +1902,78 @@ scale = Vector2(0.118948, 0.340409)
 position = Vector2(7639, -2628)
 scale = Vector2(0.207405, 0.361585)
 
+[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="."]
+position = Vector2(-111, 11)
+scale = Vector2(0.113281, 0.117913)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(1, 340, 1920, 745)
+
+[node name="RuohikkoIsoSpriteSheet3" type="Sprite2D" parent="."]
+position = Vector2(-349, 13)
+scale = Vector2(0.136539, 0.129671)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(7677, 1418, 1923, 742)
+
+[node name="Kasveja&Lehtiplatformit2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(449, -68)
+scale = Vector2(0.23125, 0.195139)
+texture = ExtResource("17_m7oo7")
+region_enabled = true
+region_rect = Rect2(456, 38, 195, 360)
+
+[node name="Kasveja&Lehtiplatformit" type="Sprite2D" parent="."]
+position = Vector2(-10, 12)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_m7oo7")
+region_enabled = true
+region_rect = Rect2(456, 38, 195, 360)
+
+[node name="Puu2Variant3" type="Sprite2D" parent="."]
+position = Vector2(303, -516.25)
+scale = Vector2(0.329012, 0.388657)
+texture = ExtResource("18_6lgad")
+
+[node name="PuitaTaustaKauempana" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-23.75, -444.25)
+scale = Vector2(0.499219, 0.549769)
+texture = ExtResource("19_becdp")
+
+[node name="PuitaKaukana" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(668, -419)
+scale = Vector2(0.539323, 0.488426)
+texture = ExtResource("20_sbn0s")
+flip_h = true
+
+[node name="PuitaKaukanaTauti3" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1324, -397)
+scale = Vector2(0.490104, 0.500926)
+texture = ExtResource("21_l1cs0")
+
+[node name="MetsämaataYhdistetyt3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1676, -93)
+scale = Vector2(0.327746, 0.409782)
+texture = ExtResource("22_5udgp")
+vframes = 2
+frame = 1
+
+[node name="VioletitOksat" type="Sprite2D" parent="."]
+position = Vector2(1491, -285)
+texture = ExtResource("23_bjbb2")
+region_enabled = true
+
+[node name="Puu2TautiVariant1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1554.69, -526.938)
+scale = Vector2(0.214429, 0.377836)
+texture = ExtResource("24_j3e0g")
+
 [node name="Puu2Tauti" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(2704, -550)
@@ -1831,7 +1981,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_f7307")
 
 [node name="Metsämaata3" type="Sprite2D" parent="."]
-z_index = 3
+z_index = 6
 position = Vector2(206, 58)
 rotation = 3.14159
 scale = Vector2(0.19059, 0.179976)
@@ -1841,6 +1991,7 @@ region_enabled = true
 region_rect = Rect2(21, 25, 740, 189)
 
 [node name="Metsämaata2" type="Sprite2D" parent="."]
+z_index = 6
 position = Vector2(277, -18)
 rotation = -1.5708
 scale = Vector2(0.213767, 0.222919)
@@ -1850,7 +2001,7 @@ region_enabled = true
 region_rect = Rect2(775, 39, 754, 156)
 
 [node name="Metsämaata" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 6
 position = Vector2(357, -82)
 scale = Vector2(0.284121, 0.283721)
 texture = ExtResource("23_3tde3")
@@ -1863,7 +2014,7 @@ scale = Vector2(0.286651, 0.377315)
 texture = ExtResource("31_lfcv5")
 
 [node name="Metsämaata4" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 6
 position = Vector2(1013, -106)
 scale = Vector2(0.219648, 0.229712)
 texture = ExtResource("23_3tde3")
@@ -1891,3 +2042,115 @@ scale = Vector2(0.705814, 0.702274)
 texture = ExtResource("16_r5eik")
 region_enabled = true
 region_rect = Rect2(1915.45, 361.502, 1924.46, 718.364)
+
+[node name="PuuTörmäys" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1695.5, -587.75)
+scale = Vector2(0.490783, 0.350231)
+texture = ExtResource("32_80l6c")
+hframes = 3
+frame = 2
+
+[node name="PuuTörmäys2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1695.5, -587.75)
+scale = Vector2(0.490783, 0.350231)
+texture = ExtResource("32_80l6c")
+hframes = 3
+frame = 2
+
+[node name="PuuTörmäys3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1720, -250)
+scale = Vector2(0.521628, 0.265)
+texture = ExtResource("32_80l6c")
+hframes = 3
+
+[node name="Metsämaata5" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(862, -64)
+scale = Vector2(0.150974, 0.141667)
+texture = ExtResource("23_3tde3")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(779.258, 35.674, 770.742, 165.044)
+
+[node name="Metsämaata6" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(932, -86)
+rotation = -0.785398
+scale = Vector2(0.129449, 0.144082)
+texture = ExtResource("23_3tde3")
+region_enabled = true
+region_rect = Rect2(775.547, 256.637, 767.175, 187.921)
+
+[node name="PikkukasvejaVariants2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(985.25, -123.625)
+scale = Vector2(0.120786, 0.158284)
+texture = ExtResource("33_w0aju")
+region_enabled = true
+region_rect = Rect2(327.506, 134.032, 178.579, 169.958)
+
+[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(2917, -150.25)
+scale = Vector2(0.357168, 0.280435)
+texture = ExtResource("22_5udgp")
+vframes = 2
+frame = 1
+
+[node name="MetsämaataYhdistetyt2" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(2286, -130)
+scale = Vector2(0.250713, 0.230435)
+texture = ExtResource("22_5udgp")
+flip_h = true
+vframes = 2
+frame = 1
+
+[node name="PuitaKaukanaTauti4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4877, -531)
+scale = Vector2(0.330208, 0.357407)
+texture = ExtResource("21_l1cs0")
+
+[node name="Puu2TautiVariant2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5872, -505)
+scale = Vector2(0.291358, 0.353241)
+texture = ExtResource("24_j3e0g")
+
+[node name="Puu1Tauti2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5055, -575)
+scale = Vector2(0.429938, 0.433333)
+texture = ExtResource("31_lfcv5")
+flip_h = true
+
+[node name="Puu2Tauti2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4125, -710)
+scale = Vector2(0.459877, 0.44213)
+texture = ExtResource("21_f7307")
+flip_h = true
+
+[node name="Puu2TautiVariant3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4765, -523)
+scale = Vector2(0.357716, 0.318056)
+texture = ExtResource("34_x6jaj")
+flip_h = true
+
+[node name="PuitaKaukanaTauti5" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(5565, -474)
+scale = Vector2(0.368489, 0.353704)
+texture = ExtResource("21_l1cs0")
+flip_h = true
+
+[node name="PuitaKaukanaTauti6" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(4211, -760)
+scale = Vector2(0.461979, 0.509259)
+texture = ExtResource("21_l1cs0")
