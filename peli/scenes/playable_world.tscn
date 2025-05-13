@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=48 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dt5vvk4xtscnt" path="res://scenes/entities/enemy.tscn" id="8_ry65y"]
 [ext_resource type="PackedScene" uid="uid://cnol6u63it8ml" path="res://scenes/platform_mini.tscn" id="8_wxkxn"]
 [ext_resource type="PackedScene" uid="uid://fhmjrqj77d30" path="res://scenes/entities/enemy_flying.tscn" id="9_ljyvg"]
+[ext_resource type="PackedScene" uid="uid://neoajkg4a0tj" path="res://scenes/hud.tscn" id="10_5she0"]
 [ext_resource type="PackedScene" uid="uid://b5c3keby6mp81" path="res://scenes/entities/enemy_shooting.tscn" id="10_ut0g5"]
 [ext_resource type="PackedScene" uid="uid://b0ij3mxtnfp51" path="res://scenes/unlockable_gate.tscn" id="12_73hnm"]
 [ext_resource type="PackedScene" uid="uid://bmc6fh37iw580" path="res://scenes/powerup.tscn" id="12_oxq05"]
@@ -656,18 +657,17 @@ position = Vector2(0, 1)
 zoom = Vector2(1.7, 1.7)
 position_smoothing_enabled = true
 
-[node name="healthBar" parent="Player" instance=ExtResource("2_1il2f")]
-offset_left = -106.0
-offset_top = -138.0
-offset_right = 117.0
-offset_bottom = -108.0
-metadata/_edit_use_anchors_ = true
-
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("3_w1sb2")
 volume_db = -15.898
 
 [node name="Dash" parent="Player" instance=ExtResource("4_agnio")]
+
+[node name="healthBar" parent="Player" instance=ExtResource("2_1il2f")]
+offset_left = -110.0
+offset_top = -181.0
+offset_right = 113.0
+offset_bottom = -151.0
 
 [node name="GatesSwitchs" type="Node" parent="."]
 
@@ -775,7 +775,8 @@ tile_set = SubResource("TileSet_uworc")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_a4128")]
-visible = false
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("10_5she0")]
 
 [node name="Platforms" type="Node" parent="."]
 
