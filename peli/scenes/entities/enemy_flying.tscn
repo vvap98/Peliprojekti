@@ -210,7 +210,7 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="FlyPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_foici")
-volume_db = -8.733
+volume_db = -6.733
 
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_vgbwc")
