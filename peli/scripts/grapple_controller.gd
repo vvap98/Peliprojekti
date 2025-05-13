@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position()) #tähtää muuttujan "ray" hiiren osoittamaan kohtaan
 	shape.look_at(get_global_mouse_position())
 	
+	print(shape.target_position)
+	
 	if Input.is_action_just_pressed("grapple"):
 		grappleLaunch()
 	if Input.is_action_just_released("grapple"):

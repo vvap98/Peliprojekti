@@ -657,9 +657,9 @@ zoom = Vector2(1.7, 1.7)
 position_smoothing_enabled = true
 
 [node name="healthBar" parent="Player" instance=ExtResource("2_1il2f")]
-offset_left = -93.0
+offset_left = -106.0
 offset_top = -138.0
-offset_right = 130.0
+offset_right = 117.0
 offset_bottom = -108.0
 metadata/_edit_use_anchors_ = true
 
