@@ -648,7 +648,7 @@ fill_from = Vector2(0, 1)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-z_index = 3
+z_index = 0
 position = Vector2(-210, -77)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -1936,60 +1936,62 @@ scale = Vector2(0.118948, 0.340409)
 position = Vector2(7639, -2628)
 scale = Vector2(0.207405, 0.361585)
 
-[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="."]
+[node name="Spritet" type="Node" parent="."]
+
+[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="Spritet"]
 position = Vector2(-111, 11)
 scale = Vector2(0.113281, 0.117913)
 texture = ExtResource("16_r5eik")
 region_enabled = true
 region_rect = Rect2(1, 340, 1920, 745)
 
-[node name="RuohikkoIsoSpriteSheet3" type="Sprite2D" parent="."]
+[node name="RuohikkoIsoSpriteSheet3" type="Sprite2D" parent="Spritet"]
 position = Vector2(-349, 13)
 scale = Vector2(0.136539, 0.129671)
 texture = ExtResource("16_r5eik")
 region_enabled = true
 region_rect = Rect2(7677, 1418, 1923, 742)
 
-[node name="Kasveja&Lehtiplatformit2" type="Sprite2D" parent="."]
-z_index = 1
+[node name="Kasveja&Lehtiplatformit2" type="Sprite2D" parent="Spritet"]
+z_index = 7
 position = Vector2(449, -68)
 scale = Vector2(0.23125, 0.195139)
 texture = ExtResource("17_m7oo7")
 region_enabled = true
 region_rect = Rect2(456, 38, 195, 360)
 
-[node name="Kasveja&Lehtiplatformit" type="Sprite2D" parent="."]
+[node name="Kasveja&Lehtiplatformit" type="Sprite2D" parent="Spritet"]
 position = Vector2(-10, 12)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("17_m7oo7")
 region_enabled = true
 region_rect = Rect2(456, 38, 195, 360)
 
-[node name="Puu2Variant3" type="Sprite2D" parent="."]
+[node name="Puu2Variant3" type="Sprite2D" parent="Spritet"]
 position = Vector2(303, -516.25)
 scale = Vector2(0.329012, 0.388657)
 texture = ExtResource("18_6lgad")
 
-[node name="PuitaTaustaKauempana" type="Sprite2D" parent="."]
+[node name="PuitaTaustaKauempana" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(-23.75, -444.25)
 scale = Vector2(0.499219, 0.549769)
 texture = ExtResource("19_becdp")
 
-[node name="PuitaKaukana" type="Sprite2D" parent="."]
+[node name="PuitaKaukana" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(668, -419)
 scale = Vector2(0.539323, 0.488426)
 texture = ExtResource("20_sbn0s")
 flip_h = true
 
-[node name="PuitaKaukanaTauti3" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti3" type="Sprite2D" parent="Spritet"]
 z_index = -2
 position = Vector2(1324, -397)
 scale = Vector2(0.490104, 0.500926)
 texture = ExtResource("21_l1cs0")
 
-[node name="MetsämaataYhdistetyt3" type="Sprite2D" parent="."]
+[node name="MetsämaataYhdistetyt3" type="Sprite2D" parent="Spritet"]
 z_index = 1
 position = Vector2(1676, -93)
 scale = Vector2(0.327746, 0.409782)
@@ -1997,24 +1999,24 @@ texture = ExtResource("22_5udgp")
 vframes = 2
 frame = 1
 
-[node name="VioletitOksat" type="Sprite2D" parent="."]
+[node name="VioletitOksat" type="Sprite2D" parent="Spritet"]
 position = Vector2(1491, -285)
 texture = ExtResource("23_bjbb2")
 region_enabled = true
 
-[node name="Puu2TautiVariant1" type="Sprite2D" parent="."]
+[node name="Puu2TautiVariant1" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(1554.69, -526.938)
 scale = Vector2(0.214429, 0.377836)
 texture = ExtResource("24_j3e0g")
 
-[node name="Puu2Tauti" type="Sprite2D" parent="."]
+[node name="Puu2Tauti" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(2704, -550)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_f7307")
 
-[node name="Metsämaata3" type="Sprite2D" parent="."]
+[node name="Metsämaata3" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(206, 58)
 rotation = 3.14159
@@ -2024,7 +2026,7 @@ flip_v = true
 region_enabled = true
 region_rect = Rect2(21, 25, 740, 189)
 
-[node name="Metsämaata2" type="Sprite2D" parent="."]
+[node name="Metsämaata2" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(277, -18)
 rotation = -1.5708
@@ -2034,7 +2036,7 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(775, 39, 754, 156)
 
-[node name="Metsämaata" type="Sprite2D" parent="."]
+[node name="Metsämaata" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(357, -82)
 scale = Vector2(0.284121, 0.283721)
@@ -2042,12 +2044,12 @@ texture = ExtResource("23_3tde3")
 region_enabled = true
 region_rect = Rect2(0, 0, 762, 215)
 
-[node name="Puu1Tauti" type="Sprite2D" parent="."]
+[node name="Puu1Tauti" type="Sprite2D" parent="Spritet"]
 position = Vector2(1115.81, -528.5)
 scale = Vector2(0.286651, 0.377315)
 texture = ExtResource("31_lfcv5")
 
-[node name="Metsämaata4" type="Sprite2D" parent="."]
+[node name="Metsämaata4" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(1013, -106)
 scale = Vector2(0.219648, 0.229712)
@@ -2056,20 +2058,20 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 248, 766, 191)
 
-[node name="PuitaKaukanaTauti" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti" type="Sprite2D" parent="Spritet"]
 z_index = -2
 position = Vector2(2096, -546)
 scale = Vector2(0.391406, 0.501736)
 texture = ExtResource("21_l1cs0")
 flip_h = true
 
-[node name="PuitaKaukanaTauti2" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti2" type="Sprite2D" parent="Spritet"]
 z_index = -2
 position = Vector2(2637.56, -458.25)
 scale = Vector2(0.413086, 0.584954)
 texture = ExtResource("21_l1cs0")
 
-[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="."]
+[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="Spritet"]
 z_index = -3
 position = Vector2(282.007, 113.884)
 scale = Vector2(0.705814, 0.702274)
@@ -2077,7 +2079,7 @@ texture = ExtResource("16_r5eik")
 region_enabled = true
 region_rect = Rect2(1915.45, 361.502, 1924.46, 718.364)
 
-[node name="PuuTörmäys" type="Sprite2D" parent="."]
+[node name="PuuTörmäys" type="Sprite2D" parent="Spritet"]
 z_index = 1
 position = Vector2(1695.5, -587.75)
 scale = Vector2(0.490783, 0.350231)
@@ -2085,7 +2087,7 @@ texture = ExtResource("32_80l6c")
 hframes = 3
 frame = 2
 
-[node name="PuuTörmäys2" type="Sprite2D" parent="."]
+[node name="PuuTörmäys2" type="Sprite2D" parent="Spritet"]
 z_index = 1
 position = Vector2(1695.5, -587.75)
 scale = Vector2(0.490783, 0.350231)
@@ -2093,14 +2095,14 @@ texture = ExtResource("32_80l6c")
 hframes = 3
 frame = 2
 
-[node name="PuuTörmäys3" type="Sprite2D" parent="."]
+[node name="PuuTörmäys3" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(1720, -250)
 scale = Vector2(0.521628, 0.265)
 texture = ExtResource("32_80l6c")
 hframes = 3
 
-[node name="Metsämaata5" type="Sprite2D" parent="."]
+[node name="Metsämaata5" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(862, -64)
 scale = Vector2(0.150974, 0.141667)
@@ -2109,7 +2111,7 @@ flip_h = true
 region_enabled = true
 region_rect = Rect2(779.258, 35.674, 770.742, 165.044)
 
-[node name="Metsämaata6" type="Sprite2D" parent="."]
+[node name="Metsämaata6" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(932, -86)
 rotation = -0.785398
@@ -2118,7 +2120,7 @@ texture = ExtResource("23_3tde3")
 region_enabled = true
 region_rect = Rect2(775.547, 256.637, 767.175, 187.921)
 
-[node name="PikkukasvejaVariants2" type="Sprite2D" parent="."]
+[node name="PikkukasvejaVariants2" type="Sprite2D" parent="Spritet"]
 z_index = 1
 position = Vector2(985.25, -123.625)
 scale = Vector2(0.120786, 0.158284)
@@ -2126,7 +2128,7 @@ texture = ExtResource("33_w0aju")
 region_enabled = true
 region_rect = Rect2(327.506, 134.032, 178.579, 169.958)
 
-[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="."]
+[node name="MetsämaataYhdistetyt" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(2917, -150.25)
 scale = Vector2(0.357168, 0.280435)
@@ -2134,7 +2136,7 @@ texture = ExtResource("22_5udgp")
 vframes = 2
 frame = 1
 
-[node name="MetsämaataYhdistetyt2" type="Sprite2D" parent="."]
+[node name="MetsämaataYhdistetyt2" type="Sprite2D" parent="Spritet"]
 z_index = 6
 position = Vector2(2286, -130)
 scale = Vector2(0.250713, 0.230435)
@@ -2143,71 +2145,77 @@ flip_h = true
 vframes = 2
 frame = 1
 
-[node name="PuitaKaukanaTauti4" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti4" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(4877, -531)
 scale = Vector2(0.330208, 0.357407)
 texture = ExtResource("21_l1cs0")
 
-[node name="Puu2TautiVariant2" type="Sprite2D" parent="."]
+[node name="Puu2TautiVariant2" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(5872, -505)
 scale = Vector2(0.291358, 0.353241)
 texture = ExtResource("24_j3e0g")
 
-[node name="Puu1Tauti2" type="Sprite2D" parent="."]
+[node name="Puu1Tauti2" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(5055, -575)
 scale = Vector2(0.429938, 0.433333)
 texture = ExtResource("31_lfcv5")
 flip_h = true
 
-[node name="Puu2Tauti2" type="Sprite2D" parent="."]
+[node name="Puu2Tauti2" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(4125, -710)
 scale = Vector2(0.459877, 0.44213)
 texture = ExtResource("21_f7307")
 flip_h = true
 
-[node name="Puu2TautiVariant3" type="Sprite2D" parent="."]
+[node name="Puu2TautiVariant3" type="Sprite2D" parent="Spritet"]
 z_index = -1
 position = Vector2(4765, -523)
 scale = Vector2(0.357716, 0.318056)
 texture = ExtResource("34_x6jaj")
 flip_h = true
 
-[node name="PuitaKaukanaTauti5" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti5" type="Sprite2D" parent="Spritet"]
 z_index = -2
 position = Vector2(5565, -474)
 scale = Vector2(0.368489, 0.353704)
 texture = ExtResource("21_l1cs0")
 flip_h = true
 
-[node name="PuitaKaukanaTauti6" type="Sprite2D" parent="."]
+[node name="PuitaKaukanaTauti6" type="Sprite2D" parent="Spritet"]
 z_index = -2
 position = Vector2(4211, -760)
 scale = Vector2(0.461979, 0.509259)
 texture = ExtResource("21_l1cs0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Spritet"]
 position = Vector2(756.518, 396.531)
 rotation = -1.5708
 scale = Vector2(9.73534, 38.5905)
 texture = SubResource("GradientTexture2D_arouq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Spritet"]
 position = Vector2(-966.234, -167)
 scale = Vector2(18.0864, 27.0938)
 texture = SubResource("GradientTexture2D_i5ljg")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="Spritet"]
 position = Vector2(5808.87, 208)
 rotation = -1.5708
 scale = Vector2(12.4654, 81.7694)
 texture = SubResource("GradientTexture2D_4rumm")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="Spritet"]
 position = Vector2(2338.05, 311)
 rotation = -1.5708
 scale = Vector2(10.6052, 27.2533)
 texture = SubResource("GradientTexture2D_ljg4l")
+
+[node name="Puu1Tauti3" type="Sprite2D" parent="Spritet"]
+z_index = -1
+position = Vector2(7659, -534)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("31_lfcv5")
