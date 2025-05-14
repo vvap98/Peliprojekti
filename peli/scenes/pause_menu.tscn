@@ -123,7 +123,7 @@ text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1iexn")
+&"": SubResource("AnimationLibrary_1iexn")
 }
 
 [connection signal="toggled" from="PanelContainer/VBoxContainer/fullscreen" to="." method="_on_fullscreen_toggled"]

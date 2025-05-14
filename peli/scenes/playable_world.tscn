@@ -275,20 +275,22 @@ texture = ExtResource("5_wsjpg")
 3:5/0/modulate = Color(0.819608, 0, 0.784314, 0.760784)
 3:5/0/z_index = 4
 3:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:5/animation_columns = 2
+4:5/animation_frame_0/duration = 0.2
+4:5/animation_frame_1/duration = 0.2
+4:5/animation_frame_2/duration = 0.2
 4:5/0 = 0
 4:5/0/modulate = Color(0.820359, 0.000368874, 0.783298, 0.760784)
 4:5/0/z_index = 4
 4:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -4.75, 8, -4.625, 8, 8, -8, 8)
-5:5/0 = 0
-6:5/0 = 0
-6:5/0/modulate = Color(1, 1, 1, 0.721569)
-6:5/0/z_index = 4
-6:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:5/animation_columns = 2
+7:5/animation_frame_0/duration = 0.2
+7:5/animation_frame_1/duration = 0.2
+7:5/animation_frame_2/duration = 0.2
 7:5/0 = 0
 7:5/0/modulate = Color(1, 1, 1, 0.721569)
 7:5/0/z_index = 4
 7:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-8:5/0 = 0
 9:5/0 = 0
 9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.125, 0.125, 8, -8, 8, 8, -8, 8)
 10:5/0 = 0
@@ -324,10 +326,7 @@ texture = ExtResource("5_wsjpg")
 1:6/0 = 0
 2:6/0 = 0
 3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
 6:6/0 = 0
-7:6/0 = 0
 8:6/0 = 0
 9:6/0 = 0
 9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8)
@@ -598,6 +597,10 @@ texture = ExtResource("5_wsjpg")
 31:13/0 = 0
 32:13/0 = 0
 33:13/0 = 0
+6:5/0 = 0
+6:5/0/modulate = Color(1, 1, 1, 0.721569)
+6:5/0/z_index = 4
+6:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_uworc"]
 physics_layer_0/collision_layer = 1
@@ -757,6 +760,46 @@ gate = NodePath("../UnlockableGate11")
 position = Vector2(10528, 74)
 gate = NodePath("../UnlockableGate5")
 
+[node name="Switch11" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(7840, -2704)
+gate = NodePath("../UnlockableGate5")
+
+[node name="Switch12" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(7841, -2731)
+gate = NodePath("../UnlockableGate5")
+
+[node name="Switch13" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(8572, -399)
+gate = NodePath("../UnlockableGate")
+
+[node name="Switch14" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(6527, -277)
+gate = NodePath("../UnlockableGate9")
+
+[node name="Switch15" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(3992, -840)
+gate = NodePath("../UnlockableGate11")
+
+[node name="Switch16" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(1735, -145)
+gate = NodePath("../UnlockableGate8")
+
+[node name="Switch17" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(7819, -2705)
+gate = NodePath("../UnlockableGate6")
+
+[node name="Switch18" parent="GatesSwitchs" node_paths=PackedStringArray("gate") instance=ExtResource("13_oxxfi")]
+visible = false
+position = Vector2(6526, -303)
+gate = NodePath("../UnlockableGate9")
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="Platforms" instance=ExtResource("7_kvi6r")]
@@ -835,7 +878,7 @@ position = Vector2(10263, -781)
 position = Vector2(10262, -997)
 
 [node name="StaticBody2D26" parent="Platforms" instance=ExtResource("7_kvi6r")]
-position = Vector2(10258, -1813)
+position = Vector2(10249, -1812)
 
 [node name="StaticBody2D27" parent="Platforms" instance=ExtResource("7_kvi6r")]
 position = Vector2(2530, -639)
@@ -1047,6 +1090,9 @@ position = Vector2(10730, 698)
 
 [node name="EnemyFlying6" parent="Enemies" instance=ExtResource("9_ljyvg")]
 position = Vector2(9852, -3043)
+
+[node name="EnemyShooting7" parent="Enemies" instance=ExtResource("10_ut0g5")]
+position = Vector2(11017, -2253)
 
 [node name="SpikeTraps" type="Node" parent="."]
 
@@ -1871,9 +1917,6 @@ position = Vector2(8308, -1320)
 [node name="Box6" parent="BoxStone" instance=ExtResource("16_k138q")]
 position = Vector2(3768, -840)
 
-[node name="Powerup2" parent="." instance=ExtResource("12_oxq05")]
-position = Vector2(13115, -1483)
-
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="CheckpointScene" parent="Checkpoints" instance=ExtResource("22_7wijd")]
@@ -2197,5 +2240,19 @@ position = Vector2(7659, -534)
 scale = Vector2(0.255, 0.255)
 texture = ExtResource("31_lfcv5")
 
-[node name="DashPowerUp" parent="." instance=ExtResource("36_63ccw")]
+[node name="PowerUps" type="Node" parent="."]
+
+[node name="DashPowerUp" parent="PowerUps" instance=ExtResource("36_63ccw")]
 position = Vector2(7571, -2741)
+
+[node name="Powerup" parent="PowerUps" instance=ExtResource("12_oxq05")]
+position = Vector2(7032, -2746)
+
+[node name="Powerup2" parent="PowerUps" instance=ExtResource("12_oxq05")]
+position = Vector2(13115, -1483)
+
+[node name="DashPowerUp2" parent="PowerUps" instance=ExtResource("36_63ccw")]
+position = Vector2(10712, 43)
+
+[node name="DashPowerUp3" parent="PowerUps" instance=ExtResource("36_63ccw")]
+position = Vector2(10786, -3860)
