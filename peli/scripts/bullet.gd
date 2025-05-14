@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	#	queue_free()
 	#move_and_slide()
 
-func getDamaged():
+func damage():
 	hit = true
 	print("hit bullet!")
 	#velocity = -velocity
