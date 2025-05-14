@@ -15,6 +15,7 @@ var projectile = preload("res://scenes/projectile.tscn")
 @onready var kill_box: CollisionShape2D = $Killzone/CollisionShape2D
 
 const NODE_2D = preload("res://scenes/node_2d.tscn")
+const BULLET = preload("res://scenes/bullet.tscn")
 
 var world
 var playerchase = false
@@ -38,7 +39,7 @@ func _ready() -> void:
 		self.rotation_degrees = 180
 
 func shoot():
-	var instance = projectile.instantiate()
+	var instance = BULLET.instantiate()
 	if ground: 
 		instance.dir = sprite_2d.rotation + PI/2
 		instance.spawnRot = sprite_2d.rotation + PI/2
