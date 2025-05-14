@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="2_g6aiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_olw34"]
-radius = 11.0454
+radius = 16.0312
 
 [node name="Powerup" type="Area2D"]
 collision_mask = 2
@@ -12,7 +12,7 @@ script = ExtResource("1_h7umb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 1.90735e-06)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_g6aiy")
 region_enabled = true
 region_rect = Rect2(12.3957, 15.3344, 108.799, 109.187)
