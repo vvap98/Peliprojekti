@@ -31,7 +31,7 @@ var can_move = true
 @onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
 @onready var cooldowntimer: Timer = $HitBox/AttackTimer
 @onready var hitbox: Area2D = $HitBox
-@onready var health_bar: ProgressBar = $"healthBar"
+@onready var health_bar: ProgressBar = $"CanvasLayer/healthBar"
 #@onready var hud: Control = $"../CanvasLayer/HUD"
 
 @onready var hit_player: AudioStreamPlayer2D = $HitPlayer
