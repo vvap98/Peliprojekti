@@ -31,7 +31,7 @@ func _ready():
 	sprite_2d.modulate = Color.RED
 	
 func _physics_process(_delta: float) -> void:
-	await get_tree().physics_frame
+	#await get_tree().physics_frame
 
 	if dir.x > 0:
 		sprite_2d.flip_h = true

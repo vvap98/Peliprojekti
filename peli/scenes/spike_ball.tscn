@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwkn2dtn7hmlt"]
 
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_ctnwc"]
-[ext_resource type="Script" path="res://scripts/spike_ball.gd" id="1_m7yln"]
+[ext_resource type="Script" uid="uid://3t0unxsth6f4" path="res://scripts/spike_ball.gd" id="1_m7yln"]
 [ext_resource type="Texture2D" uid="uid://cbm6trpo4p4k4" path="res://assets/sprites/Piikkipallo&ansa_sprite_sheet.png" id="2_i0f8p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqqyj"]

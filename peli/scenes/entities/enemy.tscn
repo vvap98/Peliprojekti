@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://dt5vvk4xtscnt"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8dv88"]
+[ext_resource type="Script" uid="uid://b4s8x8q3x0fac" path="res://scripts/enemy.gd" id="1_8dv88"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_jvvar"]
-[ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_ri85n"]
+[ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_ri85n"]
 [ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="3_2vbww"]
 [ext_resource type="Texture2D" uid="uid://cdqoxgs7nmd7" path="res://assets/sprites/Ryömivä_vihollinen_proto.png" id="3_d7x8r"]
 [ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="4_n5i5x"]
@@ -17,7 +17,7 @@ size = Vector2(42, 25)
 resource_local_to_scene = true
 shader = ExtResource("2_ri85n")
 shader_parameter/flash_color = Color(0.827451, 0, 0, 1)
-shader_parameter/flash_value = null
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="Animation" id="Animation_4boys"]
 length = 0.001
@@ -103,9 +103,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt2k"]
 _data = {
-"RESET": SubResource("Animation_4boys"),
-"damage": SubResource("Animation_iyltr"),
-"death": SubResource("Animation_0ryhf")
+&"RESET": SubResource("Animation_4boys"),
+&"damage": SubResource("Animation_iyltr"),
+&"death": SubResource("Animation_0ryhf")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i7lpj"]
@@ -132,7 +132,7 @@ texture = ExtResource("3_d7x8r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_hyt2k")
+&"": SubResource("AnimationLibrary_hyt2k")
 }
 
 [node name="Killzone" parent="." instance=ExtResource("2_jvvar")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://cjjcvjtpniqu7"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_ehjh2"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_nmduh"]
+[ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_nmduh"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="2_w55e0"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="4_v5o3q"]
 [ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="5_3spf2"]
@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="9_rk3v3"]
 [ext_resource type="Texture2D" uid="uid://bmit6mpby26uu" path="res://assets/sprites/GrassDirt.png" id="10_ox8f6"]
 [ext_resource type="PackedScene" uid="uid://buinumhq4clql" path="res://scenes/box.tscn" id="14_yj0ky"]
-[ext_resource type="PackedScene" uid="uid://3vidjjw6xp52" path="res://scenes/CheckpointScene.tscn" id="16_b4ksk"]
+[ext_resource type="PackedScene" uid="uid://08muvew1f08t" path="res://scenes/CheckpointScene.tscn" id="16_b4ksk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4wih"]
 size = Vector2(47, 35)

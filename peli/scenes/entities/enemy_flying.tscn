@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://fhmjrqj77d30"]
 
-[ext_resource type="Script" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
-[ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
+[ext_resource type="Script" uid="uid://cefnwhhijpkbd" path="res://scripts/enemy_flying.gd" id="1_5paxa"]
+[ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_fg54v"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="2_ydsgm"]
 [ext_resource type="Texture2D" uid="uid://kvm8sd5htcax" path="res://assets/sprites/Lentävä_vihollinen_proto_sheet.png" id="3_n0jtk"]
 [ext_resource type="PackedScene" uid="uid://6khn0gdnyxhx" path="res://scenes/components/health_component.tscn" id="5_ka4bm"]
@@ -107,10 +107,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt2k"]
 _data = {
-"RESET": SubResource("Animation_4boys"),
-"damage": SubResource("Animation_iyltr"),
-"death": SubResource("Animation_ai127"),
-"default": SubResource("Animation_17odd")
+&"RESET": SubResource("Animation_4boys"),
+&"damage": SubResource("Animation_iyltr"),
+&"death": SubResource("Animation_ai127"),
+&"default": SubResource("Animation_17odd")
 }
 
 [sub_resource type="Animation" id="Animation_pykes"]
@@ -130,7 +130,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kcliq"]
 _data = {
-"damage": SubResource("Animation_pykes")
+&"damage": SubResource("Animation_pykes")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxsbo"]
@@ -163,14 +163,14 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_hyt2k")
+&"": SubResource("AnimationLibrary_hyt2k")
 }
 autoplay = "default"
 
 [node name="HitFlashPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../AnimationPlayer")
 libraries = {
-"": SubResource("AnimationLibrary_kcliq")
+&"": SubResource("AnimationLibrary_kcliq")
 }
 
 [node name="Killzone" parent="." instance=ExtResource("2_ydsgm")]

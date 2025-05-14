@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://lv2fwpfk61v5"]
 
-[ext_resource type="Script" path="res://scripts/playerSM.gd" id="1_g404g"]
+[ext_resource type="Script" uid="uid://cgfy7u2176f0f" path="res://scripts/playerSM.gd" id="1_g404g"]
 [ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_loen6"]
 [ext_resource type="AudioStream" uid="uid://gckv6htkogtx" path="res://assets/sfx/hyppy_leikattu.wav" id="3_orkkn"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_7ppb1"]
-[ext_resource type="Script" path="res://scripts/States/IdleState.gd" id="5_tgy8j"]
-[ext_resource type="Script" path="res://scripts/States/MovingState.gd" id="6_hj0na"]
-[ext_resource type="Script" path="res://scripts/States/JumpingState.gd" id="7_rdgr2"]
-[ext_resource type="Script" path="res://scripts/States/grappling_state.gd" id="8_yqb5v"]
+[ext_resource type="Script" uid="uid://1ldy8yixernb" path="res://scripts/States/IdleState.gd" id="5_tgy8j"]
+[ext_resource type="Script" uid="uid://c5tjrq7cexqau" path="res://scripts/States/MovingState.gd" id="6_hj0na"]
+[ext_resource type="Script" uid="uid://c2ih40qd3uage" path="res://scripts/States/JumpingState.gd" id="7_rdgr2"]
+[ext_resource type="Script" uid="uid://bxouqta2kwlfg" path="res://scripts/States/grappling_state.gd" id="8_yqb5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo3at"]
 
@@ -46,8 +46,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
 _data = {
-"RESET": SubResource("Animation_tjg8t"),
-"idle": SubResource("Animation_ysyrg")
+&"RESET": SubResource("Animation_tjg8t"),
+&"idle": SubResource("Animation_ysyrg")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]

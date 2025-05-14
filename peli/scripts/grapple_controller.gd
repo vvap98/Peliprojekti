@@ -22,6 +22,7 @@ var crosshair_position: Vector2 # Tähtäimen sijainti
 
 func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position()) #tähtää muuttujan "ray" hiiren osoittamaan kohtaan
+	#ray.target_position = get_global_mouse_position() - player.global_position
 	shape.look_at(get_global_mouse_position())
 	
 	#print(shape.target_position)

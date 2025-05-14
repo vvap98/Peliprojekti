@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rigbp1e0xb46"]
 
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_byw55"]
+[ext_resource type="Script" uid="uid://bqyb4xg0sdjfe" path="res://scripts/projectile.gd" id="1_byw55"]
 [ext_resource type="Texture2D" uid="uid://datclo5mhvtuh" path="res://assets/sprites/vihudebug.png" id="2_3oqvp"]
 [ext_resource type="PackedScene" uid="uid://b4t21tkqu5tqc" path="res://scenes/components/hitbox_component.tscn" id="4_ajrac"]
 

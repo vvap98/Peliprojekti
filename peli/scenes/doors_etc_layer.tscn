@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bin36ly68cqdl"]
 
 [ext_resource type="Texture2D" uid="uid://cted6fc0baiax" path="res://assets/sprites/PlayebleWorldDirt.png" id="1_irtil"]
-[ext_resource type="Script" path="res://scripts/trap_layer.gd" id="2_ecs7n"]
+[ext_resource type="Script" uid="uid://d201ahgvh1xtg" path="res://scripts/trap_layer.gd" id="2_ecs7n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfter"]
 texture = ExtResource("1_irtil")

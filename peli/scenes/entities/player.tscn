@@ -1,7 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=71 format=3 uid="uid://cp3lpq8c0gpg1"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_yglu2"]
-[ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
+[ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
+[ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
 [ext_resource type="Texture2D" uid="uid://bgult83fetof" path="res://assets/sprites/Juoksu_sprite_sheet.png" id="2_usfl5"]
 [ext_resource type="Texture2D" uid="uid://dk5pxworylrkq" path="res://assets/sprites/Idle_sprite_sheet.png" id="2_yu7fv"]
 [ext_resource type="Texture2D" uid="uid://b4lgdtkwnmmrc" path="res://assets/sprites/attack.png" id="4_bfwpn"]
@@ -13,12 +13,16 @@
 [ext_resource type="AudioStream" uid="uid://bitjdjkoyvo3y" path="res://assets/sfx/hahmo_hyppy_maahantulo.wav" id="9_pb7cs"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="11_3tx1o"]
 [ext_resource type="Texture2D" uid="uid://cmqoxjucarrhm" path="res://assets/sprites/Miekka_uusi_sprite_sheet.png" id="13_5lghs"]
+[ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="14_1yk18"]
+[ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="15_b4o2o"]
+[ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="16_yr3on"]
+[ext_resource type="PackedScene" uid="uid://cnoehkkxkpct1" path="res://scenes/hud.tscn" id="17_2ngu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
 resource_local_to_scene = true
 shader = ExtResource("2_8ho0w")
 shader_parameter/flash_color = Color(0.901961, 0, 0, 1)
-shader_parameter/flash_value = null
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vgfv"]
 atlas = ExtResource("2_yu7fv")
@@ -395,11 +399,11 @@ resource_name = "jump"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ystvh"]
 _data = {
-"RESET": SubResource("Animation_tjg8t"),
-"attack": SubResource("Animation_n4xu8"),
-"flash": SubResource("Animation_abmm1"),
-"idle": SubResource("Animation_ysyrg"),
-"jump": SubResource("Animation_tam3k")
+&"RESET": SubResource("Animation_tjg8t"),
+&"attack": SubResource("Animation_n4xu8"),
+&"flash": SubResource("Animation_abmm1"),
+&"idle": SubResource("Animation_ysyrg"),
+&"jump": SubResource("Animation_tam3k")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
@@ -481,7 +485,7 @@ animation = &"Jump"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_ystvh")
+&"": SubResource("AnimationLibrary_ystvh")
 }
 autoplay = "idle"
 
@@ -565,6 +569,37 @@ shape = SubResource("CircleShape2D_gmaq1")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(41, 3)
 target_position = Vector2(0, 21)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+zoom = Vector2(1.7, 1.7)
+position_smoothing_enabled = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_1yk18")
+volume_db = -15.898
+
+[node name="Dash" parent="." instance=ExtResource("15_b4o2o")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("17_2ngu4")]
+z_index = 5
+z_as_relative = false
+offset_left = -1235.0
+offset_top = -630.0
+offset_right = -1235.0
+offset_bottom = -630.0
+metadata/_edit_use_anchors_ = true
+
+[node name="healthBar" parent="CanvasLayer" instance=ExtResource("16_yr3on")]
+z_index = 5
+z_as_relative = false
+offset_left = 21.0
+offset_top = 21.0
+offset_right = 244.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]

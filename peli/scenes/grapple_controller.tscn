@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bivqtdbpegv6x"]
 
-[ext_resource type="Script" path="res://scripts/grapple_controller.gd" id="1_bdyvl"]
+[ext_resource type="Script" uid="uid://bofhe4clxjuut" path="res://scripts/grapple_controller.gd" id="1_bdyvl"]
 [ext_resource type="AudioStream" uid="uid://g8jqxy8l2auu" path="res://assets/sfx/Ruoskan tarttuminen Edit 1 Export 1.wav" id="2_l8iic"]
 [ext_resource type="AudioStream" uid="uid://cxjdmuytg1n12" path="res://assets/sfx/Ruoskan irtoaminen Edit 1 Export 1.wav" id="3_ofhja"]
 
@@ -29,9 +29,8 @@ stream = ExtResource("3_ofhja")
 position = Vector2(1, -2)
 shape = SubResource("SegmentShape2D_1hbhc")
 target_position = Vector2(400, 0)
-collision_mask = 32
+collision_mask = 33
 collide_with_areas = true
-collide_with_bodies = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

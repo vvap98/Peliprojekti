@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://b5c3keby6mp81"]
 
-[ext_resource type="Script" path="res://scripts/enemy_shooting.gd" id="1_et50h"]
+[ext_resource type="Script" uid="uid://coqswkdil7cmy" path="res://scripts/enemy_shooting.gd" id="1_et50h"]
 [ext_resource type="PackedScene" uid="uid://dmic18251tdqn" path="res://scenes/killzone.tscn" id="1_lmcs8"]
-[ext_resource type="Shader" path="res://shaders/damageFlash.gdshader" id="2_7daid"]
+[ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_7daid"]
 [ext_resource type="Texture2D" uid="uid://dhwt0qmv5bpbp" path="res://assets/sprites/Kukka_nuppu_proto.png" id="3_oa00k"]
 [ext_resource type="Texture2D" uid="uid://dd2u01gm8qtho" path="res://assets/sprites/Kukka_varsi_proto.png" id="5_osjfd"]
 [ext_resource type="Texture2D" uid="uid://dxmoor3w78oqh" path="res://assets/sprites/Kukka_lehdet_proto.png" id="6_bvdx1"]
@@ -17,7 +17,7 @@
 resource_local_to_scene = true
 shader = ExtResource("2_7daid")
 shader_parameter/flash_color = Color(0.827451, 0, 0, 1)
-shader_parameter/flash_value = null
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="Animation" id="Animation_4boys"]
 length = 0.001
@@ -79,9 +79,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt2k"]
 _data = {
-"RESET": SubResource("Animation_4boys"),
-"damage": SubResource("Animation_iyltr"),
-"death": SubResource("Animation_vt6hp")
+&"RESET": SubResource("Animation_4boys"),
+&"damage": SubResource("Animation_iyltr"),
+&"death": SubResource("Animation_vt6hp")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oqrf2"]
@@ -114,7 +114,7 @@ texture = ExtResource("3_oa00k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_hyt2k")
+&"": SubResource("AnimationLibrary_hyt2k")
 }
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -148,6 +148,7 @@ shape = SubResource("RectangleShape2D_rke0y")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="DetectionZone" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
