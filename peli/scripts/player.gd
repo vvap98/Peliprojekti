@@ -14,6 +14,8 @@ var took_damage = false
 var can_attack = true
 var can_double_jump = false
 var has_double_jumped = true
+
+var can_dash = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = 0
 var last_direction = 1

@@ -1,15 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmc6fh37iw580"]
+[gd_scene load_steps=4 format=3 uid="uid://bmc6fh37iw580"]
 
 [ext_resource type="Script" path="res://scripts/powerup.gd" id="1_h7umb"]
-
-[sub_resource type="Gradient" id="Gradient_q6pc3"]
-offsets = PackedFloat32Array(0.730769, 0.742308)
-colors = PackedColorArray(0, 0, 0.862745, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7lneg"]
-gradient = SubResource("Gradient_q6pc3")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="2_g6aiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_olw34"]
 radius = 11.0454
@@ -20,8 +12,10 @@ script = ExtResource("1_h7umb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 1.90735e-06)
-scale = Vector2(0.34375, 0.34375)
-texture = SubResource("GradientTexture2D_7lneg")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_g6aiy")
+region_enabled = true
+region_rect = Rect2(12.3957, 15.3344, 108.799, 109.187)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_olw34")

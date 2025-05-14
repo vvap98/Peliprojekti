@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=49 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dehrmkdneon20" path="res://assets/sprites/trees/Puu_törmäys.png" id="32_80l6c"]
 [ext_resource type="Texture2D" uid="uid://cgc4gekdc8i3l" path="res://assets/sprites/plants/pikkukasveja_variants2.png" id="33_w0aju"]
 [ext_resource type="Texture2D" uid="uid://bs65phb7grqmp" path="res://assets/sprites/trees/Puu_2_tauti_variant2.png" id="34_x6jaj"]
+[ext_resource type="PackedScene" uid="uid://cn7uhs7rws5nr" path="res://scenes/dash_power_up.tscn" id="36_63ccw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -104,7 +105,7 @@ texture = ExtResource("5_wsjpg")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/modulate = Color(0.2773, 0.59, 0.381533, 1)
+3:1/0/modulate = Color(0.2773, 0.59, 0.381533, 0)
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dy2ty")
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -649,8 +650,7 @@ fill_from = Vector2(0, 1)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-z_index = 0
-position = Vector2(11769, -1803)
+position = Vector2(-275, -90)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
@@ -1892,9 +1892,6 @@ position = Vector2(8308, -1320)
 [node name="Box6" parent="BoxStone" instance=ExtResource("16_k138q")]
 position = Vector2(3768, -840)
 
-[node name="Powerup" parent="." instance=ExtResource("12_oxq05")]
-position = Vector2(7776, -2709)
-
 [node name="Powerup2" parent="." instance=ExtResource("12_oxq05")]
 position = Vector2(13045, -1404)
 
@@ -2219,3 +2216,6 @@ z_index = -1
 position = Vector2(7659, -534)
 scale = Vector2(0.255, 0.255)
 texture = ExtResource("31_lfcv5")
+
+[node name="DashPowerUp" parent="." instance=ExtResource("36_63ccw")]
+position = Vector2(7570, -2720)

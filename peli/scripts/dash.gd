@@ -6,7 +6,7 @@ extends Node2D
 @onready var dashAnimationTimer: Timer = $dashAnimationTimer #timer dashin animaatiolle
 var dashing = false #onko dash käynnissä
 var dashSpeed = 900.0
-var dashCount = 2
+var dashCount = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,13 +17,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if dashing: 
 		dash()
-	if Input.is_action_just_pressed("dashLeft") or Input.is_action_just_pressed("dashRight") and not dashing:
+	if (Input.is_action_just_pressed("dashLeft") or Input.is_action_just_pressed("dashRight")) and not dashing and player.can_dash == true:
 		if Input.is_action_just_pressed("dashLeft"): dashSpeed = -abs(dashSpeed)
 		if Input.is_action_just_pressed("dashRight"): dashSpeed = abs(dashSpeed)
 		if dashCount > 0:
 			handleDash()
 			dashCount = dashCount - 1
-	if player.is_on_floor(): dashCount = 2
+	if player.is_on_floor(): dashCount = 1
 
 #Aloittaa dashin ja käynnistää timerit
 func handleDash():

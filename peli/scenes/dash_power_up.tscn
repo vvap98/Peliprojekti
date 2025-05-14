@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn7uhs7rws5nr"]
+
+[ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="1_eg8t3"]
+[ext_resource type="Script" path="res://scripts/dash_power_up.gd" id="1_wet1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qyldc"]
+radius = 11.0454
+
+[node name="DashPowerUp" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_wet1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_eg8t3")
+region_enabled = true
+region_rect = Rect2(135.379, 12.456, 109.223, 108.831)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qyldc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

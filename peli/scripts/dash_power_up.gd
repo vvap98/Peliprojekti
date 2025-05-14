@@ -8,9 +8,9 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
-		print("Got Double Jump!")
+		print("Got Dash!")
 		#timer.start()
-		player.can_double_jump = true
+		player.can_dash = true
 		
 		queue_free()
 		#self.visible = false
