@@ -23,7 +23,7 @@ var crosshair_position: Vector2 # Tähtäimen sijainti
 func _process(delta: float) -> void:
 	ray.look_at(get_global_mouse_position()) #tähtää muuttujan "ray" hiiren osoittamaan kohtaan
 	shape.look_at(get_global_mouse_position())
-	
+	queue_redraw()
 	#print(shape.target_position)
 	
 	if Input.is_action_just_pressed("grapple"):
@@ -34,6 +34,14 @@ func _process(delta: float) -> void:
 		handleGrapple(delta)
 		
 		
+
+func _draw() -> void:
+	var direction = ray.target_position.rotated(ray.global_rotation).normalized()
+	var offset_distance = 250.0  #Kuinka kaukana tähtäin on pelaajasta
+	var start = ray.global_position + direction * offset_distance
+	var end = ray.global_position + ray.target_position.rotated(ray.global_rotation)
+	
+	if not launched: draw_line(to_local(start), to_local(end), Color.RED, 2)
 #fysiikan käsittely tarttumisen aikana
 func handleGrapple(delta):
 	var targetDir = player.global_position.direction_to(target)
