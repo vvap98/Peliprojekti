@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7nwa5l7i36m0"]
+
+[ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="1_vidwg"]
+[ext_resource type="PackedScene" uid="uid://b4kbw1us8ibkq" path="res://scenes/pause_menu.tscn" id="2_o2rxc"]
+
+[node name="UI" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="healthBar" parent="." instance=ExtResource("1_vidwg")]
+offset_left = 37.0
+offset_top = 35.0
+offset_right = 260.0
+offset_bottom = 65.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_o2rxc")]
