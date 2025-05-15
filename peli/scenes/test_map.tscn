@@ -455,3 +455,6 @@ texture = SubResource("GradientTexture2D_n8wlk")
 position = Vector2(-1161, 471)
 scale = Vector2(8, 11.7578)
 texture = SubResource("GradientTexture2D_n8wlk")
+
+[node name="SpikeTrap" parent="." instance=ExtResource("16_eakv8")]
+position = Vector2(1311, -204)

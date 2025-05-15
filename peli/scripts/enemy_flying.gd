@@ -42,7 +42,7 @@ func _physics_process(_delta: float) -> void:
 		var next_path_pos = nav_agent.get_next_path_position()
 		dir = global_position.direction_to(next_path_pos)
 		new_velocity = dir * speed + knockback
-		print(new_velocity)
+		#print(new_velocity)
 	#print(player.global_position)
 	#print(dir)
 	else:

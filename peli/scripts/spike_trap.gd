@@ -2,7 +2,7 @@ extends Area2D
 
 var world
 
-@onready var spikeball = preload("res://scenes/spike_ball.tscn")
+@onready var spikeball = preload("res://scenes/spikeball.tscn")
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
 

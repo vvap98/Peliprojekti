@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://j868mg4ubb67"]
+
+[ext_resource type="Script" uid="uid://ckjb4umeebtqw" path="res://scripts/spikeball.gd" id="1_4u78d"]
+[ext_resource type="Texture2D" uid="uid://cbm6trpo4p4k4" path="res://assets/sprites/Piikkipallo&ansa_sprite_sheet.png" id="1_r7ntr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4u78d"]
+radius = 12.0
+
+[node name="Spikeball" type="Area2D"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_4u78d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_r7ntr")
+hframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4u78d")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

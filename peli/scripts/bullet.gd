@@ -16,7 +16,7 @@ func _ready():
 	zdex = z_index
 
 func _physics_process(delta: float) -> void:
-	print(get_overlapping_bodies())
+	#print(get_overlapping_bodies())
 	if has_overlapping_bodies():
 		queue_free()
 	if !hit:
