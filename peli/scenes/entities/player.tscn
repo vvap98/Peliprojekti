@@ -492,7 +492,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
-root_node = NodePath("../..")
+root_node = NodePath("%Sprite2D/..")
 tree_root = SubResource("AnimationNodeStateMachine_jv5ih")
 anim_player = NodePath("../AnimationPlayer")
 
