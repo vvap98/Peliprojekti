@@ -652,7 +652,7 @@ fill_from = Vector2(0, 1)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-position = Vector2(-137, -252)
+position = Vector2(-349, -58)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.5, 1.5)
