@@ -4,10 +4,11 @@ var spawnPos : Vector2
 var air = true
 
 var fallspeed = 5
-
+var player
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	global_position = spawnPos
 
 func _physics_process(delta: float) -> void:
@@ -20,7 +21,8 @@ func _physics_process(delta: float) -> void:
 			air = false
 			timer.start()
 			print("spike timer started")
-	
+	if overlaps_body(player):
+		player.getDamaged()
 	#move_and_slide()
 
 
