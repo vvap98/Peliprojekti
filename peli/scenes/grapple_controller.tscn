@@ -12,12 +12,13 @@ script = ExtResource("1_bdyvl")
 damping = 5.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(400, 0)
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
-default_color = Color(1.63645e-06, 0.325877, 0.820259, 1)
+default_color = Color(4.62055e-06, 0.676052, 0.987996, 1)
 
 [node name="AttachPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_l8iic")
@@ -26,6 +27,7 @@ stream = ExtResource("2_l8iic")
 stream = ExtResource("3_ofhja")
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+visible = false
 position = Vector2(1, -2)
 shape = SubResource("SegmentShape2D_1hbhc")
 target_position = Vector2(400, 0)
