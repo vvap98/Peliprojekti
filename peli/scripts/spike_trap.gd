@@ -8,16 +8,20 @@ var world
 
 @export var on_wall : bool
 @export var flipped : bool 
-
+var player
 var can_spawn = true
 
 func _ready() -> void:
 	world = get_tree().get_root().get_node("World")
+	player = get_tree().get_first_node_in_group("player")
 	if on_wall:
 		self.rotation_degrees = 90
 	if flipped:
 		self.rotation_degrees += 180
 
+func _process(_delta: float) -> void:
+	if overlaps_body(player):
+		player.getDamaged()
 #func _on_body_entered(body: Node2D) -> void:
 	#if body.is_in_group("player"):
 	#spawn_spike()

@@ -15,6 +15,7 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 var spike_ready = true
+var body
 
 var launched = false # Onko pelaaja laukaissut tarttumis "köyden"
 var target: Vector2 #Tarttumisen kohteen muuttuja
@@ -75,7 +76,8 @@ func grappleLaunch():
 	#if shape.is_colliding:
 		#print(ray.get_collision_count())
 		#for i in ray.get_collision_count():
-		var body = ray.get_collider()
+		body = ray.get_collider()
+		print(body)
 		if body.is_in_group("spiketrap"):
 			detach_player.play()
 			grappleRetract()
