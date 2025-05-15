@@ -25,6 +25,7 @@ var was_on_ledge = false
 var can_move = true
 
 @onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
+@onready var animState = animation_tree.get("parameters/playback")
 #var max_jumps = 1
 #func handleHp() -> void:
 @onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
@@ -120,6 +121,8 @@ func _physics_process(delta: float) -> void:
 		print("no longer on edge")
 		was_on_ledge = false
 	
+	handleJumpAnimation()
+	
 	var was_on_floor = is_on_floor()
 	
 	move_and_slide()
@@ -127,7 +130,8 @@ func _physics_process(delta: float) -> void:
 	
 	if !was_on_floor and is_on_floor():
 		landing_player.play()
-	
+		animState.travel("idle")
+		
 	if was_on_floor and !is_on_floor():
 		#print(is_on_floor())
 		if !velocity.y < 0: 
@@ -184,6 +188,9 @@ func checkHP():
 func getDamaged():
 	if !took_damage:
 		flash_animation_player.play("flash")
+		animation_tree["parameters/conditions/attack"] = false
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_moving"] = false
 		damage_timer.start()
 		took_damage = true
 		hp = hp - 1
@@ -218,6 +225,7 @@ func _on_fall_timer_timeout() -> void:
 func handle_inputs(delta) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
+		#animState.travel("jumpLoop")
 		#grapple.grappleRetract()
 		#animatedSprite_2d.play("Jump")
 		sfx_player.play()
@@ -234,6 +242,7 @@ func handle_inputs(delta) -> void:
 		sfx_player.play()
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
+		#animState.travel("fallLoop")
 		velocity.y = 0
 	
 	direction = Input.get_axis("moveLeft", "moveRight")
@@ -250,6 +259,11 @@ func handle_inputs(delta) -> void:
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
 	
-	if Input.is_action_just_pressed("jump"):
-		movement_player.stop()
-	
+	#if Input.is_action_just_pressed("jump"):
+	#	movement_player.stop()
+
+func handleJumpAnimation() -> void:
+	if velocity.y < 0:
+		animState.travel("jumpLoop")
+	elif velocity.y > 0:
+		animState.travel("fallLoop")
