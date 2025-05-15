@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=71 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -54,6 +54,10 @@
 [ext_resource type="Texture2D" uid="uid://b7vm78ck3p1l8" path="res://assets/sprites/plants/Köynnös_pohja.png" id="48_8vo4y"]
 [ext_resource type="Texture2D" uid="uid://6u8v8luko5lq" path="res://assets/sprites/taustat/Tausta-2.png" id="50_4i1t4"]
 [ext_resource type="Texture2D" uid="uid://clxmavfjyivs2" path="res://assets/sprites/trees/Puu_2_variant2.png" id="51_cqg8j"]
+[ext_resource type="Texture2D" uid="uid://ksl5tfoaimag" path="res://assets/sprites/trees/Puu_1_vaalea.png" id="51_eqpjn"]
+[ext_resource type="Texture2D" uid="uid://02q6ssxwj3wc" path="res://assets/sprites/trees/Puu_2_variant1.png" id="52_xsq5x"]
+[ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/trees/Puita_tausta_kauempana.png" id="53_1cdon"]
+[ext_resource type="Texture2D" uid="uid://46btnq8cn3gf" path="res://assets/sprites/plants/platformvariant.png" id="54_kfsun"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -2896,7 +2900,7 @@ region_enabled = true
 region_rect = Rect2(1701.73, 69.0353, 517.073, 1784.73)
 
 [node name="PuitaKaukana" type="Sprite2D" parent="Spritet/Second room"]
-z_index = -10
+z_index = -5
 position = Vector2(6302, -421)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("20_sbn0s")
@@ -3353,6 +3357,12 @@ position = Vector2(2201, -171)
 scale = Vector2(0.241349, 0.241349)
 texture = ExtResource("30_dc5bk")
 
+[node name="Puu1Vaalea" type="Sprite2D" parent="Spritet/Second room"]
+z_index = -6
+position = Vector2(5887, -489)
+scale = Vector2(0.288889, 0.288889)
+texture = ExtResource("51_eqpjn")
+
 [node name="Third room" type="Node" parent="Spritet"]
 
 [node name="Puu1Tauti3" type="Sprite2D" parent="Spritet/Third room"]
@@ -3428,6 +3438,156 @@ position = Vector2(7659.25, 206.241)
 rotation = -1.5708
 scale = Vector2(12.4782, 85.4009)
 texture = SubResource("GradientTexture2D_4rumm")
+
+[node name="LehtiplatformVihreä" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(6167, -352)
+scale = Vector2(0.315878, 0.315878)
+texture = ExtResource("39_ivw57")
+
+[node name="Puu2Variant1" type="Sprite2D" parent="Spritet/Third room"]
+z_index = -3
+position = Vector2(6043, -444)
+scale = Vector2(0.261111, 0.261111)
+texture = ExtResource("52_xsq5x")
+
+[node name="LehvistöVihreä" type="Sprite2D" parent="Spritet/Third room"]
+z_index = -1
+position = Vector2(5750, -730)
+rotation = 0.127409
+scale = Vector2(0.199385, 0.199385)
+texture = ExtResource("39_1s0sj")
+region_enabled = true
+region_rect = Rect2(1370.29, 771.496, 790.57, 783.666)
+
+[node name="LehvistöVihreä2" type="Sprite2D" parent="Spritet/Third room"]
+z_index = -1
+position = Vector2(5905, -642)
+scale = Vector2(0.256, 0.256)
+texture = ExtResource("39_1s0sj")
+region_enabled = true
+region_rect = Rect2(1320.16, 72.3578, 839.842, 500.393)
+
+[node name="PuitaTaustaKauempana" type="Sprite2D" parent="Spritet/Third room"]
+z_index = -7
+position = Vector2(5896, -527)
+scale = Vector2(0.319271, 0.319271)
+texture = ExtResource("53_1cdon")
+
+[node name="LehvistöVihreäSumea" type="Sprite2D" parent="Spritet/Third room"]
+z_index = -7
+position = Vector2(6105, -575)
+rotation = -0.195477
+scale = Vector2(0.34732, 0.347321)
+texture = ExtResource("40_a2trj")
+region_enabled = true
+region_rect = Rect2(38.7793, 782.2, 1288.89, 773.334)
+
+[node name="Metsämaata2" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 4
+position = Vector2(5749.05, -122)
+scale = Vector2(0.757051, 0.603116)
+texture = ExtResource("23_3tde3")
+region_enabled = true
+region_rect = Rect2(0, 0, 589.718, 218.977)
+
+[node name="Metsämaata" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 3
+position = Vector2(5764.78, -162)
+scale = Vector2(0.576437, 0.545872)
+texture = ExtResource("23_3tde3")
+region_enabled = true
+region_rect = Rect2(0, 0, 771.091, 218.977)
+
+[node name="LehtiplatformVihreä2" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 1
+position = Vector2(5938, -208)
+rotation = -0.71733
+scale = Vector2(0.466216, 0.466216)
+texture = ExtResource("39_ivw57")
+
+[node name="LehtiplatformVihreä3" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 1
+position = Vector2(6088.99, -246)
+scale = Vector2(0.61115, 0.594595)
+texture = ExtResource("39_ivw57")
+
+[node name="RuohikkoIsoSpriteSheet2" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(6516, -180)
+scale = Vector2(0.174232, 0.270235)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(2023.68, 312.417, 1546.65, 843.629)
+
+[node name="RuohikkoIsoSpriteSheet" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(6065.5, -159.5)
+scale = Vector2(0.166235, 0.193357)
+texture = ExtResource("16_r5eik")
+region_enabled = true
+region_rect = Rect2(2023.68, 312.417, 1546.65, 843.629)
+
+[node name="Puskavariant2" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(5692, -231)
+scale = Vector2(0.271242, 0.271242)
+texture = ExtResource("31_11sac")
+
+[node name="LehtiplatformVihreä4" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 1
+position = Vector2(6189, -198)
+rotation = 1.51844
+scale = Vector2(0.359671, 0.436063)
+texture = ExtResource("39_ivw57")
+
+[node name="Platformvariant" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(5998, -473)
+scale = Vector2(0.308824, 0.308823)
+texture = ExtResource("54_kfsun")
+
+[node name="Lehtivariants" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 2
+position = Vector2(6394, -201)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_5sj57")
+region_enabled = true
+region_rect = Rect2(313.511, 24.3855, 206.564, 346.872)
+
+[node name="Kallio3" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 1
+position = Vector2(6287.44, -121)
+scale = Vector2(0.39196, 0.617539)
+texture = ExtResource("33_obdeq")
+region_enabled = true
+region_rect = Rect2(98.7945, 63.3849, 487.179, 132.513)
+
+[node name="Kallio2" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 1
+position = Vector2(6290, -151)
+scale = Vector2(0.391184, 0.484848)
+texture = ExtResource("33_obdeq")
+region_enabled = true
+region_rect = Rect2(98.7945, 63.3849, 487.179, 132.513)
+
+[node name="Puskavariant1" type="Sprite2D" parent="Spritet/Third room"]
+z_index = 4
+position = Vector2(5963, -164)
+rotation = -0.888373
+scale = Vector2(0.458108, 0.458108)
+texture = ExtResource("32_3umul")
+
+[node name="LehvistöVihreä3" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(6206, -611)
+rotation = -1.64934
+scale = Vector2(0.349354, 0.349354)
+texture = ExtResource("39_1s0sj")
+region_enabled = true
+region_rect = Rect2(73.5599, 737.638, 697.517, 763.226)
+
+[node name="LehvistöTauti" type="Sprite2D" parent="Spritet/Third room"]
+position = Vector2(5613, -885)
+rotation = -1.26885
+scale = Vector2(0.358333, 0.358333)
+texture = ExtResource("38_5yvd4")
+region_enabled = true
+region_rect = Rect2(665.533, 34.138, 657.082, 555.992)
 
 [node name="Fourth room" type="Node" parent="Spritet"]
 
