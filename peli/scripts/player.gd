@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-# TODO hahmolle hetkellinen kuolemattomuus sen jälkeen kun on ottanut damagea
 
 var speed = 300.0
 var prev_speed : float
@@ -25,21 +24,17 @@ var was_on_ledge = false
 var can_move = true
 
 
-#var max_jumps = 1
-#func handleHp() -> void:
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
-@onready var attack_animation_player: AnimationPlayer = $AttackAnimationPlayer
+@onready var attack_animation_player: AnimationPlayer = $Sprite2D/AttackAnimationPlayer
 
 @onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
 @onready var animState = animation_tree.get("parameters/playback")
 
-#@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
 @onready var cooldowntimer: Timer = $HitBox/AttackTimer
 @onready var hitbox: Area2D = $HitBox
 @onready var health_bar: ProgressBar = $"CanvasLayer/healthBar"
-#@onready var hud: Control = $"../CanvasLayer/HUD"
 
 @onready var hit_player: AudioStreamPlayer2D = $HitPlayer
 @onready var attack_player: AudioStreamPlayer2D = $AttackPlayer
@@ -139,7 +134,9 @@ func _physics_process(delta: float) -> void:
 			attack.flip_v = true
 		else: attack.flip_v = false
 		print("attack")
-		attack_animation_player.play("attack")
+		animation_tree["parameters/conditions/attack"] = true
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = false
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
@@ -239,10 +236,12 @@ func handle_inputs(delta) -> void:
 		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0:
 		#animatedSprite_2d.play("Idle")
+		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/is_moving"] = false
 	else:
 		#animatedSprite_2d.play("Run")
+		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
 	
