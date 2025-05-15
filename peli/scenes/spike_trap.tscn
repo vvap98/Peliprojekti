@@ -11,6 +11,7 @@ size = Vector2(22, 22)
 size = Vector2(22, 22)
 
 [node name="SpikeTrap" type="Area2D" groups=["spiketrap"]]
+z_index = -1
 collision_layer = 32
 collision_mask = 2
 script = ExtResource("1_it8g6")

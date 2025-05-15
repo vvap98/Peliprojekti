@@ -149,6 +149,7 @@ stream_1/stream = ExtResource("9_kevr4")
 stream_2/stream = ExtResource("10_hx2lf")
 
 [node name="EnemyFlying" type="CharacterBody2D" groups=["enemy"]]
+z_index = -1
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_5paxa")
