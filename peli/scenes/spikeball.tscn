@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbm6trpo4p4k4" path="res://assets/sprites/Piikkipallo&ansa_sprite_sheet.png" id="1_r7ntr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4u78d"]
-radius = 12.0
+radius = 9.0
 
 [node name="Spikeball" type="Area2D"]
 z_index = -1
