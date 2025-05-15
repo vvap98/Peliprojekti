@@ -27,6 +27,7 @@ var can_move = true
 @onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
 #var max_jumps = 1
 #func handleHp() -> void:
+@onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 #@onready var sprite_2d: Sprite2D = $Sprite2D
@@ -182,7 +183,7 @@ func checkHP():
 
 func getDamaged():
 	if !took_damage:
-		animation_player.play("flash")
+		flash_animation_player.play("flash")
 		damage_timer.start()
 		took_damage = true
 		hp = hp - 1

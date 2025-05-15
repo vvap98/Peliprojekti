@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=105 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -699,6 +699,27 @@ states/run/position = Vector2(593.6, 100.4)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xe83n"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_b4o2o"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_yr3on"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_2ngu4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_jv5ih"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_n36er"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_d745t"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_yw3xw"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_6gvyl"), "jump", "jumpLoop", SubResource("AnimationNodeStateMachineTransition_u2s01"), "jumpLoop", "fall", SubResource("AnimationNodeStateMachineTransition_tb0mf"), "fall", "fallLoop", SubResource("AnimationNodeStateMachineTransition_y2dek"), "fallLoop", "idle", SubResource("AnimationNodeStateMachineTransition_1yk18")]
 graph_offset = Vector2(-49, -150)
 
+[sub_resource type="Animation" id="Animation_n36er"]
+resource_name = "flash"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 0.7, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d745t"]
+_data = {
+&"flash": SubResource("Animation_n36er")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
 size = Vector2(24, 46)
 
@@ -796,6 +817,11 @@ parameters/idle/blend_position = 0
 parameters/jump/blend_position = 0.00131404
 parameters/jumpLoop/blend_position = 0
 parameters/run/blend_position = 0
+
+[node name="FlashAnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_d745t")
+}
 
 [node name="grappleController" parent="." instance=ExtResource("11_3tx1o")]
 
