@@ -675,7 +675,6 @@ fill_from = Vector2(0, 1)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-z_index = 0
 position = Vector2(-325, -78)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

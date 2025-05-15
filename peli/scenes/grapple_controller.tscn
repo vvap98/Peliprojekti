@@ -12,8 +12,9 @@ script = ExtResource("1_bdyvl")
 damping = 5.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 target_position = Vector2(400, 0)
+collision_mask = 33
+collide_with_areas = true
 
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)
@@ -29,6 +30,7 @@ stream = ExtResource("3_ofhja")
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
 visible = false
 position = Vector2(1, -2)
+enabled = false
 shape = SubResource("SegmentShape2D_1hbhc")
 target_position = Vector2(400, 0)
 collision_mask = 33

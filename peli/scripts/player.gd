@@ -26,7 +26,7 @@ var can_move = true
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
-@onready var attack_animation_player: AnimationPlayer = $Sprite2D/AttackAnimationPlayer
+@onready var attack_animation_player: AnimationPlayer = $HitBox/AttackAnimationPlayer
 
 @onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
 @onready var animState = animation_tree.get("parameters/playback")
@@ -134,9 +134,10 @@ func _physics_process(delta: float) -> void:
 			attack.flip_v = true
 		else: attack.flip_v = false
 		print("attack")
-		animation_tree["parameters/conditions/attack"] = true
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/is_moving"] = false
+		#animation_tree["parameters/conditions/attack"] = true
+		#animation_tree["parameters/conditions/idle"] = false
+		#animation_tree["parameters/conditions/is_moving"] = false
+		attack_animation_player.play("attack")
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()

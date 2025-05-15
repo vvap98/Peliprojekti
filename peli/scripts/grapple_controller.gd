@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	#print(shape.target_position)
 	
+	
+	
 	if Input.is_action_just_pressed("grapple"):
 		grappleLaunch()
 	if Input.is_action_just_released("grapple"):
@@ -70,18 +72,18 @@ func grappleLaunch():
 		launched = true
 		target = ray.get_collision_point()
 		rope.show()
-	if shape.is_colliding:
-		print(shape.get_collision_count())
-		for i in shape.get_collision_count():
-			var body = shape.get_collider(i)
-			if body.is_in_group("spiketrap"):
-				detach_player.play()
-				grappleRetract()
-				if spike_ready:
-					body.spawn_spike()
-					spike_ready = false
-					timer.start()
-				print("spiketrap found")
+	#if shape.is_colliding:
+		#print(ray.get_collision_count())
+		#for i in ray.get_collision_count():
+		var body = ray.get_collider()
+		if body.is_in_group("spiketrap"):
+			detach_player.play()
+			grappleRetract()
+			if spike_ready:
+				body.spawn_spike()
+				spike_ready = false
+				timer.start()
+			print("spiketrap found")
 				
 #Tarttumisköyden irroitus.
 func grappleRetract():
