@@ -23,6 +23,8 @@ var last_direction = 1
 var last_position : Vector2
 var was_on_ledge = false
 var can_move = true
+
+@onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
 #var max_jumps = 1
 #func handleHp() -> void:
 
@@ -52,7 +54,13 @@ var can_move = true
 @onready var heal_box: Area2D = $HealBox
 @onready var pit_ray: RayCast2D = $RayCast2D
 
-
+func update_animation_parameters():
+	if velocity == Vector2.ZERO:
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_moving"] = false
+	else:
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = true
 func _ready() -> void:
 	hp = max_hp
 	health_bar.init_health(hp)
@@ -207,18 +215,18 @@ func handle_inputs(delta) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 		#grapple.grappleRetract()
-		animatedSprite_2d.play("Jump")
+		#animatedSprite_2d.play("Jump")
 		sfx_player.play()
 		coyote_timer.stop()
 	elif Input.is_action_just_pressed("jump") and !has_double_jumped:
-		animatedSprite_2d.play("Jump")
+		#animatedSprite_2d.play("Jump")
 		sfx_player.play()
 		velocity.y = JUMP_VELOCITY
 		has_double_jumped = true
 	if Input.is_action_just_pressed("jump") and grapple.launched:
 		grapple.grappleRetract()
 		velocity.y = JUMP_VELOCITY/2
-		animatedSprite_2d.play("Jump")
+		#animatedSprite_2d.play("Jump")
 		sfx_player.play()
 	# Stop jump if key is released
 	if Input.is_action_just_released("jump") && velocity.y < 0:
@@ -228,9 +236,13 @@ func handle_inputs(delta) -> void:
 	if direction != 0:
 		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0:
-		animatedSprite_2d.play("Idle")
+		#animatedSprite_2d.play("Idle")
+		animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/is_moving"] = false
 	else:
-		animatedSprite_2d.play("Run")
+		#animatedSprite_2d.play("Run")
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = true
 	
 	if Input.is_action_just_pressed("jump"):
 		movement_player.stop()
