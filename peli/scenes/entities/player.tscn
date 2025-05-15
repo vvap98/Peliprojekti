@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=72 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -406,6 +406,8 @@ _data = {
 &"jump": SubResource("Animation_tam3k")
 }
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jv5ih"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sjkd"]
 size = Vector2(24, 46)
 
@@ -490,6 +492,9 @@ libraries = {
 autoplay = "idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_jv5ih")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="grappleController" parent="." instance=ExtResource("11_3tx1o")]
 
