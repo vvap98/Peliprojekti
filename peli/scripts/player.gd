@@ -28,9 +28,6 @@ var can_move = true
 @onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
 @onready var attack_animation_player: AnimationPlayer = $HitBox/AttackAnimationPlayer
 
-@onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
-@onready var animState = animation_tree.get("parameters/playback")
-
 @onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
 @onready var cooldowntimer: Timer = $HitBox/AttackTimer
 @onready var hitbox: Area2D = $HitBox
@@ -118,7 +115,6 @@ func _physics_process(delta: float) -> void:
 	
 	if !was_on_floor and is_on_floor():
 		landing_player.play()
-		animState.travel("idle")
 		
 	if was_on_floor and !is_on_floor():
 		#print(is_on_floor())
@@ -134,9 +130,6 @@ func _physics_process(delta: float) -> void:
 			attack.flip_v = true
 		else: attack.flip_v = false
 		print("attack")
-		#animation_tree["parameters/conditions/attack"] = true
-		#animation_tree["parameters/conditions/idle"] = false
-		#animation_tree["parameters/conditions/is_moving"] = false
 		attack_animation_player.play("attack")
 		attack_player.play()
 		can_attack = false
@@ -176,8 +169,6 @@ func checkHP():
 func getDamaged():
 	if !took_damage:
 		flash_animation_player.play("flash")
-		animation_tree["parameters/conditions/idle"] = true
-		animation_tree["parameters/conditions/is_moving"] = false
 		damage_timer.start()
 		took_damage = true
 		hp = hp - 1
@@ -235,22 +226,16 @@ func handle_inputs(delta) -> void:
 	direction = Input.get_axis("moveLeft", "moveRight")
 	if direction != 0:
 		last_direction = direction #väliaikainen ratkaisu dashiin
-	if direction == 0:
-		#animatedSprite_2d.play("Idle")
-		animation_tree["parameters/conditions/attack"] = false
-		animation_tree["parameters/conditions/idle"] = true
-		animation_tree["parameters/conditions/is_moving"] = false
-	else:
-		#animatedSprite_2d.play("Run")
-		animation_tree["parameters/conditions/attack"] = false
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/is_moving"] = true
+	if direction == 0 and is_on_floor():
+		animatedSprite_2d.play("Idle")
+	elif direction != 0 and is_on_floor():
+		animatedSprite_2d.play("Run")
 	
 	#if Input.is_action_just_pressed("jump"):
 	#	movement_player.stop()
 
 func handleJumpAnimation() -> void:
-	if velocity.y < 0:
-		animState.travel("jumpLoop")
+	if velocity.y < 0 and !grapple.launched:
+		animation_player.play("jumpOff")
 	elif velocity.y > 0:
-		animState.travel("fallLoop")
+		animation_player.play("fallDown")
