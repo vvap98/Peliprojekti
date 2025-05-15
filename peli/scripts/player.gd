@@ -141,7 +141,10 @@ func _physics_process(delta: float) -> void:
 			attack.flip_v = true
 		else: attack.flip_v = false
 		print("attack")
-		animation_player.play("attack")
+		#imation_player.play("attack")
+		animation_tree["parameters/conditions/attack"] = true
+		animation_tree["parameters/conditions/idle"] = false
+		animation_tree["parameters/conditions/is_moving"] = false
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
@@ -237,10 +240,12 @@ func handle_inputs(delta) -> void:
 		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0:
 		#animatedSprite_2d.play("Idle")
+		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/is_moving"] = false
 	else:
 		#animatedSprite_2d.play("Run")
+		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
 	
