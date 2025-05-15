@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crp8smc6d20kx"
-path="res://.godot/imported/Kallio.png-d00a0e5eae6ea36c74f86bc5263ccb9f.ctex"
+uid="uid://bx8n3fo5w23v4"
+path="res://.godot/imported/Kallio_v2.png-f54c4b93f9c0f65e193ec8d74a27783b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/plants/Kallio.png"
-dest_files=["res://.godot/imported/Kallio.png-d00a0e5eae6ea36c74f86bc5263ccb9f.ctex"]
+source_file="res://assets/sprites/terrain/Kallio_v2.png"
+dest_files=["res://.godot/imported/Kallio_v2.png-f54c4b93f9c0f65e193ec8d74a27783b.ctex"]
 
 [params]
 
