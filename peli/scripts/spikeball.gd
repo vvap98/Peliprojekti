@@ -3,7 +3,7 @@ extends Area2D
 var spawnPos : Vector2
 var air = true
 
-var fallspeed = 5
+var fallspeed = 8
 var player
 @onready var timer: Timer = $Timer
 
