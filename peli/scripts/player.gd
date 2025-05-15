@@ -24,13 +24,16 @@ var last_position : Vector2
 var was_on_ledge = false
 var can_move = true
 
-@onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
-@onready var animState = animation_tree.get("parameters/playback")
+
 #var max_jumps = 1
 #func handleHp() -> void:
-@onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
-
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var flash_animation_player: AnimationPlayer = $Sprite2D/FlashAnimationPlayer
+@onready var attack_animation_player: AnimationPlayer = $AttackAnimationPlayer
+
+@onready var animation_tree : AnimationTree = $Sprite2D/AnimationTree
+@onready var animState = animation_tree.get("parameters/playback")
+
 #@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animatedSprite_2d: AnimatedSprite2D = %Sprite2D
 @onready var cooldowntimer: Timer = $HitBox/AttackTimer
@@ -56,13 +59,7 @@ var can_move = true
 @onready var heal_box: Area2D = $HealBox
 @onready var pit_ray: RayCast2D = $RayCast2D
 
-func update_animation_parameters():
-	if velocity == Vector2.ZERO:
-		animation_tree["parameters/conditions/idle"] = true
-		animation_tree["parameters/conditions/is_moving"] = false
-	else:
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/is_moving"] = true
+
 func _ready() -> void:
 	hp = max_hp
 	health_bar.init_health(hp)
@@ -84,10 +81,6 @@ func _physics_process(delta: float) -> void:
 	if can_double_jump and is_on_floor():
 		has_double_jumped = false
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	#	velocity.x = direction * SPEED
 	
 	# Tarkistetaan pelaajan suunta ja lasketaan pelaajan nopeus kiihtyvyydellä
 	if direction > 0 and not dash.dashing:
@@ -146,10 +139,7 @@ func _physics_process(delta: float) -> void:
 			attack.flip_v = true
 		else: attack.flip_v = false
 		print("attack")
-		#imation_player.play("attack")
-		animation_tree["parameters/conditions/attack"] = true
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/is_moving"] = false
+		attack_animation_player.play("attack")
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
@@ -188,7 +178,6 @@ func checkHP():
 func getDamaged():
 	if !took_damage:
 		flash_animation_player.play("flash")
-		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/is_moving"] = false
 		damage_timer.start()
@@ -250,12 +239,10 @@ func handle_inputs(delta) -> void:
 		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0:
 		#animatedSprite_2d.play("Idle")
-		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = true
 		animation_tree["parameters/conditions/is_moving"] = false
 	else:
 		#animatedSprite_2d.play("Run")
-		animation_tree["parameters/conditions/attack"] = false
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
 	
