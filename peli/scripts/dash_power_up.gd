@@ -11,7 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Got Dash!")
 		#timer.start()
 		player.can_dash = true
-		
+		player.dash_icon.visible = true
 		queue_free()
 		#self.visible = false
 		#self.set_deferred("monitoring", false)

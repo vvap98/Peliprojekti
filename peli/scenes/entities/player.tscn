@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=86 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="16_yr3on"]
 [ext_resource type="PackedScene" uid="uid://cnoehkkxkpct1" path="res://scenes/hud.tscn" id="17_2ngu4"]
 [ext_resource type="AudioStream" uid="uid://djirxqbasmgf3" path="res://assets/music/perus.wav" id="17_n36er"]
+[ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="22_n36er"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
 resource_local_to_scene = true
@@ -908,13 +909,34 @@ metadata/_edit_use_anchors_ = true
 z_index = 5
 z_as_relative = false
 anchors_preset = -1
-anchor_right = 0.115625
-anchor_bottom = 0.0240741
-offset_left = 21.0
+offset_left = 31.0
 offset_top = 21.0
-offset_right = 393.0
-offset_bottom = 79.0
+offset_right = 625.0
+offset_bottom = 85.0
 metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -280.0
+offset_right = 241.0
+offset_bottom = -7.0
+
+[node name="DoubleJumpIcon" type="Sprite2D" parent="CanvasLayer/GridContainer"]
+visible = false
+position = Vector2(86, 50)
+texture = ExtResource("22_n36er")
+region_enabled = true
+region_rect = Rect2(131.6, 7.7, 120, 120.8)
+
+[node name="DashIcon" type="Sprite2D" parent="CanvasLayer/GridContainer"]
+visible = false
+position = Vector2(86, 186)
+texture = ExtResource("22_n36er")
+region_enabled = true
+region_rect = Rect2(11.6, 13.3, 114.4, 115.2)
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]

@@ -55,6 +55,8 @@ var can_move = true
 @onready var trap_hitbox: Area2D = $TrapHitbox
 @onready var heal_box: Area2D = $HealBox
 @onready var pit_ray: RayCast2D = $RayCast2D
+@onready var double_jump_icon: Sprite2D = $CanvasLayer/GridContainer/DoubleJumpIcon
+@onready var dash_icon: Sprite2D = $CanvasLayer/GridContainer/DashIcon
 
 var rng = RandomNumberGenerator.new()
 

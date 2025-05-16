@@ -11,7 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("Got Double Jump!")
 		#timer.start()
 		player.can_double_jump = true
-		
+		player.double_jump_icon.visible = true
 		queue_free()
 		#self.visible = false
 		#self.set_deferred("monitoring", false)

@@ -694,7 +694,7 @@ size = Vector2(4828, 2107)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-position = Vector2(-348, -53)
+position = Vector2(-357, -54)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["tilemaplayer"]]
 scale = Vector2(1.5, 1.5)
@@ -4036,6 +4036,7 @@ position = Vector2(10599, -2896)
 select_music_0_1_or_2 = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea3"]
+visible = false
 position = Vector2(-305, -100.5)
 shape = SubResource("RectangleShape2D_kfsun")
 
@@ -4160,3 +4161,9 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Minun on pelastettava heidät. "
+
+[node name="Powerup" parent="." instance=ExtResource("12_oxq05")]
+position = Vector2(-218, -150)
+
+[node name="DashPowerUp" parent="." instance=ExtResource("36_63ccw")]
+position = Vector2(-158, -144)
