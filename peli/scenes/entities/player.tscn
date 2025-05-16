@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=85 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -17,8 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://d7hxoq636syf" path="res://assets/sfx/Viholliseen_Osuminen_leikattu.wav" id="13_yr3on"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="14_1yk18"]
 [ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="15_b4o2o"]
+[ext_resource type="AudioStream" uid="uid://7xbt18nje3yl" path="res://assets/music/uhmakas.mp3" id="16_jv5ih"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="16_yr3on"]
 [ext_resource type="PackedScene" uid="uid://cnoehkkxkpct1" path="res://scenes/hud.tscn" id="17_2ngu4"]
+[ext_resource type="AudioStream" uid="uid://djirxqbasmgf3" path="res://assets/music/perus.wav" id="17_n36er"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
 resource_local_to_scene = true
@@ -608,6 +610,8 @@ size = Vector2(24, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm8rw"]
 size = Vector2(24, 46)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmaq1"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0tk1"]
 atlas = ExtResource("4_bfwpn")
 region = Rect2(384, 128, 128, 128)
@@ -753,8 +757,6 @@ _data = {
 &"attack_new": SubResource("Animation_qc1tv")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gmaq1"]
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -23)
 collision_layer = 66
@@ -780,6 +782,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_d745t")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6sjkd")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
 [node name="grappleController" parent="." instance=ExtResource("11_3tx1o")]
 
 [node name="DamageTimer" type="Timer" parent="."]
@@ -794,10 +800,6 @@ one_shot = true
 wait_time = 1.8
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6sjkd")
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="TrapHitbox" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
@@ -806,6 +808,14 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrapHitbox"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_gm8rw")
+
+[node name="HealBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealBox"]
+position = Vector2(0, 14)
+shape = SubResource("CircleShape2D_gmaq1")
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(-1, -9)
@@ -860,14 +870,6 @@ volume_db = -8.194
 [node name="AttackPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_nshpn")
 
-[node name="HealBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 128
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealBox"]
-position = Vector2(0, 14)
-shape = SubResource("CircleShape2D_gmaq1")
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(41, 3)
 target_position = Vector2(0, 21)
@@ -877,9 +879,16 @@ position = Vector2(0, 1)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
+[node name="UhmakasPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_jv5ih")
+
+[node name="PerusPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_n36er")
+volume_db = -3.0
+
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_1yk18")
-volume_db = -15.898
+volume_db = -16.898
 
 [node name="Dash" parent="." instance=ExtResource("15_b4o2o")]
 
@@ -910,6 +919,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
 [connection signal="body_entered" from="TrapHitbox" to="." method="_on_trap_hitbox_body_entered"]
+[connection signal="body_entered" from="HealBox" to="." method="_on_heal_box_body_entered"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="HitBox/AttackTimer" to="." method="_on_attack_timer_timeout"]
-[connection signal="body_entered" from="HealBox" to="." method="_on_heal_box_body_entered"]

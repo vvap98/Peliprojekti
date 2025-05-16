@@ -41,6 +41,9 @@ var can_move = true
 @onready var water_player: AudioStreamPlayer2D = $WaterPlayer
 @onready var dash_player: AudioStreamPlayer2D = $DashPlayer
 
+@onready var uhmakas_player: AudioStreamPlayer2D = $UhmakasPlayer
+@onready var perus_player: AudioStreamPlayer2D = $PerusPlayer
+@onready var rauhallinen_player: AudioStreamPlayer2D = $MusicPlayer
 
 @onready var grapple: Node2D = $grappleController
 @onready var damage_timer: Timer = $DamageTimer
@@ -251,7 +254,7 @@ func handleJumpAnimation() -> void:
 	if velocity.y < 0 and !grapple.launched:
 		animation_player.play("jumpOff")
 	if velocity.y > 0 and !is_on_floor():
-		print("falling!")
+		#print("falling!")
 		animation_player.stop()
 		animation_player.play("fallLoop")
 
