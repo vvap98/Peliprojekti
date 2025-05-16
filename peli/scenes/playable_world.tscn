@@ -694,7 +694,7 @@ size = Vector2(4828, 2107)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-position = Vector2(-357, -54)
+position = Vector2(-347, -55)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["tilemaplayer"]]
 scale = Vector2(1.5, 1.5)
