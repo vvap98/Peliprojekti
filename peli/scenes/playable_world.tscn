@@ -694,7 +694,7 @@ size = Vector2(4828, 2107)
 script = ExtResource("1_wvhf1")
 
 [node name="Player" parent="." instance=ExtResource("1_0m4xu")]
-position = Vector2(6395, -315)
+position = Vector2(-348, -53)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["tilemaplayer"]]
 scale = Vector2(1.5, 1.5)
@@ -4138,12 +4138,12 @@ offset_left = -2.0
 offset_top = -122.0
 offset_right = 335.0
 offset_bottom = -73.0
-text = "Äiti, isä, kaikki sairastuivat johonkin tautiin 
+text = "Äiti, isä, kaikki sairastuivat tautiin 
 minun ollessa poissa kaupungista. "
 
 [node name="Controls" type="Sprite2D" parent="."]
 z_index = 5
-position = Vector2(-607, -318)
+position = Vector2(-592, -161)
 scale = Vector2(0.653659, 0.629032)
 texture = ExtResource("60_1cdon")
 region_enabled = true

@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	
 	
-	if Input.is_action_just_pressed("grapple"):
+	if Input.is_action_just_pressed("grapple") and player.can_move:
 		grappleLaunch()
 	if Input.is_action_just_released("grapple"):
 		grappleRetract()
