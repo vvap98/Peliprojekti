@@ -5,6 +5,7 @@ class_name unlockableGate
 var was_closed : bool
 
 @export var buttons : int
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	print(buttons)
@@ -12,6 +13,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if buttons == 0 and !was_closed:
+		audio_player.play()
 		#print("gate disabled!")
 		was_closed = true
 		self.visible = false
