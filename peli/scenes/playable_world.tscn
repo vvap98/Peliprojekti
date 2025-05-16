@@ -4044,6 +4044,7 @@ position = Vector2(7023, -2807)
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="TextCollectable8"]
+visible = false
 z_index = 4
 offset_left = 24.0
 offset_top = 9.0
@@ -4057,6 +4058,7 @@ position = Vector2(9130, -2702)
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="TextCollectable7"]
+visible = false
 z_index = 4
 offset_left = -416.0
 offset_top = -51.0
@@ -4070,6 +4072,7 @@ position = Vector2(13128, -1440)
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="TextCollectable6"]
+visible = false
 z_index = 4
 offset_left = -697.0
 offset_top = 56.0
@@ -4085,6 +4088,7 @@ position = Vector2(12463, -1452)
 label = NodePath("Label")
 
 [node name="Label" type="Label" parent="TextCollectable5"]
+visible = false
 z_index = 4
 offset_left = 30.0
 offset_top = -146.0
@@ -4130,11 +4134,12 @@ label = NodePath("Label")
 
 [node name="Label" type="Label" parent="TextCollectable"]
 visible = false
-offset_left = -26.0
-offset_top = -84.0
-offset_right = 28.0
-offset_bottom = -61.0
-text = "Äiti, isä, kaikki sairastuivat johonkin tautiin minun ollessa poissa kaupungista. "
+offset_left = -2.0
+offset_top = -122.0
+offset_right = 335.0
+offset_bottom = -73.0
+text = "Äiti, isä, kaikki sairastuivat johonkin tautiin 
+minun ollessa poissa kaupungista. "
 
 [node name="Controls" type="Sprite2D" parent="."]
 z_index = 5
