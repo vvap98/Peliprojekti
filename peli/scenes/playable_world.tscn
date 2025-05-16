@@ -3658,19 +3658,11 @@ region_rect = Rect2(672.632, 55.6784, 655.932, 521.293)
 
 [node name="Tippukivet&Katto" type="Sprite2D" parent="Spritet/Second room"]
 z_index = 1
-position = Vector2(5243, -770)
-scale = Vector2(0.619779, 0.607692)
+position = Vector2(5332, -770)
+scale = Vector2(1.01099, 0.607692)
 texture = ExtResource("47_bav2i")
 region_enabled = true
 region_rect = Rect2(11.149, 20.4451, 455.202, 85.184)
-
-[node name="Tippukivet&Katto2" type="Sprite2D" parent="Spritet/Second room"]
-z_index = 1
-position = Vector2(5445, -711)
-scale = Vector2(0.750946, 0.752058)
-texture = ExtResource("47_bav2i")
-region_enabled = true
-region_rect = Rect2(508.437, 11.8305, 333.815, 243.041)
 
 [node name="Lehtivariants3" type="Sprite2D" parent="Spritet/Second room"]
 z_index = 8
@@ -4190,9 +4182,9 @@ region_rect = Rect2(481.202, 812.091, 488.798, 177.909)
 
 [node name="Sprite2D8" type="Sprite2D" parent="Spritet/Third room"]
 z_index = 7
-position = Vector2(7583.22, -1824)
+position = Vector2(7208.09, -1824)
 rotation = 1.5708
-scale = Vector2(12.3369, 38.5943)
+scale = Vector2(12.3369, 26.8716)
 texture = SubResource("GradientTexture2D_arouq")
 
 [node name="IsoPuuRunko2" type="Sprite2D" parent="Spritet/Third room"]
@@ -4655,11 +4647,11 @@ region_enabled = true
 region_rect = Rect2(868.171, 67.2546, 454.96, 140.36)
 
 [node name="IsoPuuRunko6" type="Sprite2D" parent="Spritet/Third room"]
-position = Vector2(8427.98, -1517)
-scale = Vector2(0.495228, 0.540816)
+position = Vector2(8427.99, -1906)
+scale = Vector2(0.479629, 0.535714)
 texture = ExtResource("44_bav2i")
 region_enabled = true
-region_rect = Rect2(1665.11, 1567.75, 1668.42, 343.103)
+region_rect = Rect2(1665.11, 124.762, 1668.42, 1786.09)
 
 [node name="Puskavariant2" type="Sprite2D" parent="Spritet/Third room"]
 position = Vector2(6620, -263)
@@ -4760,9 +4752,9 @@ texture = ExtResource("43_5yvd4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Spritet/Fourth room"]
 z_index = 5
-position = Vector2(9397.63, 40.9998)
+position = Vector2(9441.49, 40.9996)
 rotation = -1.5708
-scale = Vector2(13.1672, 31.5067)
+scale = Vector2(13.1672, 32.8773)
 texture = SubResource("GradientTexture2D_4rumm")
 
 [node name="Sprite2D6" type="Sprite2D" parent="Spritet/Fourth room"]
@@ -5042,6 +5034,23 @@ texture = ExtResource("44_bav2i")
 region_enabled = true
 region_rect = Rect2(1672.91, 0, 545.399, 2012)
 
+[node name="Sprite2D7" type="Sprite2D" parent="Spritet/Fourth room"]
+z_index = 5
+position = Vector2(10225, 451)
+scale = Vector2(10.3383, 25.8484)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D23" type="Sprite2D" parent="Spritet/Fourth room"]
+z_index = 5
+position = Vector2(9242.34, -2087.47)
+rotation = 1.5708
+scale = Vector2(5.76079, 16.6136)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
 [node name="Rightside room" type="Node" parent="Spritet"]
 
 [node name="Rauniotalo" type="Sprite2D" parent="Spritet/Rightside room"]
@@ -5120,6 +5129,69 @@ texture = ExtResource("44_bav2i")
 region_enabled = true
 region_rect = Rect2(1698.51, 0, 828.829, 1594.32)
 
+[node name="Sprite2D8" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(11417, -952.821)
+rotation = 3.14159
+scale = Vector2(15.863, 11.2965)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(11557.8, -641.023)
+rotation = 1.93033
+scale = Vector2(7.50814, 17.7271)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(12152.7, -1067)
+rotation = 4.71239
+scale = Vector2(9.66235, 40.0755)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(13666, -1650.81)
+rotation = 3.14159
+scale = Vector2(17.9153, 30.8435)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D12" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(12413.2, -2025.7)
+rotation = 1.5708
+scale = Vector2(3.40119, 30.9529)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D13" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(10984.8, -1999)
+rotation = 1.5708
+scale = Vector2(3.40119, 18.8013)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Spritet/Rightside room"]
+z_index = 5
+position = Vector2(11491, -2126)
+rotation = -1.5708
+scale = Vector2(3.40119, 39.4905)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 10.4218, 64, 53.5782)
+
 [node name="Down room" type="Node" parent="Spritet"]
 
 [node name="Kallio3" type="Sprite2D" parent="Spritet/Down room"]
@@ -5129,6 +5201,51 @@ texture = ExtResource("33_obdeq")
 region_enabled = true
 region_rect = Rect2(-5.26646, 211.78, 741.682, 227.22)
 
+[node name="Sprite2D9" type="Sprite2D" parent="Spritet/Down room"]
+z_index = 5
+position = Vector2(11173.5, 946.23)
+rotation = -1.5708
+scale = Vector2(8.93376, 26.9675)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Spritet/Down room"]
+z_index = 5
+position = Vector2(11722, 161.78)
+rotation = 3.14159
+scale = Vector2(7.70781, 27.3838)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D16" type="Sprite2D" parent="Spritet/Down room"]
+z_index = 5
+position = Vector2(11320, 514)
+rotation = 3.14159
+scale = Vector2(9.05136, 10.0695)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D17" type="Sprite2D" parent="Spritet/Down room"]
+z_index = 5
+position = Vector2(11102, 785.001)
+rotation = 3.97935
+scale = Vector2(9.05136, 10.0695)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Spritet/Down room"]
+z_index = 5
+position = Vector2(11352, 420)
+rotation = 4.71239
+scale = Vector2(9.05136, 10.0695)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
 [node name="Up room" type="Node" parent="Spritet"]
 
 [node name="Kallio5" type="Sprite2D" parent="Spritet/Up room"]
@@ -5137,6 +5254,86 @@ scale = Vector2(0.143, 0.25)
 texture = ExtResource("33_obdeq")
 region_enabled = true
 region_rect = Rect2(-5.26646, 211.78, 741.682, 227.22)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(12860, -2418)
+rotation = 3.14159
+scale = Vector2(13.1269, 11.3228)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D12" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(12156.2, -3600)
+rotation = 3.14159
+scale = Vector2(10.4119, 30.8435)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D13" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(12398, -2756)
+rotation = 1.5708
+scale = Vector2(6.05682, 13.5913)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(12018, -2718)
+rotation = 2.28115
+scale = Vector2(3.83652, 3.58932)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D15" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(11915, -3793)
+rotation = 1.5708
+scale = Vector2(6.05682, 13.5913)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D16" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(11305, -4180)
+rotation = 1.5708
+scale = Vector2(9.05136, 22.2699)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D17" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(11606, -3800)
+rotation = 3.14159
+scale = Vector2(3.83652, 5.50645)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(9973, -3573.59)
+rotation = 1.5708
+scale = Vector2(11.9135, 22.2699)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D19" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 5
+position = Vector2(10479.7, -4235)
+scale = Vector2(8.69755, 22.2699)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
 
 [node name="Final room" type="Node" parent="Spritet"]
 
@@ -5153,6 +5350,67 @@ scale = Vector2(0.25, 0.2)
 texture = ExtResource("33_obdeq")
 region_enabled = true
 region_rect = Rect2(-5.26646, 211.78, 741.682, 227.22)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(8193.56, -3778)
+rotation = 1.5708
+scale = Vector2(9.05136, 44.6298)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D19" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(9382, -3434)
+rotation = 3.14159
+scale = Vector2(3.49914, 5.54029)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D20" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(7335, -3317)
+rotation = 1.5708
+scale = Vector2(15.2792, 17.3579)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D21" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(7437, -3394)
+scale = Vector2(15.2792, 17.3579)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D22" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(6548, -3000.81)
+scale = Vector2(15.2792, 28.179)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D23" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(8094.69, -2327.16)
+rotation = -1.5708
+scale = Vector2(9.86797, 42.1058)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 5
+position = Vector2(9492.11, -2503.9)
+rotation = -1.5708
+scale = Vector2(9.1059, 8.07156)
+texture = SubResource("GradientTexture2D_4rumm")
+region_enabled = true
+region_rect = Rect2(0, 5.89249, 64, 58.1075)
 
 [node name="PowerUps" type="Node" parent="."]
 
