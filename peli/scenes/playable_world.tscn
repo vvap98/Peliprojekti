@@ -4513,7 +4513,9 @@ offset_top = 9.0
 offset_right = 850.0
 offset_bottom = 135.0
 text = "Lopuksi pelaaja löysi lääkkeen, voitti Wäsherdin 
-ja ahneen kaupungin johtajan sekä pelasti kaupunkilaiset. "
+ja ahneen kaupungin johtajan sekä pelasti 
+kaupunkilaiset ja vanhempansa. 
+Loppu"
 
 [node name="TextCollectable7" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(9130, -2702)
@@ -4527,11 +4529,13 @@ offset_top = -51.0
 offset_right = 369.0
 offset_bottom = 75.0
 text = "Wäsherd kosti varastamalla lääkkeen kaupunkinkilaisilta 
-ja tartutti heihin vesitaudin."
+ja tartutti heihin vesitaudin. 
+Minun on taisteltava tie voittoon."
 
 [node name="TextCollectable6" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(13128, -1440)
 label = NodePath("Label")
+timer_amount = 20.0
 
 [node name="Label" type="Label" parent="TextCollectable6"]
 visible = false
@@ -4548,6 +4552,7 @@ ja sijoittui asumaan metsään ja alkoi hautoa vihdoin kostoa kaupungille. "
 [node name="TextCollectable5" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(12463, -1452)
 label = NodePath("Label")
+timer_amount = 20.0
 
 [node name="Label" type="Label" parent="TextCollectable5"]
 visible = false
@@ -4571,15 +4576,18 @@ label = NodePath("Label")
 [node name="Label" type="Label" parent="TextCollectable4"]
 visible = false
 z_index = 4
-offset_left = -37.0
-offset_top = -124.0
-offset_right = 234.0
-offset_bottom = -84.0
-text = "Jos täällä on on ollut kauan sitten asutusta ja se on tuhoutunut taudin takia, niin miksi meidän kaupunki on vielä pystyssä. "
+offset_left = -179.0
+offset_top = -139.0
+offset_right = 178.0
+offset_bottom = -64.0
+text = "Jos täällä on ollut kauan sitten asutusta 
+ja se on tuhoutunut taudin takia, 
+niin miksi meidän kaupunki on vielä pystyssä. "
 
 [node name="TextCollectable3" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(3566, -856)
 label = NodePath("Label")
+timer_amount = 5.0
 
 [node name="Label" type="Label" parent="TextCollectable3"]
 visible = false
@@ -4593,7 +4601,7 @@ text = "Mitä ihmettä täällä on tapahtunut?"
 [node name="TextCollectable" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(-78, -105)
 label = NodePath("Label")
-timer_amount = 5.0
+timer_amount = 7.0
 
 [node name="Label" type="Label" parent="TextCollectable"]
 visible = false
@@ -4601,8 +4609,8 @@ offset_left = -2.0
 offset_top = -122.0
 offset_right = 335.0
 offset_bottom = -73.0
-text = "Äiti, isä, kaikki sairastuivat tautiin 
-minun ollessa poissa kaupungista. "
+text = "Äiti, isä ja kaikki muut ovat sairastuneet tautiin, 
+kun olin poissa kaupungista. "
 
 [node name="Label" type="Label" parent="."]
 z_index = 5
@@ -4623,9 +4631,9 @@ region_enabled = true
 region_rect = Rect2(18.6623, 495.8, 410.338, 496.716)
 
 [node name="TextCollectable2" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
-position = Vector2(297, -130)
+position = Vector2(520, -34)
 label = NodePath("Label")
-timer_amount = 5.0
+timer_amount = 6.0
 
 [node name="Label" type="Label" parent="TextCollectable2"]
 visible = false
