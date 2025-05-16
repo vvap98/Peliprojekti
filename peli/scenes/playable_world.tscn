@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=75 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://csd3aiaas1gre" path="res://assets/sprites/trees/Puita_tausta_kauempana.png" id="53_1cdon"]
 [ext_resource type="Texture2D" uid="uid://46btnq8cn3gf" path="res://assets/sprites/plants/platformvariant.png" id="54_kfsun"]
 [ext_resource type="PackedScene" uid="uid://d03q7fh1nt33u" path="res://scenes/music_area.tscn" id="59_xsq5x"]
+[ext_resource type="Texture2D" uid="uid://dqac8fqfs1ui0" path="res://assets/sprites/Controls.png" id="60_1cdon"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -2273,6 +2274,7 @@ region_enabled = true
 region_rect = Rect2(312.413, 0, 209.858, 384.421)
 
 [node name="Puskavariant4" type="Sprite2D" parent="Spritet/First room"]
+z_index = -1
 position = Vector2(-90, -56)
 scale = Vector2(0.284602, 0.284602)
 texture = ExtResource("30_dc5bk")
@@ -3987,6 +3989,7 @@ position = Vector2(10786, -3860)
 position = Vector2(2376, -555)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea"]
+visible = false
 position = Vector2(430, 78)
 shape = SubResource("RectangleShape2D_1cdon")
 
@@ -3995,5 +3998,14 @@ position = Vector2(-27, -520)
 select_music_0_1_or_2 = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea2"]
+visible = false
 position = Vector2(582.5, 111.5)
 shape = SubResource("RectangleShape2D_xsq5x")
+
+[node name="Controls" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-607, -318)
+scale = Vector2(0.653659, 0.629032)
+texture = ExtResource("60_1cdon")
+region_enabled = true
+region_rect = Rect2(18.6623, 495.8, 410.338, 496.716)
