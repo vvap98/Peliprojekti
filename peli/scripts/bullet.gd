@@ -8,17 +8,21 @@ var spawnRot : float
 var zdex : int
 var hit = false
 var player
+var tilemap
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready():
 	global_position = spawnPos
 	global_rotation = spawnRot
 	player = get_tree().get_first_node_in_group("player")
+	tilemap = get_tree().get_first_node_in_group("tilemaplayer")
 	zdex = z_index
 
 func _physics_process(delta: float) -> void:
 	#print(get_overlapping_bodies())
-	if has_overlapping_bodies():
+	#if has_overlapping_bodies():
+		#queue_free()
+	if overlaps_body(tilemap):
 		queue_free()
 	if !hit:
 		position += Vector2(0, -SPEED).rotated(dir)
