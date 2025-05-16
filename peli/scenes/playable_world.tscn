@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=77 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://46btnq8cn3gf" path="res://assets/sprites/plants/platformvariant.png" id="54_kfsun"]
 [ext_resource type="PackedScene" uid="uid://d03q7fh1nt33u" path="res://scenes/music_area.tscn" id="59_xsq5x"]
 [ext_resource type="Texture2D" uid="uid://dqac8fqfs1ui0" path="res://assets/sprites/Controls.png" id="60_1cdon"]
+[ext_resource type="PackedScene" uid="uid://bvpk2ege00c24" path="res://scenes/text_collectable.tscn" id="60_kfsun"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jq7a4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -687,7 +688,7 @@ size = Vector2(2200, 1432)
 size = Vector2(2267, 1379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfsun"]
-size = Vector2(4828, 2132)
+size = Vector2(4828, 2107)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wvhf1")
@@ -4035,8 +4036,20 @@ position = Vector2(10599, -2896)
 select_music_0_1_or_2 = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea3"]
-position = Vector2(-305, -88)
+position = Vector2(-305, -100.5)
 shape = SubResource("RectangleShape2D_kfsun")
+
+[node name="TextCollectable" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
+position = Vector2(-78, -105)
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="TextCollectable"]
+visible = false
+offset_left = -26.0
+offset_top = -84.0
+offset_right = 28.0
+offset_bottom = -61.0
+text = "testing"
 
 [node name="Controls" type="Sprite2D" parent="."]
 z_index = 5

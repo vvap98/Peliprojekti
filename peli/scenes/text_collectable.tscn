@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvpk2ege00c24"]
+
+[ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="1_6ok02"]
+[ext_resource type="Script" uid="uid://br3pwg8m2vc24" path="res://scripts/text_collectable.gd" id="1_nj4ty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nj4ty"]
+radius = 16.0312
+
+[node name="TextCollectable" type="Area2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_nj4ty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 1.90735e-06)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_6ok02")
+region_enabled = true
+region_rect = Rect2(12.3957, 15.3344, 108.799, 109.187)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nj4ty")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
