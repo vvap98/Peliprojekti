@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=76 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -686,6 +686,9 @@ size = Vector2(2200, 1432)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsq5x"]
 size = Vector2(2267, 1379)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfsun"]
+size = Vector2(4828, 2132)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_wvhf1")
 
@@ -1133,6 +1136,31 @@ position = Vector2(9852, -3043)
 
 [node name="EnemyShooting7" parent="Enemies" instance=ExtResource("10_ut0g5")]
 position = Vector2(11017, -2253)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("8_ry65y")]
+position = Vector2(8062, -2689)
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("8_ry65y")]
+position = Vector2(8887, -2695)
+
+[node name="EnemyFlying7" parent="Enemies" instance=ExtResource("9_ljyvg")]
+position = Vector2(8708, -3184)
+
+[node name="EnemyFlying8" parent="Enemies" instance=ExtResource("9_ljyvg")]
+position = Vector2(8316, -3175)
+
+[node name="EnemyShooting15" parent="Enemies" instance=ExtResource("10_ut0g5")]
+position = Vector2(8263, -3423)
+ground = false
+
+[node name="EnemyShooting16" parent="Enemies" instance=ExtResource("10_ut0g5")]
+position = Vector2(8875, -3100)
+
+[node name="EnemyShooting17" parent="Enemies" instance=ExtResource("10_ut0g5")]
+position = Vector2(8274, -2841)
+
+[node name="EnemyShooting18" parent="Enemies" instance=ExtResource("10_ut0g5")]
+position = Vector2(8828, -2852)
 
 [node name="SpikeTraps" type="Node" parent="."]
 
@@ -4001,6 +4029,14 @@ select_music_0_1_or_2 = 1
 visible = false
 position = Vector2(582.5, 111.5)
 shape = SubResource("RectangleShape2D_xsq5x")
+
+[node name="MusicArea3" parent="." instance=ExtResource("59_xsq5x")]
+position = Vector2(10599, -2896)
+select_music_0_1_or_2 = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicArea3"]
+position = Vector2(-305, -88)
+shape = SubResource("RectangleShape2D_kfsun")
 
 [node name="Controls" type="Sprite2D" parent="."]
 z_index = 5

@@ -18,4 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if select_music_0_1_or_2 == 0: player.rauhallinen_player.stop()
 	elif select_music_0_1_or_2 == 1: player.perus_player.stop()
-	elif select_music_0_1_or_2 == 2: player.uhmakas_player.stop()
+	elif select_music_0_1_or_2 == 2: 
+		player.uhmakas_player.stop()
+		queue_free()
