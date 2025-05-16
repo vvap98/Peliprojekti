@@ -1170,10 +1170,6 @@ position = Vector2(6660, -536)
 on_wall = true
 flipped = true
 
-[node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
-position = Vector2(348, -107)
-flipped = true
-
 [node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("13_v1qir")]
 position = Vector2(8929, -593)
 
@@ -4161,9 +4157,3 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Minun on pelastettava heidät. "
-
-[node name="Powerup" parent="." instance=ExtResource("12_oxq05")]
-position = Vector2(-218, -150)
-
-[node name="DashPowerUp" parent="." instance=ExtResource("36_63ccw")]
-position = Vector2(-158, -144)
