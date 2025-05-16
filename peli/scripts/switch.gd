@@ -2,8 +2,10 @@ extends Area2D
 
 @export var gate : unlockableGate
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var down_player: AudioStreamPlayer2D = $DownPlayer
 
 func _on_body_entered(_body: Node2D) -> void:
+	down_player.play()
 	#self.scale = Vector2(1, 0.5)
 	self.get_node("CollisionShape2D").set_deferred("disabled", true)
 	sprite_2d.frame = 2

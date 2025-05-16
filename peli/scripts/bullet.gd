@@ -8,6 +8,7 @@ var spawnRot : float
 var zdex : int
 var hit = false
 var player
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready():
 	global_position = spawnPos
@@ -28,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func damage():
 	hit = true
+	sprite_2d.flip_v = true
 	print("hit bullet!")
 	#velocity = -velocity
 

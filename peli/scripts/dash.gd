@@ -15,11 +15,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if dashing: 
+	if dashing and player.can_move: 
 		dash()
 	if (Input.is_action_just_pressed("dashLeft") or Input.is_action_just_pressed("dashRight")) and not dashing and player.can_dash == true:
 		if Input.is_action_just_pressed("dashLeft"): dashSpeed = -abs(dashSpeed)
 		if Input.is_action_just_pressed("dashRight"): dashSpeed = abs(dashSpeed)
+		player.playDashEffect()
 		if dashCount > 0:
 			handleDash()
 			dashCount = dashCount - 1

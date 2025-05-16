@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=83 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://drn03oongewhr" path="res://assets/sprites/Hyppy_sprite_sheet.png" id="4_dyhuy"]
 [ext_resource type="AudioStream" uid="uid://bfj10kc6dp5uu" path="res://assets/sfx/askeleet_nopeutus.wav" id="4_h6n40"]
 [ext_resource type="AudioStream" uid="uid://csko54mmtc1jy" path="res://assets/sfx/hahmo_hyppy_uusi.wav" id="6_4cfs3"]
-[ext_resource type="AudioStream" uid="uid://bbwmw3tjcow7a" path="res://assets/sfx/Viholliseen osuminen Edit 1 Export 1.wav" id="8_e1q2p"]
 [ext_resource type="AudioStream" uid="uid://c87bal28sdn6p" path="res://assets/sfx/miekka_huitaisu_uusi.wav" id="8_nshpn"]
 [ext_resource type="AudioStream" uid="uid://bitjdjkoyvo3y" path="res://assets/sfx/hahmo_hyppy_maahantulo.wav" id="9_pb7cs"]
+[ext_resource type="AudioStream" uid="uid://crrsdoivtpwf7" path="res://assets/sfx/veteen_loiskahdus.wav" id="10_b4o2o"]
+[ext_resource type="AudioStream" uid="uid://dirox2cdyvlx5" path="res://assets/sfx/dash.wav" id="10_yr3on"]
 [ext_resource type="PackedScene" uid="uid://bivqtdbpegv6x" path="res://scenes/grapple_controller.tscn" id="11_3tx1o"]
 [ext_resource type="Texture2D" uid="uid://cmqoxjucarrhm" path="res://assets/sprites/Miekka_uusi_sprite_sheet.png" id="13_5lghs"]
+[ext_resource type="AudioStream" uid="uid://d7hxoq636syf" path="res://assets/sfx/Viholliseen_Osuminen_leikattu.wav" id="13_yr3on"]
 [ext_resource type="AudioStream" uid="uid://rlfe3nqldsbh" path="res://assets/music/rauhallinen_loopattava.wav" id="14_1yk18"]
 [ext_resource type="PackedScene" uid="uid://c6qluradfjbod" path="res://scenes/dash.tscn" id="15_b4o2o"]
 [ext_resource type="PackedScene" uid="uid://ch8yjn5oigpy0" path="res://scenes/health_bar.tscn" id="16_yr3on"]
@@ -835,14 +837,21 @@ libraries = {
 [node name="JumpPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_4cfs3")
 
+[node name="DashPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_yr3on")
+volume_db = -3.628
+
+[node name="WaterPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_b4o2o")
+
 [node name="MovementPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_h6n40")
 volume_db = -10.599
 max_distance = 20000.0
 
 [node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_e1q2p")
-volume_db = 10.0
+stream = ExtResource("13_yr3on")
+volume_db = 15.442
 
 [node name="LandingPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_pb7cs")

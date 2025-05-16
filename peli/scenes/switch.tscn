@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://biy3p64fg2oao"]
+[gd_scene load_steps=5 format=3 uid="uid://biy3p64fg2oao"]
 
 [ext_resource type="Script" uid="uid://bpx8ui6dvsoci" path="res://scripts/switch.gd" id="1_fgyiv"]
 [ext_resource type="Texture2D" uid="uid://by6p6dygu81da" path="res://assets/sprites/Nappi_rihmasto.png" id="2_6p7do"]
+[ext_resource type="AudioStream" uid="uid://bgjnukpoua1bb" path="res://assets/sfx/nappi_alas.wav" id="3_nnoiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23r6l"]
 size = Vector2(23, 23)
@@ -23,6 +24,9 @@ vframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1
 shape = SubResource("RectangleShape2D_23r6l")
+
+[node name="DownPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nnoiq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

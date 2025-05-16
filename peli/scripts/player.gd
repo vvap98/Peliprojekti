@@ -38,6 +38,8 @@ var can_move = true
 @onready var sfx_player: AudioStreamPlayer2D = $JumpPlayer
 @onready var movement_player: AudioStreamPlayer2D = $MovementPlayer
 @onready var landing_player: AudioStreamPlayer2D = $LandingPlayer
+@onready var water_player: AudioStreamPlayer2D = $WaterPlayer
+@onready var dash_player: AudioStreamPlayer2D = $DashPlayer
 
 
 @onready var grapple: Node2D = $grappleController
@@ -51,6 +53,7 @@ var can_move = true
 @onready var heal_box: Area2D = $HealBox
 @onready var pit_ray: RayCast2D = $RayCast2D
 
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	hp = max_hp
@@ -131,6 +134,7 @@ func _physics_process(delta: float) -> void:
 		else: attack.flip_v = false
 		print("attack")
 		attack_animation_player.play("attack")
+		attack_player.pitch_scale = rng.randf_range(0.85, 1.15)
 		attack_player.play()
 		can_attack = false
 		cooldowntimer.start()
@@ -183,12 +187,16 @@ func playerDeath():
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
 	#prev_speed = speed
 	#speed = 0
+	water_player.pitch_scale = rng.randf_range(0.4, 0.7)
+	water_player.play()
 	can_move = false
 	velocity.x = 0.0
 	fallen()
 	fall_timer.start()
 
 func _on_heal_box_body_entered(body: Node2D) -> void:
+	water_player.pitch_scale = rng.randf_range(0.8, 1.2)
+	water_player.play()
 	hp = max_hp
 	health_bar._set_health(hp)
 	
@@ -243,3 +251,7 @@ func handleJumpAnimation() -> void:
 		print("falling!")
 		animation_player.stop()
 		animation_player.play("fallLoop")
+
+func playDashEffect():
+	dash_player.pitch_scale = rng.randf_range(0.85, 1.15)
+	dash_player.play()
