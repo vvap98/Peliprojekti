@@ -238,4 +238,5 @@ func handleJumpAnimation() -> void:
 	if velocity.y < 0 and !grapple.launched:
 		animation_player.play("jumpOff")
 	elif velocity.y > 0:
-		animation_player.play("fallDown")
+		animation_player.stop()
+		animation_player.play("fallLoop")
