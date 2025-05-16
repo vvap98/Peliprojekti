@@ -4131,6 +4131,7 @@ text = "Mitä ihmettä täällä on tapahtunut?"
 [node name="TextCollectable" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(-78, -105)
 label = NodePath("Label")
+timer_amount = 5.0
 
 [node name="Label" type="Label" parent="TextCollectable"]
 visible = false
@@ -4152,6 +4153,7 @@ region_rect = Rect2(18.6623, 495.8, 410.338, 496.716)
 [node name="TextCollectable2" parent="." node_paths=PackedStringArray("label") instance=ExtResource("60_kfsun")]
 position = Vector2(297, -130)
 label = NodePath("Label")
+timer_amount = 5.0
 
 [node name="Label" type="Label" parent="TextCollectable2"]
 visible = false
