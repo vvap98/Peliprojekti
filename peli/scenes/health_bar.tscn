@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_376q6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln4jr"]
-bg_color = Color(0.311285, 0.652876, 0.751515, 1)
+bg_color = Color(0, 0.663065, 0.829062, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hybe1"]
 bg_color = Color(0.137452, 0.145126, 0.153884, 1)
