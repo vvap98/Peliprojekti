@@ -865,7 +865,7 @@ target_position = Vector2(0, 21)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 1)
-zoom = Vector2(1.7, 1.7)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
@@ -877,6 +877,7 @@ volume_db = -15.898
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("17_2ngu4")]
+visible = false
 z_index = 5
 z_as_relative = false
 offset_left = -1235.0
@@ -888,10 +889,13 @@ metadata/_edit_use_anchors_ = true
 [node name="healthBar" parent="CanvasLayer" instance=ExtResource("16_yr3on")]
 z_index = 5
 z_as_relative = false
+anchors_preset = -1
+anchor_right = 0.115625
+anchor_bottom = 0.0240741
 offset_left = 21.0
 offset_top = 21.0
-offset_right = 244.0
-offset_bottom = 51.0
+offset_right = 393.0
+offset_bottom = 79.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

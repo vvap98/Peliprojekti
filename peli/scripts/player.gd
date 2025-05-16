@@ -227,8 +227,10 @@ func handle_inputs(delta) -> void:
 	if direction != 0:
 		last_direction = direction #väliaikainen ratkaisu dashiin
 	if direction == 0 and is_on_floor():
+		if animation_player.is_playing(): animation_player.stop()
 		animatedSprite_2d.play("Idle")
 	elif direction != 0 and is_on_floor():
+		if animation_player.is_playing(): animation_player.stop()
 		animatedSprite_2d.play("Run")
 	
 	#if Input.is_action_just_pressed("jump"):
@@ -237,6 +239,7 @@ func handle_inputs(delta) -> void:
 func handleJumpAnimation() -> void:
 	if velocity.y < 0 and !grapple.launched:
 		animation_player.play("jumpOff")
-	elif velocity.y > 0:
+	if velocity.y > 0 and !is_on_floor():
+		print("falling!")
 		animation_player.stop()
 		animation_player.play("fallLoop")
