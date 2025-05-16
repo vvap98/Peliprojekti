@@ -99,7 +99,8 @@ func _physics_process(delta: float) -> void:
 		movement_player.stop()
 		velocity.x = lerp(velocity.x, 0.0, 0.2)# move_toward(velocity.x, 0, SPEED)
 	
-	
+	if !is_on_floor(): 
+		movement_player.stop()
 	if is_on_floor() and !pit_ray.is_colliding() and was_on_ledge == false:
 		was_on_ledge = true
 		last_position = global_position
@@ -117,6 +118,7 @@ func _physics_process(delta: float) -> void:
 	boxCollision()
 	
 	if !was_on_floor and is_on_floor():
+		landing_player.pitch_scale = rng.randf_range(0.85, 1.15)
 		landing_player.play()
 		
 	if was_on_floor and !is_on_floor():
