@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://0jkhtoxvwb12"]
+[gd_scene load_steps=78 format=4 uid="uid://0jkhtoxvwb12"]
 
 [ext_resource type="PackedScene" uid="uid://cp3lpq8c0gpg1" path="res://scenes/entities/player.tscn" id="1_0m4xu"]
 [ext_resource type="Script" uid="uid://dinlpc3buj46s" path="res://scripts/world.gd" id="1_wvhf1"]
@@ -689,6 +689,8 @@ size = Vector2(2267, 1379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfsun"]
 size = Vector2(4828, 2107)
+
+[sub_resource type="SystemFont" id="SystemFont_kfsun"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_wvhf1")
@@ -4139,6 +4141,16 @@ offset_bottom = -73.0
 text = "Äiti, isä, kaikki sairastuivat tautiin 
 minun ollessa poissa kaupungista. "
 
+[node name="Label" type="Label" parent="."]
+z_index = 5
+offset_left = 540.0
+offset_top = -61.0
+offset_right = 738.0
+offset_bottom = -34.0
+theme_override_fonts/font = SubResource("SystemFont_kfsun")
+theme_override_font_sizes/font_size = 19
+text = "Puhdas vesi parantaa"
+
 [node name="Controls" type="Sprite2D" parent="."]
 z_index = 5
 position = Vector2(-592, -161)
@@ -4154,6 +4166,12 @@ timer_amount = 5.0
 
 [node name="Label" type="Label" parent="TextCollectable2"]
 visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 19.0
+offset_top = -132.0
+offset_right = 256.0
+offset_bottom = -109.0
 text = "Minun on pelastettava heidät. "
+
+[node name="SpikeTrap" parent="." instance=ExtResource("13_v1qir")]
+position = Vector2(361, -112)
+flipped = true
