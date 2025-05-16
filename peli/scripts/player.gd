@@ -143,6 +143,7 @@ func _physics_process(delta: float) -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtbox"):
 		print("enemy damaged")
+		hit_player.pitch_scale = rng.randf_range(0.8, 1.2)
 		hit_player.play()
 		area.damage()
 
