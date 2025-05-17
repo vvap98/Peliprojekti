@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
+@onready var label: Label = $Label
 
 var player
 func _ready():
@@ -9,6 +10,7 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
 		print("Got Dash!")
+		label.visible = true
 		#timer.start()
 		player.can_dash = true
 		player.dash_icon.visible = true
@@ -18,5 +20,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	self.set_deferred("monitoring", true)
-	self.visible = true
+	#self.set_deferred("monitoring", true)
+	#self.visible = true
+	label.visible = false

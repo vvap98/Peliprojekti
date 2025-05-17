@@ -25,5 +25,15 @@ shape = SubResource("CircleShape2D_olw34")
 wait_time = 2.0
 one_shot = true
 
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -92.0
+offset_top = -82.0
+offset_right = 105.0
+offset_bottom = -33.0
+text = "You got the Double Jump!
+Sait tuplahypyn! "
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
