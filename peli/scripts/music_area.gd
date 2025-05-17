@@ -14,10 +14,14 @@ func _on_body_entered(body: Node2D) -> void:
 		if select_music_0_1_or_2 == 0: player.rauhallinen_player.play()
 		elif select_music_0_1_or_2 == 1: player.perus_player.play()
 		elif select_music_0_1_or_2 == 2: player.uhmakas_player.play()
+		elif select_music_0_1_or_2 == 3: player.uhmakas_2_player.play()
 
 func _on_body_exited(body: Node2D) -> void:
 	if select_music_0_1_or_2 == 0: player.rauhallinen_player.stop()
 	elif select_music_0_1_or_2 == 1: player.perus_player.stop()
 	elif select_music_0_1_or_2 == 2: 
 		player.uhmakas_player.stop()
+		queue_free()
+	elif select_music_0_1_or_2 == 3:
+		player.uhmakas_2_player.stop()
 		queue_free()

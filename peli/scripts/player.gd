@@ -44,6 +44,7 @@ var can_move = true
 @onready var uhmakas_player: AudioStreamPlayer2D = $UhmakasPlayer
 @onready var perus_player: AudioStreamPlayer2D = $PerusPlayer
 @onready var rauhallinen_player: AudioStreamPlayer2D = $MusicPlayer
+@onready var uhmakas_2_player: AudioStreamPlayer2D = $Uhmakas2Player
 
 @onready var grapple: Node2D = $grappleController
 @onready var damage_timer: Timer = $DamageTimer

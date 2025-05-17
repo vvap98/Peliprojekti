@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cp3lpq8c0gpg1"]
+[gd_scene load_steps=87 format=3 uid="uid://cp3lpq8c0gpg1"]
 
 [ext_resource type="Script" uid="uid://ciqont0q6pivi" path="res://scripts/player.gd" id="1_yglu2"]
 [ext_resource type="Shader" uid="uid://ce3p6nkjvphw6" path="res://shaders/damageFlash.gdshader" id="2_8ho0w"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cnoehkkxkpct1" path="res://scenes/hud.tscn" id="17_2ngu4"]
 [ext_resource type="AudioStream" uid="uid://djirxqbasmgf3" path="res://assets/music/perus.wav" id="17_n36er"]
 [ext_resource type="Texture2D" uid="uid://0r1mnq7qn366" path="res://assets/sprites/Digitaaliset_versiot_ikoneista.png" id="22_n36er"]
+[ext_resource type="AudioStream" uid="uid://c3jcadccfvtwq" path="res://assets/sfx/tappelu_musiikki.mp3" id="23_d745t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tew6"]
 resource_local_to_scene = true
@@ -936,6 +937,10 @@ position = Vector2(86, 186)
 texture = ExtResource("22_n36er")
 region_enabled = true
 region_rect = Rect2(11.6, 13.3, 114.4, 115.2)
+
+[node name="Uhmakas2Player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_d745t")
+volume_db = -4.0
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
