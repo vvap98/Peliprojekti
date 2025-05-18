@@ -191,7 +191,7 @@ func getDamaged():
 
 #alustaa scenen pelaajan kuollessa
 func playerDeath():
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene.call_deferred()
 
 func _on_trap_hitbox_body_entered(body: Node2D) -> void:
 	#prev_speed = speed
