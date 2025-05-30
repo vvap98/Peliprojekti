@@ -3075,8 +3075,8 @@ region_rect = Rect2(0, 0, 368.663, 325.741)
 
 [node name="IsoPuuRunko5" type="Sprite2D" parent="Spritet/Second room"]
 z_index = 1
-position = Vector2(5525.38, -365.5)
-scale = Vector2(0.194601, 0.191352)
+position = Vector2(5525.38, -368)
+scale = Vector2(0.194601, 0.193837)
 texture = ExtResource("44_bav2i")
 region_enabled = true
 region_rect = Rect2(1337.48, 0, 325.611, 2012)
@@ -6582,72 +6582,6 @@ texture = ExtResource("33_obdeq")
 region_enabled = true
 region_rect = Rect2(-5.26646, 211.78, 741.682, 227.22)
 
-[node name="IsoPuuRunko5" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12939, -1437)
-rotation = 3.14159
-scale = Vector2(0.0830842, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 1009.7, 665.583, 1002.3)
-
-[node name="IsoPuuRunko6" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12591.3, -1408)
-rotation = 3.14159
-scale = Vector2(0.0911506, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 1394.51, 828.829, 617.487)
-
-[node name="IsoPuuRunko7" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12935.8, -1947)
-scale = Vector2(0.102941, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 510.178, 1594.32)
-
-[node name="IsoPuuRunko8" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12937.1, -1804)
-scale = Vector2(0.104159, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 517.578, 1594.32)
-
-[node name="IsoPuuRunko2" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12937, -1640)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 547.179, 2012)
-
-[node name="IsoPuuRunko3" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12589, -1900)
-scale = Vector2(0.091786, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 828.829, 1594.32)
-
-[node name="IsoPuuRunko4" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12589, -1756)
-scale = Vector2(0.091786, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 828.829, 1594.32)
-
-[node name="IsoPuuRunko" type="Sprite2D" parent="Spritet/Rightside room"]
-z_index = 1
-position = Vector2(12589, -1592)
-scale = Vector2(0.091786, 0.1)
-texture = ExtResource("44_bav2i")
-region_enabled = true
-region_rect = Rect2(1698.51, 0, 828.829, 2012)
-
 [node name="Sprite2D8" type="Sprite2D" parent="Spritet/Rightside room"]
 z_index = 5
 position = Vector2(11417, -957.696)
@@ -6721,16 +6655,16 @@ region_rect = Rect2(0, 0, 400.747, 2160)
 
 [node name="PuuTörmäys7" type="Sprite2D" parent="Spritet/Rightside room"]
 z_index = -4
-position = Vector2(12590.4, -1459)
-scale = Vector2(0.262965, 0.0823261)
+position = Vector2(12593, -1474)
+scale = Vector2(0.267983, 0.0823261)
 texture = ExtResource("32_80l6c")
 region_enabled = true
 region_rect = Rect2(0, 0, 400.747, 2160)
 
 [node name="PuuTörmäys8" type="Sprite2D" parent="Spritet/Rightside room"]
 z_index = -4
-position = Vector2(12938.2, -1524)
-scale = Vector2(0.21898, 0.0823261)
+position = Vector2(12942, -1524)
+scale = Vector2(0.19999, 0.0823261)
 texture = ExtResource("32_80l6c")
 region_enabled = true
 region_rect = Rect2(0, 0, 400.747, 2160)
@@ -7312,6 +7246,34 @@ z_index = -18
 position = Vector2(10708.8, -1143.5)
 scale = Vector2(0.327343, 1.54908)
 texture = ExtResource("50_4i1t4")
+
+[node name="PuuTörmäys9" type="Sprite2D" parent="Spritet/Rightside room"]
+position = Vector2(12591.9, -1781)
+scale = Vector2(0.254501, 0.269189)
+texture = ExtResource("32_80l6c")
+region_enabled = true
+region_rect = Rect2(903.669, 27.4703, 417.105, 2072.07)
+
+[node name="PuuTörmäys10" type="Sprite2D" parent="Spritet/Rightside room"]
+position = Vector2(12940, -1828)
+scale = Vector2(0.177458, 0.269189)
+texture = ExtResource("32_80l6c")
+region_enabled = true
+region_rect = Rect2(903.669, 27.4703, 417.105, 2072.07)
+
+[node name="PuuTörmäys11" type="Sprite2D" parent="Spritet/Rightside room"]
+position = Vector2(12939, -1440)
+scale = Vector2(0.177458, 0.331261)
+texture = ExtResource("32_80l6c")
+region_enabled = true
+region_rect = Rect2(444.268, 25.2003, 413.548, 300.762)
+
+[node name="PuuTörmäys12" type="Sprite2D" parent="Spritet/Rightside room"]
+position = Vector2(12591.1, -1409)
+scale = Vector2(0.251387, 0.152297)
+texture = ExtResource("32_80l6c")
+region_enabled = true
+region_rect = Rect2(444.268, 25.2003, 413.548, 300.762)
 
 [node name="Down room" type="Node" parent="Spritet"]
 
@@ -11329,6 +11291,7 @@ region_enabled = true
 region_rect = Rect2(1330.2, 45.5111, 822.868, 483.713)
 
 [node name="LehvistöTauti22" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 1
 position = Vector2(11650, -3103)
 scale = Vector2(0.43295, 0.43295)
 texture = ExtResource("38_5yvd4")
@@ -11336,6 +11299,7 @@ region_enabled = true
 region_rect = Rect2(824.243, 857.26, 522.633, 650.511)
 
 [node name="LehvistöTauti23" type="Sprite2D" parent="Spritet/Up room"]
+z_index = 1
 position = Vector2(11639, -2843)
 rotation = 0.322886
 scale = Vector2(0.43295, 0.43295)
@@ -12969,6 +12933,7 @@ region_enabled = true
 region_rect = Rect2(419.8, 388, 233.2, 231)
 
 [node name="Lehtivariants8" type="Sprite2D" parent="Spritet/Final room"]
+z_index = 1
 position = Vector2(7873, -3197)
 rotation = -0.888373
 scale = Vector2(0.51, 0.51)
@@ -13058,11 +13023,11 @@ timer_amount = 20.0
 
 [node name="Label" type="Label" parent="TextCollectable6"]
 visible = false
-z_index = 6
-offset_left = -697.0
-offset_top = 56.0
-offset_right = 88.0
-offset_bottom = 182.0
+z_index = 8
+offset_left = -636.0
+offset_top = 57.0
+offset_right = 149.0
+offset_bottom = 183.0
 text = "Mutta kaupunkilaiset alkoivat tekemään lääkettä ahneena rahasta ja myi sitä vain suurella 
 summalla rikkaimmille. Köyhemmät kuihtuivat ympäriltä ja ne raunioituivat vuosien kuluessa. 
 Näiden kohdalle muodostui vesimetsä. Jossain vaiheessa Wäsherd tuli 
